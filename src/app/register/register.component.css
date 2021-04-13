@@ -78,8 +78,13 @@
     box-sizing: content-box;
     height: 0;
     overflow: visible;
-    width: 15em;
-}
+    width: 20em;
+  }
+
+  .hr {
+    margin-left: 60px;
+  }
+  
   
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -2317,7 +2322,7 @@
     line-height: 1.5;
     border-radius: 0.35rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin-left: 140px;
+    margin-left: 185px;
 }
   
   @media (prefers-reduced-motion: reduce) {
@@ -4465,18 +4470,12 @@
     border-radius: 0.35rem;
     width: 50%;
     margin-left: 25%;
-
   }
   
   .card > hr {
     margin-right: 0;
     margin-left: 0;
-    
   }
-  .hr {
-    margin-left: 55px;
-  }
-  
   
   .card > .list-group {
     border-top: inherit;
@@ -7756,7 +7755,6 @@
   .mb-5,
   .my-5 {
     margin-bottom: 3rem !important;
-    
   }
   
   .ml-5,
@@ -10837,7 +10835,6 @@
       height: calc(20rem - 43px) !important;
     }
   }
-  
   
   
   form.user .custom-checkbox.small label {

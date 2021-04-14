@@ -56,3 +56,12 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
+
+li span {
+    font-size: 11px;
+}
+
+.card-header {
+    color: blue;
+    font-style: inherit;
+}

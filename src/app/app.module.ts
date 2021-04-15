@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavbarCandidateComponent } from './navbar-candidate/navbar-candidate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
     ProfileComponent,
     NavbarCandidateComponent,
     DashboardComponent,
-    SidebarAdminComponent
+    SidebarAdminComponent,
+    AdminNavbarComponent
   ],
   imports: [
     BrowserModule,

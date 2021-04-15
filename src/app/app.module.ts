@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { OffresComponent } from './offres/offres.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarCandidateComponent } from './navbar-candidate/navbar-candidate.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarCandidateComponent } from './navbar-candidate/navbar-candidate.co
     RegisterComponent,
     OffresComponent,
     ProfileComponent,
-    NavbarCandidateComponent
+    NavbarCandidateComponent,
+    DashboardComponent,
+    SidebarAdminComponent
   ],
   imports: [
     BrowserModule,

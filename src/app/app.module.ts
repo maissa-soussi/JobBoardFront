@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FooterAdminComponent } from './footer-admin/footer-admin.component';
     DashboardComponent,
     SidebarAdminComponent,
     AdminNavbarComponent,
-    FooterAdminComponent
+    FooterAdminComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,

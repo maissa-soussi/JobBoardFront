@@ -15,6 +15,9 @@ import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { ParametreComponent } from './parametre/parametre.component';
+import { AdminOffresComponent } from './admin-offres/admin-offres.component';
+import { CandidatComponent } from './candidat/candidat.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
     SidebarAdminComponent,
     AdminNavbarComponent,
     FooterAdminComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    ParametreComponent,
+    AdminOffresComponent,
+    CandidatComponent
   ],
   imports: [
     BrowserModule,

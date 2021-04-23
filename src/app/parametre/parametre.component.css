@@ -55,7 +55,16 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family:
+		system-ui,
+		-apple-system, /* Firefox supports this but not yet `system-ui` */
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
 }
 
 /*
@@ -4067,3 +4076,63 @@ select {
 
 @media (min-width: 1536px) {
 }
+
+/* CUSTOM CSS */
+.nav-link {
+    padding: .5rem 1rem;
+}
+
+.nav-link:focus {
+    outline: none !important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.mh-400 {
+    min-height: 400px;
+}
+
+
+.aj {
+  display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+}
+
+.btn {
+  width: 90px;
+  background-color: #6366F1;
+  color: white;
+  display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-appearance: none !important;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+}
+
+.btn:hover {
+  outline: none !important;
+}
+

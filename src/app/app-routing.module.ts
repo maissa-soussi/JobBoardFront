@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CandidatComponent } from './candidat/candidat.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { OffresComponent } from './offres/offres.component';
+import { ParametreComponent } from './parametre/parametre.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent
+  },
+  {
+    path: "parametre",
+    component: ParametreComponent
+  },
+  {
+    path: "candidats",
+    component: CandidatComponent
   }
 
 ];

@@ -7885,8 +7885,8 @@
   .p-5 {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   
   .pt-5,
@@ -9446,8 +9446,7 @@
   }
   
   .text-monospace {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-  }
+    font-family: 'Nunito', sans-serif;}
   
   .text-justify {
     text-align: justify !important;
@@ -10115,7 +10114,7 @@
     border: 0;
     font-weight: 900;
     content: '\f105';
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Nunito', sans-serif;
   }
   
   .sidebar .nav-item.dropdown.show .dropdown-toggle::after,

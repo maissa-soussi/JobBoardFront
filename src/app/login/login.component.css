@@ -185,7 +185,7 @@
   code,
   kbd,
   samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 1em;
   }
   
@@ -7887,8 +7887,8 @@
   .p-5 {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   
   .pt-5,

@@ -1,0 +1,147 @@
+<div>
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="relative md:ml-64 bg-blueGray-100">
+        <app-admin-navbar></app-admin-navbar>
+        <app-admin-header></app-admin-header>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+            <div class="flex flex-wrap">
+                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-100">
+                        <div class="rounded-t mb-0 px-4 py-3 ">
+                            <div class="flex flex-wrap items-center">
+                                <div class="relative w-full max-w-full flex-grow flex-1 mh-400 bg-blueGray-100">
+
+
+
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link active" id="langue-tab" data-bs-toggle="tab" data-bs-target="#langue" type="button" role="tab" aria-controls="langue" aria-selected="true">Langues</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="niveaulangue-tab" data-bs-toggle="tab" data-bs-target="#niveaulangue" type="button" role="tab" aria-controls="niveaulangue" aria-selected="false">Niveaux</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="permis-tab" data-bs-toggle="tab" data-bs-target="#permis" type="button" role="tab" aria-controls="permis" aria-selected="false">Permis de conduire</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="pays-tab" data-bs-toggle="tab" data-bs-target="#pays" type="button" role="tab" aria-controls="pays" aria-selected="false">Pays</button>
+                                        </li>
+                                      </ul>
+                                      <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="langue" role="tabpanel" aria-labelledby="langue-tab">
+
+                                          ---
+
+                                        </div>
+                                        <div class="tab-pane fade" id="niveaulangue" role="tabpanel" aria-labelledby="niveaulangue-tab">
+                                          <div class="row">
+                                          <div class="col-md-6">
+                                          <ul class="list-group" style="width: 300px; margin: 50px;">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              Débutant
+                                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              Pleine Compétence
+                                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              Langue maternelle
+                                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                            </li>
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              Professionnel
+                                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                            </li>
+                                                                    
+                                          </ul>
+                                          </div>
+                                          <div class="col-md-6" style="margin-top: 10%;">
+                                          <form>
+                                            <div class="form-row row">
+                                              <div class="form-group col-md-6">
+                                                
+                                                <input type="text" class="form-control aj" placeholder="Niveau" id="ajitem">
+                                              </div>
+                                              <div class="form-group col-md-6">
+                                                <button type="submit" class="btn">Ajouter</button>
+                                              </div>
+                                             </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                          
+
+
+
+                                        </div>
+                                        <div class="tab-pane fade" id="permis" role="tabpanel" aria-labelledby="permis-tab">
+                                          
+
+
+
+
+
+
+
+
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Permis A
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Permis B
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Permis C
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Niveau" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pays" role="tabpanel" aria-labelledby="pays-tab">
+                                          
+                                          ---
+
+
+                                        </div>
+                                      </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <app-footer-admin></app-footer-admin>
+        </div>
+    </div>
+</div>

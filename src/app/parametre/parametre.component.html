@@ -27,13 +27,58 @@
                                         <li class="nav-item" role="presentation">
                                           <button class="nav-link" id="pays-tab" data-bs-toggle="tab" data-bs-target="#pays" type="button" role="tab" aria-controls="pays" aria-selected="false">Pays</button>
                                         </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="domaine-tab" data-bs-toggle="tab" data-bs-target="#domaine" type="button" role="tab" aria-controls="domaine" aria-selected="false">Domaines</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="niveauetude-tab" data-bs-toggle="tab" data-bs-target="#niveauetude" type="button" role="tab" aria-controls="niveauetude" aria-selected="false">Niveaux d'étude</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="niveauexp-tab" data-bs-toggle="tab" data-bs-target="#niveauexp" type="button" role="tab" aria-controls="niveauexp" aria-selected="false">Niveaux d'expérience</button>
+                                        </li>
                                       </ul>
                                       <div class="tab-content" id="myTabContent">
+                                        <!--langues-->
                                         <div class="tab-pane fade show active" id="langue" role="tabpanel" aria-labelledby="langue-tab">
 
-                                          ---
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Français
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Arabe
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Anglais
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Langue" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
 
                                         </div>
+                                        <!-- fin langues-->
+                                        <!--niveau de langues-->
                                         <div class="tab-pane fade" id="niveaulangue" role="tabpanel" aria-labelledby="niveaulangue-tab">
                                           <div class="row">
                                           <div class="col-md-6">
@@ -74,21 +119,13 @@
                                           </form>
                                         </div>
                                       </div>
-                                          
-
-
-
+                                      
                                         </div>
+
+                                        <!-- fin niveau de lanues-->
+                                        <!--permis-->
                                         <div class="tab-pane fade" id="permis" role="tabpanel" aria-labelledby="permis-tab">
                                           
-
-
-
-
-
-
-
-
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="list-group" style="width: 300px; margin: 50px;">
@@ -114,7 +151,7 @@
                                               <div class="form-row row">
                                                 <div class="form-group col-md-6">
                                                   
-                                                  <input type="text" class="form-control aj" placeholder="Niveau" id="ajitem">
+                                                  <input type="text" class="form-control aj" placeholder="Permis" id="ajitem">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                   <button type="submit" class="btn">Ajouter</button>
@@ -124,12 +161,178 @@
                                           </div>
                                         </div>
                                         </div>
+
+                                        <!-- fin permis-->
+                                        <!-- pays-->
                                         <div class="tab-pane fade" id="pays" role="tabpanel" aria-labelledby="pays-tab">
                                           
-                                          ---
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Tunisia
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  France
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Allemagne
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Pays" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
 
 
                                         </div>
+                                        <!-- fin pays-->
+                                        <!-- domaine-->
+                                        <div class="tab-pane fade" id="domaine" role="tabpanel" aria-labelledby="domaine-tab">
+                                          
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Logistique
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Vente
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Informatique
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Domaine" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
+
+
+                                        </div>
+                                        <!-- fin domaine-->
+                                        <!-- niveau d etudes-->
+
+                                        <div class="tab-pane fade" id="niveauetude" role="tabpanel" aria-labelledby="niveauetude-tab">
+                                          
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Bac +3
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Bac +6
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Bac +8
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  CAP
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Niveau d'étude" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
+
+
+                                        </div>
+                                        <!-- fin niveau d etudes-->
+                                        <!-- niveau d experience -->
+                                        <div class="tab-pane fade" id="niveauexp" role="tabpanel" aria-labelledby="niveauexp-tab">
+                                          
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="list-group" style="width: 300px; margin: 50px;">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Exécutives
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Directeur
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+    
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Manager
+                                                  <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                </li>
+                                                                        
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6" style="margin-top: 10%;">
+                                            <form>
+                                              <div class="form-row row">
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <input type="text" class="form-control aj" placeholder="Niveau d'experience" id="ajitem">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <button type="submit" class="btn">Ajouter</button>
+                                                </div>
+                                               </div>
+                                            </form>
+                                          </div>
+                                        </div>
+
+
+                                        </div>
+                                        <!-- fin niveau d experience-->
                                       </div>
 
 

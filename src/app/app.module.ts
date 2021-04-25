@@ -20,6 +20,8 @@ import { AdminOffresComponent } from './admin-offres/admin-offres.component';
 import { CandidatComponent } from './candidat/candidat.component';
 import { GestionAdminsComponent } from './gestion-admins/gestion-admins.component';
 import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
+import { CandidatureSpontanneeComponent } from './candidature-spontannee/candidature-spontannee.component';
+import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatu
     AdminOffresComponent,
     CandidatComponent,
     GestionAdminsComponent,
-    AdminCandidaturesComponent
+    AdminCandidaturesComponent,
+    CandidatureSpontanneeComponent,
+    MesCandidaturesComponent
   ],
   imports: [
     BrowserModule,

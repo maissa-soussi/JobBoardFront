@@ -65,3 +65,8 @@ li span {
     color: blue;
     font-style: inherit;
 }
+
+
+.contenu td {
+    width: 300px;
+}

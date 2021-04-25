@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
 import { AdminOffresComponent } from './admin-offres/admin-offres.component';
 import { CandidatComponent } from './candidat/candidat.component';
+import { CandidatureSpontanneeComponent } from './candidature-spontannee/candidature-spontannee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GestionAdminsComponent } from './gestion-admins/gestion-admins.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
+import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.component';
 import { OffresComponent } from './offres/offres.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -57,7 +59,16 @@ const routes: Routes = [
   {
     path: "candidatures-admin",
     component: AdminCandidaturesComponent
+  },
+  {
+    path: "candidature-spontannee",
+    component: CandidatureSpontanneeComponent
+  },
+  {
+    path: "mescandidatures",
+    component: MesCandidaturesComponent
   }
+  
 
 ];
 

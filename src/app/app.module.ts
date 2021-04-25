@@ -19,6 +19,7 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { AdminOffresComponent } from './admin-offres/admin-offres.component';
 import { CandidatComponent } from './candidat/candidat.component';
 import { GestionAdminsComponent } from './gestion-admins/gestion-admins.component';
+import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GestionAdminsComponent } from './gestion-admins/gestion-admins.componen
     ParametreComponent,
     AdminOffresComponent,
     CandidatComponent,
-    GestionAdminsComponent
+    GestionAdminsComponent,
+    AdminCandidaturesComponent
   ],
   imports: [
     BrowserModule,

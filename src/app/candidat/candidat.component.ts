@@ -29,7 +29,7 @@ export class CandidatComponent implements OnInit {
     console.log(this.candidats);
     }
 
-    onDelete(id:number){
+    candidatDelete(id:number){
       if (confirm('Are you sure to delete this candidate?'))
       {
       this.myservice.deleteCandidat(id)

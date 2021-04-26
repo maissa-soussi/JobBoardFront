@@ -12,4 +12,7 @@ export class AdminOffresService {
     this.offres=this.http.get(this.url);
     return this.offres;
       }
+      deleteOffre(id:number){
+        return this.http.delete(`${this.url}/${id}`);
+      }
 }

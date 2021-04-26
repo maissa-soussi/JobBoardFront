@@ -27,5 +27,16 @@ export class AdminOffresComponent implements OnInit {
     console.log(this.offres);
     }
 
+    offreDelete(id:number){
+      if (confirm('Are you sure to delete this joboffer?'))
+      {
+      this.myservice.deleteOffre(id)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+    }
+
 
 }

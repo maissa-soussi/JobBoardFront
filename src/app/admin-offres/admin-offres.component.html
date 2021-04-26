@@ -43,7 +43,10 @@
                 Date de publication
             </th >
             <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                plus d'infos
+                --
+            </th>
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Candidatures
             </th>
             </tr>
         </thead>
@@ -63,10 +66,13 @@
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{offre.publicationDate}}        
                 </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <span> <a><button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button><i class="fas fa-edit" style="color: #1fb659;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
+                </td>
                 <td><!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      afficher
-                    </button></td>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a><button><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                </td>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">

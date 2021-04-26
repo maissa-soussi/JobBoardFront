@@ -41,6 +41,9 @@
             <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Date de publication
+            </th >
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                plus d'infos
             </th>
             </tr>
         </thead>
@@ -60,7 +63,40 @@
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{offre.publicationDate}}        
                 </td>
-                </tr>           
+                <td><!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      afficher
+                    </button></td>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Candidats</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                    <th>Description</th>
+                                    <th>Experience</th>
+                                    <th>Diplome</th>
+                                    <th>Domaine</th>
+                                    <th>Type de contrat</th></tr>
+                                    <tr>
+                                    <td> {{offre.description}}</td>
+                                    <td>  {{offre.experience.name}}</td>
+                                    <td>{{offre.diploma.name}}</td>
+                                    <td>{{offre.domain.name}}</td>
+                                    <td> {{offre.contratType.name}}</td>
+                                </tr>
+                            </table>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                </tr>           
                 </tbody>
                 </table>
             </div>

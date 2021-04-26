@@ -49,76 +49,23 @@
                                                   </th>
                                                 </tr>
                                               </thead>
-                                              <tbody>
-                                                
-                                                <tr>
+                                              <tbody>                                                
+                                                <tr *ngFor="let candidat of candidats; let i=index">
                                                   <th
                                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                    Soussi Maissa
+                                                    {{candidat.user.lastName}} {{candidat.user.firstName}} 
                                                   </th>
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    maissa.soussi@ensi-uma.tn
+                                                    {{candidat.user.email}}
                                                   </td>
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    58588626
+                                                    {{candidat.phone}}
                                                   </td>
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                    <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidat.id)"></i></button></a></span>
                                            
                                                   </td>
                                                 </tr>
-
-                                                <tr>
-                                                    <th
-                                                      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                      Soussi Maissa
-                                                    </th>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      maissa.soussi@ensi-uma.tn
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      58588626
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
-                                           
-                                                    </td>
-                                                  </tr>
-
-                                                  <tr>
-                                                    <th
-                                                      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                      Soussi Maissa
-                                                    </th>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      maissa.soussi@ensi-uma.tn
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      58588626
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
-                                           
-                                                    </td>
-                                                  </tr>
-
-                                                  <tr>
-                                                    <th
-                                                      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                      Soussi Maissa
-                                                    </th>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      maissa.soussi@ensi-uma.tn
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      58588626
-                                                    </td>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
-                                           
-                                                    </td>
-                                                  </tr>
-                                               
                                               </tbody>
                                             </table>
                                           </div>

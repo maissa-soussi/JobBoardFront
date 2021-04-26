@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CandidatService } from './candidat.service';
 
 @Component({
   selector: 'app-candidat',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatComponent implements OnInit {
 
-  constructor() { }
+  candidats: any=[];
+
+  constructor(private myservice: CandidatService) { }
 
   ngOnInit(): void {
+    this.getallcandidats();
   }
+  getallcandidats()
+  {
+    this.myservice.getcandidats().subscribe(
+      (data: any)=>{
+        this.candidats=data;
+        console.log(data);
+      },
+      (err: any)=>{
+        console.log(err);
+      }
+    );
+    console.log(this.candidats);
+    }
+
+    onDelete(id:number){
+      if (confirm('Are you sure to delete this candidate?'))
+      {
+      this.myservice.deleteCandidat(id)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+    }
 
 }

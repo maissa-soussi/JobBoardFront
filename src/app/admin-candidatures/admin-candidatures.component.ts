@@ -26,5 +26,15 @@ export class AdminCandidaturesComponent implements OnInit {
     );
     console.log(this.candidatures);
     }
+    onDelete(id:number){
+      if (confirm('Are you sure to delete this candidate?'))
+      {
+      this.myservice.deleteCandidature(id)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+    }
 
 }

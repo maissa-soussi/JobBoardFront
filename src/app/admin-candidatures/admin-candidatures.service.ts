@@ -12,4 +12,7 @@ export class AdminCandidaturesService {
     this.candidatures=this.http.get(this.url);
     return this.candidatures;
       }
+      deleteCandidature(id:number){
+        return this.http.delete(`${this.url}/${id}`);
+      }
 }

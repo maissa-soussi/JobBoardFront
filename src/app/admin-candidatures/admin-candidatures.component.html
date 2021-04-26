@@ -46,6 +46,7 @@
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Etat
             </th>
+            <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -67,6 +68,10 @@
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{candidature.id}}
                 </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>
+           
+                  </td>
                 </tr>           
                 </tbody>
                 </table>

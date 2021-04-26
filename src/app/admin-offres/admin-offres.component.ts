@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminOffresService } from './admin-offres.service';
 
 @Component({
   selector: 'app-admin-offres',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../parametre/parametre.component.css']
 })
 export class AdminOffresComponent implements OnInit {
-
-  constructor() { }
+  offres: any=[];
+  constructor(private myservice: AdminOffresService) { }
 
   ngOnInit(): void {
+    this.getalloffres();
   }
+  getalloffres()
+  {
+    this.myservice.getoffres().subscribe(
+      (data: any)=>{
+        this.offres=data;
+        console.log(data);
+      },
+      (err: any)=>{
+        console.log(err);
+      }
+    );
+    console.log(this.offres);
+    }
+
 
 }

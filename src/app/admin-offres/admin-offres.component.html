@@ -169,8 +169,7 @@
                                 <div class="form-row">
                                     <div class="name">Domaine</div>
                                     <div class="value">
-                                        <select class="form-select" [(ngModel)]="myoffre.domainId" style="line-height:13px;">
-                                            <option selected>Choisir...</option>
+                                        <select class="form-control" name="domainId" [(ngModel)]="myoffre.domainId" style="line-height:13px;">
                                             <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
                                         </select>
                                     </div>
@@ -178,8 +177,7 @@
                                 <div class="form-row">
                                     <div class="name">Expérience</div>
                                     <div class="value">
-                                        <select class="form-select" [(ngModel)]="myoffre.experienceId" style="line-height:13px;">
-                                            <option selected>Choisir...</option>
+                                        <select class="form-control" name="experienceId" [(ngModel)]="myoffre.experienceId" style="line-height:13px;">
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
                                     </div>
@@ -187,8 +185,7 @@
                                 <div class="form-row">
                                     <div class="name">Diplome</div>
                                     <div class="value">
-                                        <select class="form-select" [(ngModel)]="myoffre.diplomaId" style="line-height:13px;">
-                                            <option selected>Choisir...</option>
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="myoffre.diplomaId" style="line-height:13px;">
                                             <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
                                         </select>
                                     </div>
@@ -196,8 +193,7 @@
                                 <div class="form-row">
                                     <div class="name">Pays</div>
                                     <div class="value">
-                                        <select class="form-select"  [(ngModel)]="myoffre.countryId" style="line-height:13px;">
-                                            <option selected>Choisir...</option>
+                                        <select class="form-control" name="countryId"  [(ngModel)]="myoffre.countryId" style="line-height:13px;">
                                             <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                         </select>
                                     </div>
@@ -207,8 +203,7 @@
                                 <div class="form-row">
                                     <div class="name">Type de Contrat</div>
                                     <div class="value">
-                                        <select class="form-select" [(ngModel)]="myoffre.contratTypeId" style="line-height:13px;">
-                                            <option selected>Choisir...</option>
+                                        <select class="form-control" name="contratId" [(ngModel)]="myoffre.contratTypeId" style="line-height:13px;">
                                             <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
                                         </select>
                                     </div>
@@ -235,13 +230,13 @@
                                 <div class="form-row">
                                     <div class="name">Date de publication</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" id="publicationDate" style="line-height:13px;" [(ngModel)]="myoffre.publicationDate">
+                                        <input type="date" class="form-control" name="publicationDate" style="line-height:13px;" [(ngModel)]="myoffre.publicationDate">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" id="expirationDate" style="line-height:13px;" [(ngModel)]="myoffre.expirationDate" >
+                                        <input type="date" class="form-control" name="expirationDate" style="line-height:13px;" [(ngModel)]="myoffre.expirationDate" >
                                     </div>
                                 </div>
                             </form>

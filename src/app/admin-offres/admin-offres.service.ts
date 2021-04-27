@@ -16,6 +16,7 @@ export class AdminOffresService {
         return this.http.delete(`${this.url}/${id}`);
       }
       addOffre(offre:any){
+        console.log(offre);
         return this.http.post(this.url,offre);
        }
 }

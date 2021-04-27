@@ -30,7 +30,7 @@ export class CandidatComponent implements OnInit {
     }
 
     candidatDelete(id:number){
-      if (confirm('Are you sure to delete this candidate?'))
+      if (confirm('Voulez vous supprimé ce candidat?'))
       {
       this.myservice.deleteCandidat(id)
       .subscribe(

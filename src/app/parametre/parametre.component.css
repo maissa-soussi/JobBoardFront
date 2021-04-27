@@ -4135,4 +4135,11 @@ select {
 .btn:hover {
   outline: none !important;
 }
+button {
+  outline: none !important;
+}
+
+.cm {
+  min-height: 380px;
+}
 

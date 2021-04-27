@@ -11,49 +11,49 @@
                             <h1 class="h4 text-gray-900 mb-4">Créer un compte</h1>
                         </div>
                         
-                        <form class="user">
+                        <form [formGroup]="registerForm" class="user">
 
                             <div class="form-group">
                             
-                                <input type="text" formControlName="firstname" placeholder="First name" class="form-control" id="firstname">
-                                <div class="text-danger">
-                                    <small >Firstname is required <br></small> 
-                                    <small >Invalid Firstname <br></small> 
-                                    <small >Firstname must contains 2 chars at least </small> 
+                                <input type="text" formControlName="firstname" placeholder="Prénom" class="form-control" id="firstname">
+                                <div *ngIf="firstname?.touched && firstname?.invalid" class="text-danger">
+                                    <small *ngIf="firstname?.errors?.required" >Champ obligatoire <br></small> 
+                                    <small *ngIf="firstname?.errors?.pattern" >Prénom invalide <br></small> 
+                                    <small *ngIf="firstname?.errors?.minlength">Prénom doit contenir au moins 2 caractères</small> 
                                 </div>
                             </div>
                             <div class="form-group">
                                 
-                                <input type="text" formControlName="lastname" placeholder="Last name" class="form-control" id="lastname">
-                                <div class="text-danger">
-                                    <small >Firstname is required <br></small> 
-                                    <small >Invalid lastname <br></small> 
-                                    <small >Lastname must contains 2 chars at least </small> 
+                                <input type="text" formControlName="lastname" placeholder="nom" class="form-control" id="lastname">
+                                <div *ngIf="lastname?.touched && lastname?.invalid" class="text-danger">
+                                    <small *ngIf="lastname?.errors?.required">Champ obligatoire <br></small> 
+                                    <small *ngIf="lastname?.errors?.pattern">Nom invalide <br></small> 
+                                    <small *ngIf="lastname?.errors?.minlength">Nom doit contenir au moins 2 caractères </small> 
                                 </div>
                             </div>
                             <div class="form-group">
                              
-                                <input type="email" formControlName="email" placeholder="Email address" class="form-control" id="mail">
-                                <div  class="text-danger">
-                                    <small >Email is required <br></small> 
-                                    <small >Invalid Email</small>
+                                <input type="email" formControlName="email" placeholder="Email" class="form-control" id="mail">
+                                <div  *ngIf="email?.touched && email?.invalid" class="text-danger">
+                                    <small *ngIf="email?.errors?.required">Champ obligatoire <br></small> 
+                                    <small *ngIf="email?.errors?.email">Email invalide</small>
                                 </div>
                             </div>
                             <div class="form-group">
                                
-                                <input type="password" formControlName="password" placeholder="Password" class="form-control" id="password">
-                                <div  class="text-danger">
-                                    <small >Password is required <br></small> 
-                                    <small>Min 8 Caracters</small>
+                                <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" id="password">
+                                <div  *ngIf="password?.touched && password?.invalid" class="text-danger">
+                                    <small *ngIf="password?.errors?.required">Champ Obligatoire <br></small> 
+                                    <small *ngIf="password?.errors?.minlength">Minimum 8 caractères</small>
                                 </div>
                             </div>
                             <div class="form-group">
                                
-                                <input type="password" formControlName="password2" placeholder="Confirm password" class="form-control" id="password2">
-                                <div  class="text-danger">
-                                    <small >Password is required <br></small> 
-                                    <small >Min 8 Caracters <br></small>
-                                    <small >Password does not match <br></small>
+                                <input type="password" formControlName="password2" placeholder="Confirmer le Mot de passe" class="form-control" id="password2">
+                                <div  *ngIf="password2?.touched && (password2?.invalid || password2?.value != password?.value)" class="text-danger">
+                                    <small *ngIf="password2?.errors?.required">Champ obligatoire <br></small> 
+                                    <small *ngIf="password2?.errors?.minlength">Minimum 8 caractères <br></small>
+                                    <small *ngIf="password2?.value != password?.value">Mot de passe non identiques <br></small>
                                 </div>
                             
                             </div>

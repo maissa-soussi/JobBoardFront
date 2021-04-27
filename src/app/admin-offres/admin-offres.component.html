@@ -5,11 +5,7 @@
         <app-admin-header></app-admin-header>
         <div class="px-4 md:px-10 mx-auto w-full -m-24">
             <div class="flex flex-wrap cm">
-                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
-                   
-                                
-
-
+                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">                                                
                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
                  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                   <div class="rounded-t mb-0 px-4 py-3 border-0">
@@ -18,7 +14,12 @@
                  <h3 class="font-semibold text-base text-blueGray-700">Liste des offres</h3>
                 </div>
                 <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                </div>
+                    <button
+                      class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button" data-bs-toggle="modal" data-bs-target="#addModal">
+                      Ajouter
+                    </button>
+                  </div>
                 </div>
             </div>
             <div class="block w-full overflow-x-auto">
@@ -67,38 +68,68 @@
                     {{offre.publicationDate}}        
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <span> <a><button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button><i class="fas fa-edit" style="color: #1fb659;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
+                    <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button><i class="fas fa-edit" style="color: #1fb659;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a><button><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
                 </td>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Candidats</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
                             <div class="modal-body">
-                                <table>
-                                    <tr>
-                                    <th>Description</th>
-                                    <th>Experience</th>
-                                    <th>Diplome</th>
-                                    <th>Domaine</th>
-                                    <th>Type de contrat</th></tr>
-                                    <tr>
-                                    <td> {{offre.description}}</td>
-                                    <td>  {{offre.experience.name}}</td>
-                                    <td>{{offre.diploma.name}}</td>
-                                    <td>{{offre.domain.name}}</td>
-                                    <td> {{offre.contratType.name}}</td>
-                                </tr>
-                            </table>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                    <div class="wrapper wrapper--w900">
+                                        <div class="card card-6">
+                                            <div class="card-heading">
+                                                <h2 class="title">Offre d'Emploi: {{offre.reference}}</h2>
+                                            </div>
+                                            <div class="card-body"  style="padding-left: 120px;">
+                                            <table>
+                                                <tr>
+                                                    <th>Domaine</th>
+                                                    <td>{{offre.domain.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Expérience</th>
+                                                    <td>{{offre.experience.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Diplome</th>
+                                                    <td>{{offre.diploma.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Pays</th>
+                                                    <td>{{offre.country.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Type de contrat</th>
+                                                    <td>{{offre.contratType.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Salaire</th>
+                                                    <td>{{offre.minSalary}}-{{offre.maxSalary}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Déscription</th>
+                                                    <td>{{offre.description}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date de publication</th>
+                                                    <td>{{offre.publicationDate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date d'éxpiration</th>
+                                                    <td>{{offre.expirationDate}} </td>
+                                                </tr>
+                                            </table>                                                                                                                                                                                                                                                                                                                                                   
+                                                        
+                                            </div>
+                                            <div class="card-footer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                           </div>
                         </div>
@@ -115,3 +146,110 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                <div class="wrapper wrapper--w900">
+                    <div class="card card-6">
+                        <div class="card-heading">
+                            <h2 class="title">Offre d'Emploi</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                <div class="form-row">
+                                    <div class="name">Reference</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="reference">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Domaine</div>
+                                    <div class="value">
+                                        <select class="form-select" style="line-height:13px;">
+                                            <option selected>Choisir...</option>
+                                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.name}}">{{Domaine.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Expérience</div>
+                                    <div class="value">
+                                        <select class="form-select" style="line-height:13px;">
+                                            <option selected>Choisir...</option>
+                                            <option *ngFor="let Experience of Experiences" value="{{Experience.name}}">{{Experience.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Diplome</div>
+                                    <div class="value">
+                                        <select class="form-select" style="line-height:13px;">
+                                            <option selected>Choisir...</option>
+                                            <option *ngFor="let Diplome of Diplomes" value="{{Diplome.name}}">{{Diplome.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Pays</div>
+                                    <div class="value">
+                                        <select class="form-select" style="line-height:13px;">
+                                            <option selected>Choisir...</option>
+                                            <option *ngFor="let Countrie of Countries" value="{{Countrie.name}}">{{Countrie.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-row">
+                                    <div class="name">Type de Contrat</div>
+                                    <div class="value">
+                                        <select class="form-select" style="line-height:13px;">
+                                            <option selected>Choisir...</option>
+                                            <option *ngFor="let Contrat of Contrats" value="{{Contrat.name}}">{{Contrat.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="name">Salaire minimum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="minSalary">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Salaire maximum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="maxSalary">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Description</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="description">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date de publication</div>
+                                    <div class="value">
+                                        <input type="date" class="form-control" id="publicationDate" style="line-height:13px;">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date d'expiration</div>
+                                    <div class="value">
+                                        <input type="date" class="form-control" id="expirationDate" style="line-height:13px;">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                            <span style="color:aliceblue;padding-left: 200px;"><button type="button" >Ajouter</button></span>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

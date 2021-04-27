@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./parametre.component.css']
 })
 export class ParametreComponent implements OnInit {
+  //objets pour le select
   public languages: any[] = []
   public languageLevels: any[] = []
   public DrivingLicences: any[] = []
@@ -17,6 +18,16 @@ export class ParametreComponent implements OnInit {
   public StudiesLevels: any[] = []
   public Contrats: any[] = []
   public Salaires: any[] = []
+  // objets pour l'ajout
+  public nvlanguage: any = {}
+  public nvlanguagelevel: any = {}
+  public nvdrivinglicence: any = {}
+  public nvcountry: any = {}
+  public nvdomaine: any = {}
+  public nvexperience: any = {}
+  public nvstudieslevel: any = {}
+  public nvcontrat: any = {}
+  public nvsalaire: any = {}
 
   constructor(public http: HttpClient) { }
 
@@ -71,7 +82,7 @@ export class ParametreComponent implements OnInit {
         (error) => { console.log(error) }
       )
   }
-
+  // void pour delete
   languageDelete(id:number){
     if (confirm('Voulez vous supprimé cette langue ?'))
       {
@@ -157,5 +168,128 @@ export class ParametreComponent implements OnInit {
       window.location.reload()
       }
   }
+
+  // void pour l'ajout 
+  addLanguage(){
+    this.http.post("https://localhost:44338/Languages",this.nvlanguage).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Langue existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  } 
+
+  addLanguageLevel(){
+    this.http.post("https://localhost:44338/LanguageLevels",this.nvlanguagelevel).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Niveau existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  } 
+
+  addDrivingLicence(){
+    this.http.post("https://localhost:44338/DrivingLicences",this.nvdrivinglicence).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Type de permis existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  }
+
+ 
+
+  addDomaine(){
+    this.http.post("https://localhost:44338/Domains",this.nvdomaine).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Domaine existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  }
+
+  addCountry(){
+    this.http.post("https://localhost:44338/Countries",this.nvcountry).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Pays existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  }
+
+  addExperience(){
+    this.http.post("https://localhost:44338/Experiences",this.nvexperience).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Experience existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  }
+
+  addContrat(){
+    this.http.post("https://localhost:44338/ContratTypes",this.nvcontrat).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Type de contrat existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  } 
+
+  addSalaire(){
+    this.http.post("https://localhost:44338/SalaryWishes",this.nvsalaire).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Salaire existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  } 
 
 }

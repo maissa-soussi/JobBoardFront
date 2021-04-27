@@ -79,9 +79,8 @@
 
                                         <select class="form-select" id="autoSizingSelect">
                                             <option selected>--</option>
-                                            <option value="1">Permis A</option>
-                                            <option value="2">Permis B</option>
-                                            <option value="3">Permis C</option>
+                                            <option *ngFor="let DrivingLicence of DrivingLicences" value="{{DrivingLicence.type}}">{{DrivingLicence.type}}</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -96,10 +95,7 @@
 
                                         <select class="form-select" id="autoSizingSelect">
                                             <option selected>--</option>
-                                            <option value="1">0-3000</option>
-                                            <option value="2">3000-6000</option>
-                                            <option value="3">6000-9000</option>
-                                            <option value="4">9000-12000</option>
+                                            <option *ngFor="let Salaire of Salaires" value="{{Salaire.salary}}">{{Salaire.salary}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -114,9 +110,7 @@
 
                                         <select class="form-select" >
                                             <option selected>--</option>
-                                            <option value="1">Français</option>
-                                            <option value="2">Anglais</option>
-                                            <option value="3">Allemand</option>
+                                            <option *ngFor="let language of languages" value="{{language.name}}">{{language.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -131,8 +125,8 @@
 
                                         <select class="form-select" >
                                             <option selected>--</option>
-                                            <option value="1"> Débutant </option>
-                                            <option value="2">Avancé</option>
+                                            <option *ngFor="let languageLevel of languageLevels" value="{{languageLevel.name}}"> {{languageLevel.name}} </option>
+                    
                                         </select>
                                     </div>
                                 </div>
@@ -321,9 +315,8 @@
 
                                     <select class="form-select" id="autoSizingSelect">
                                         <option selected>Choisir...</option>
-                                        <option value="1">Tunisie</option>
-                                        <option value="2">France</option>
-                                        <option value="3">Allemagne</option>
+                                        <option *ngFor="let Countrie of Countries" value="{{Countrie.name}}">{{Countrie.name}}</option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -385,9 +378,8 @@
 
                                     <select class="form-select">
                                         <option selected>--</option>
-                                        <option value="1">Logistique</option>
-                                        <option value="2">Vente</option>
-                                        <option value="3">Informatique</option>
+                                        <option *ngFor="let Domaine of Domaines" value="{{Domaine.name}}"> {{Domaine.name}}</option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -399,9 +391,8 @@
 
                                     <select class="form-select">
                                         <option selected>--</option>
-                                        <option value="1">Executives</option>
-                                        <option value="2">Directeur</option>
-                                        <option value="3">Manager</option>
+                                        <option *ngFor="let Experience of Experiences" value="{{Experience.name}}">{{Experience.name}}</option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -533,9 +524,8 @@
 
                                     <select class="form-select">
                                         <option selected>--</option>
-                                        <option value="1">Logistique</option>
-                                        <option value="2">Vente</option>
-                                        <option value="3">Informatique</option>
+                                        <option *ngFor="let Domaine of Domaines" value="{{Domaine.name}}">{{Domaine.name}}</option>
+                                       
                                     </select>
                                 </div>
                             </div>

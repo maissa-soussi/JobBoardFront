@@ -16,6 +16,7 @@ export class ParametreComponent implements OnInit {
   public Experiences: any[] = []
   public StudiesLevels: any[] = []
   public Contrats: any[] = []
+  public Salaires: any[] = []
 
   constructor(public http: HttpClient) { }
 
@@ -61,6 +62,12 @@ export class ParametreComponent implements OnInit {
       this.http.get<any>("https://localhost:44338/ContratTypes")
       .subscribe(
         (result) => { this.Contrats = result },
+        (error) => { console.log(error) }
+      )
+      //get Slaires
+      this.http.get<any>("https://localhost:44338/SalaryWishes")
+      .subscribe(
+        (result) => { this.Salaires = result },
         (error) => { console.log(error) }
       )
   }
@@ -134,6 +141,16 @@ export class ParametreComponent implements OnInit {
     if (confirm('Voulez vous supprimé ce type de contrat ?'))
       {
         this.http.delete(`https://localhost:44338/ContratTypes/${id}`)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+  }
+  salaireDelete(id:number){
+    if (confirm('Voulez vous supprimé ce marge de salaire?'))
+      {
+        this.http.delete(`https://localhost:44338/SalaryWishes/${id}`)
       .subscribe(
         err =>{console.log(err)}
       );

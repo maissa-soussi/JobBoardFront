@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminOffresComponent implements OnInit {
   offres: any=[];
+  myoffre:any={};
   public Countries: any[] = []
   public Domaines: any[] = []
   public Experiences: any[] = []
@@ -73,6 +74,21 @@ export class AdminOffresComponent implements OnInit {
       window.location.reload()
       }
     }
+    addOffre(){
+      var reponse=this.myservice.addOffre(this.myoffre).subscribe(
+        (data)=>{
+          alert("ajout succées");
+          this.getalloffres();
+          return data;
+        },
+        (err)=>{
+          alert("offre existe déja");
+          console.log(err);
+        }
+      );
+      console.log(reponse);
+      this.myoffre={};
+    }  
 
 
 }

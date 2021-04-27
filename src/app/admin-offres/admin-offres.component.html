@@ -16,7 +16,7 @@
                 <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                     <button
                       class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button" data-bs-toggle="modal" data-bs-target="#addModal">
+                      type="button" data-bs-toggle="modal" data-bs-target="#addModal" >
                       Ajouter
                     </button>
                   </div>
@@ -80,60 +80,61 @@
                             <div class="modal-body">
                                 <div class="page-wrapper bg-dark p-t-100 p-b-50">
                                     <div class="wrapper wrapper--w900">
-                                        <div class="card card-6">
-                                            <div class="card-heading">
-                                                <h2 class="title">Offre d'Emploi: {{offre.reference}}</h2>
-                                            </div>
-                                            <div class="card-body"  style="padding-left: 120px;">
-                                            <table>
-                                                <tr>
-                                                    <th>Domaine</th>
-                                                    <td>{{offre.domain.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Expérience</th>
-                                                    <td>{{offre.experience.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Diplome</th>
-                                                    <td>{{offre.diploma.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Pays</th>
-                                                    <td>{{offre.country.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Type de contrat</th>
-                                                    <td>{{offre.contratType.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Salaire</th>
-                                                    <td>{{offre.minSalary}}-{{offre.maxSalary}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Déscription</th>
-                                                    <td>{{offre.description}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Date de publication</th>
-                                                    <td>{{offre.publicationDate}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Date d'éxpiration</th>
-                                                    <td>{{offre.expirationDate}} </td>
-                                                </tr>
-                                            </table>                                                                                                                                                                                                                                                                                                                                                   
+                                    <div class="card card-6">
+                                    <div class="card-heading">
+                                      <h2 class="title">Offre d'Emploi: {{offre.reference}}</h2>
+                                       </div>
+                                       <div class="card-body"  style="padding-left: 120px;">
+                                       <table>
+                                    <tr>
+                                        <th>Domaine</th>
+                                        <td>{{offre.domain.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Expérience</th>
+                                        <td>{{offre.experience.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Diplome</th>
+                                        <td>{{offre.diploma.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pays</th>
+                                        <td>{{offre.country.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type de contrat</th>
+                                        <td>{{offre.contratType.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Salaire</th>
+                                        <td>{{offre.minSalary}}-{{offre.maxSalary}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Déscription</th>
+                                        <td>{{offre.description}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date de publication</th>
+                                        <td>{{offre.publicationDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date d'éxpiration</th>
+                                        <td>{{offre.expirationDate}} </td>
+                                    </tr>
+                                </table>                                                                                                                                                                                                                                                                                                                                                   
                                                         
-                                            </div>
-                                            <div class="card-footer">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>                </tr>           
+                        <div class="card-footer">
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>              
+                         </tr>           
                 </tbody>
                 </table>
             </div>
@@ -162,42 +163,42 @@
                                 <div class="form-row">
                                     <div class="name">Reference</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="reference">
+                                        <input class="input--style-6" type="text" name="reference" [(ngModel)]="myoffre.reference">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Domaine</div>
                                     <div class="value">
-                                        <select class="form-select" style="line-height:13px;">
+                                        <select class="form-select" [(ngModel)]="myoffre.domainId" style="line-height:13px;">
                                             <option selected>Choisir...</option>
-                                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.name}}">{{Domaine.name}}</option>                                            
+                                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Expérience</div>
                                     <div class="value">
-                                        <select class="form-select" style="line-height:13px;">
+                                        <select class="form-select" [(ngModel)]="myoffre.experienceId" style="line-height:13px;">
                                             <option selected>Choisir...</option>
-                                            <option *ngFor="let Experience of Experiences" value="{{Experience.name}}">{{Experience.name}}</option>                                            
+                                            <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Diplome</div>
                                     <div class="value">
-                                        <select class="form-select" style="line-height:13px;">
+                                        <select class="form-select" [(ngModel)]="myoffre.diplomaId" style="line-height:13px;">
                                             <option selected>Choisir...</option>
-                                            <option *ngFor="let Diplome of Diplomes" value="{{Diplome.name}}">{{Diplome.name}}</option>                                            
+                                            <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Pays</div>
                                     <div class="value">
-                                        <select class="form-select" style="line-height:13px;">
+                                        <select class="form-select"  [(ngModel)]="myoffre.countryId" style="line-height:13px;">
                                             <option selected>Choisir...</option>
-                                            <option *ngFor="let Countrie of Countries" value="{{Countrie.name}}">{{Countrie.name}}</option>                                            
+                                            <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                         </select>
                                     </div>
                                 </div>
@@ -206,9 +207,9 @@
                                 <div class="form-row">
                                     <div class="name">Type de Contrat</div>
                                     <div class="value">
-                                        <select class="form-select" style="line-height:13px;">
+                                        <select class="form-select" [(ngModel)]="myoffre.contratTypeId" style="line-height:13px;">
                                             <option selected>Choisir...</option>
-                                            <option *ngFor="let Contrat of Contrats" value="{{Contrat.name}}">{{Contrat.name}}</option>                                            
+                                            <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
                                         </select>
                                     </div>
                                 </div>
@@ -216,36 +217,38 @@
                                 <div class="form-row">
                                     <div class="name">Salaire minimum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="minSalary">
+                                        <input class="input--style-6" type="text" name="minSalary"  [(ngModel)]="myoffre.minSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Salaire maximum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="maxSalary">
+                                        <input class="input--style-6" type="text" name="maxSalary" [(ngModel)]="myoffre.maxSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Description</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="description">
+                                        <input class="input--style-6" type="text" name="description"[(ngModel)]="myoffre.description">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Date de publication</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" id="publicationDate" style="line-height:13px;">
+                                        <input type="date" class="form-control" id="publicationDate" style="line-height:13px;" [(ngModel)]="myoffre.publicationDate">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" id="expirationDate" style="line-height:13px;">
+                                        <input type="date" class="form-control" id="expirationDate" style="line-height:13px;" [(ngModel)]="myoffre.expirationDate" >
                                     </div>
                                 </div>
                             </form>
                         </div>
-                            <span style="color:aliceblue;padding-left: 200px;"><button type="button" >Ajouter</button></span>                         
+                            <span style="color:aliceblue;padding-left: 200px;">
+                                <input class="btn btn-warning" type="submit" value="Ajouter" (click)="addOffre()">
+                                </span>                         
                     </div>
                 </div>
             </div>

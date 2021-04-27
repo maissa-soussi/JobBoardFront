@@ -15,4 +15,7 @@ export class AdminOffresService {
       deleteOffre(id:number){
         return this.http.delete(`${this.url}/${id}`);
       }
+      addOffre(offre:any){
+        return this.http.post(this.url,offre);
+       }
 }

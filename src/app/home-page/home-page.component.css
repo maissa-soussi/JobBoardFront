@@ -22,7 +22,10 @@
   }
   
 
-  
+  h3 {
+	  text-align: center;
+	  color: darkgrey;
+  }
   
   .footer-dark .item.social > a:hover {
 	opacity:0.9;

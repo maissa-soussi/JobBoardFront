@@ -23,6 +23,7 @@ import { GestionAdminsComponent } from './gestion-admins/gestion-admins.componen
 import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
 import { CandidatureSpontanneeComponent } from './candidature-spontannee/candidature-spontannee.component';
 import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.co
     GestionAdminsComponent,
     AdminCandidaturesComponent,
     CandidatureSpontanneeComponent,
-    MesCandidaturesComponent
+    MesCandidaturesComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

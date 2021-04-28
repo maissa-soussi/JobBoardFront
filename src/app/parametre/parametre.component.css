@@ -4235,7 +4235,6 @@ button {
     -ms-flex-align: start;
     align-items: flex-start;
     padding: 6px 0px;
-    border-bottom: 1px solid #e5e5e5;
   }
   
   .form-row .name {

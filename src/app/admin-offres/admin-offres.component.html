@@ -68,18 +68,17 @@
                     {{offre.publicationDate}}        
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button
-                        class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button" data-bs-toggle="modal" data-bs-target="#updateModal" >
-                        modifier
-                      </button>
-                      </a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
+                    <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp;
+                        <a><button data-bs-toggle="modal" data-bs-target="#updateModal"><i class="fas fa-edit" style="color: #14e942;"></i></button></a> &nbsp; 
+                     <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a><button><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
-                        <!--Modal pour la modification-->
-                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <a><button data-bs-toggle="modal" data-bs-target="#candidatureModal"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                </td>      
+                        
+    <!--update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
@@ -87,7 +86,7 @@
                 <div class="wrapper wrapper--w900">
                     <div class="card card-6">
                         <div class="card-heading">
-                            <h2 class="title">Offre d'Emploi modification</h2>
+                            <h2 class="title">Modifier offre d'Emploi</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST">
@@ -100,7 +99,7 @@
                                 <div class="form-row">
                                     <div class="name">Domaine</div>
                                     <div class="value">
-                                        <select class="form-control" name="domainId" [(ngModel)]="offre.domainId" style="line-height:13px;">
+                                        <select class="form-control" name="domainId" [(ngModel)]="offre.domainId">
                                             <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
                                         </select>
                                     </div>
@@ -108,7 +107,7 @@
                                 <div class="form-row">
                                     <div class="name">Expérience</div>
                                     <div class="value">
-                                        <select class="form-control" name="experienceId" [(ngModel)]="offre.experienceId" style="line-height:13px;">
+                                        <select class="form-control" name="experienceId" [(ngModel)]="offre.experienceId">
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
                                     </div>
@@ -116,7 +115,7 @@
                                 <div class="form-row">
                                     <div class="name">Diplome</div>
                                     <div class="value">
-                                        <select class="form-control" name="diplomaId" [(ngModel)]="offre.diplomaId" style="line-height:13px;">
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="offre.diplomaId">
                                             <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
                                         </select>
                                     </div>
@@ -124,22 +123,19 @@
                                 <div class="form-row">
                                     <div class="name">Pays</div>
                                     <div class="value">
-                                        <select class="form-control" name="countryId"  [(ngModel)]="offre.countryId" style="line-height:13px;">
+                                        <select class="form-control" name="countryId"  [(ngModel)]="offre.countryId">
                                             <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                         </select>
                                     </div>
-                                </div>
-                                
-                                
+                                </div>                                                             
                                 <div class="form-row">
                                     <div class="name">Type de Contrat</div>
                                     <div class="value">
-                                        <select class="form-control" name="contratId" [(ngModel)]="offre.contratTypeId" style="line-height:13px;">
+                                        <select class="form-control" name="contratId" [(ngModel)]="offre.contratTypeId">
                                             <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
                                         </select>
                                     </div>
-                                </div>
-                                
+                                </div>                               
                                 <div class="form-row">
                                     <div class="name">Salaire minimum</div>
                                     <div class="value">
@@ -161,90 +157,119 @@
                                 <div class="form-row">
                                     <div class="name">Date de publication</div>
                                     <div class="value">
-                                        <input type="text" class="form-control" name="publicationDate" style="line-height:13px;" [(ngModel)]="offre.publicationDate">
+                                        <input type="text" class="form-control" name="publicationDate" [(ngModel)]="offre.publicationDate">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
-                                        <input type="text" class="form-control" name="expirationDate" style="line-height:13px;" [(ngModel)]="offre.expirationDate" >
+                                        <input type="text" class="form-control" name="expirationDate" [(ngModel)]="offre.expirationDate" >
                                     </div>
-                                </div>
-                                <span style="color:aliceblue;padding-left: 200px;">
-                                    <input class="btn btn-warning" type="submit" value="Modifier" (click)="updateOffre(offre.id,offre)">
-                                    </span>   
-                            </form>
-                        </div>
-                                                  
+                                </div>                                    
+                            </form>                           
+                        </div> 
+                        <button type="submit" value="Modifier" (click)="updateOffre(offre.id,offre)"><span style="color:aliceblue;">Modifier</span></button>                                                  
                     </div>
                 </div>
             </div>
         </div>
       </div>
     </div>
-  </div>           
-                       
-                </td>
-                    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="page-wrapper bg-dark p-t-100 p-b-50">
-                                    <div class="wrapper wrapper--w900">
-                                    <div class="card card-6">
-                                    <div class="card-heading">
-                                      <h2 class="title">Offre d'Emploi: {{offre.reference}}</h2>
-                                       </div>
-                                       <div class="card-body"  style="padding-left: 120px;">
-                                       <table>
-                                    <tr>
-                                        <th>Domaine</th>
-                                        <td>{{offre.domain.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Expérience</th>
-                                        <td>{{offre.experience.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Diplome</th>
-                                        <td>{{offre.diploma.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Pays</th>
-                                        <td>{{offre.country.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Type de contrat</th>
-                                        <td>{{offre.contratType.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Salaire</th>
-                                        <td>{{offre.minSalary}}-{{offre.maxSalary}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Déscription</th>
-                                        <td>{{offre.description}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date de publication</th>
-                                        <td>{{offre.publicationDate}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date d'éxpiration</th>
-                                        <td>{{offre.expirationDate}} </td>
-                                    </tr>
-                                </table>                                                                                                                                                                                                                                                                                                                                                   
-                                                        
+  </div> 
+  
+  
+  <!--view Modal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                <div class="wrapper wrapper--w900">
+                    <div class="card card-6">
+                        <div class="card-heading">
+                            <h2 class="title">offre d'Emploi: {{offre.reference}}</h2>
                         </div>
-                        <div class="card-footer">
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>              
+                        <div class="card-body">
+                            <form>                               
+                                <div class="form-row">
+                                    <div class="name">Domaine</div>
+                                    <div class="value">
+                                        <select class="form-control" name="domainId" [(ngModel)]="offre.domainId" disabled>
+                                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Expérience</div>
+                                    <div class="value">
+                                        <select class="form-control" name="experienceId" [(ngModel)]="offre.experienceId" disabled>
+                                            <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Diplome</div>
+                                    <div class="value">
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="offre.diplomaId" disabled>
+                                            <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Pays</div>
+                                    <div class="value">
+                                        <select class="form-control" name="countryId"  [(ngModel)]="offre.countryId" disabled>
+                                            <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>                                                             
+                                <div class="form-row">
+                                    <div class="name">Type de Contrat</div>
+                                    <div class="value">
+                                        <select class="form-control" name="contratId" [(ngModel)]="offre.contratTypeId" disabled>
+                                            <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>                               
+                                <div class="form-row">
+                                    <div class="name">Salaire minimum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="minSalary"  [(ngModel)]="offre.minSalary" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Salaire maximum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="maxSalary" [(ngModel)]="offre.maxSalary" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Description</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="description" [(ngModel)]="offre.description" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date de publication</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="publicationDate" [(ngModel)]="offre.publicationDate" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date d'expiration</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="expirationDate" [(ngModel)]="offre.expirationDate" disabled>
+                                    </div>
+                                </div>                                    
+                            </form>                           
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div> 
                          </tr>           
                 </tbody>
                 </table>
@@ -259,6 +284,7 @@
     </div>
 </div>
 
+<!--add Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -267,7 +293,7 @@
                 <div class="wrapper wrapper--w900">
                     <div class="card card-6">
                         <div class="card-heading">
-                            <h2 class="title">Offre d'Emploi</h2>
+                            <h2 class="title">Ajouter offre d'Emploi</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST">
@@ -280,7 +306,7 @@
                                 <div class="form-row">
                                     <div class="name">Domaine</div>
                                     <div class="value">
-                                        <select class="form-control" name="domainId" [(ngModel)]="myoffre.domainId" style="line-height:13px;">
+                                        <select class="form-control" name="domainId" [(ngModel)]="myoffre.domainId">
                                             <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
                                         </select>
                                     </div>
@@ -288,7 +314,7 @@
                                 <div class="form-row">
                                     <div class="name">Expérience</div>
                                     <div class="value">
-                                        <select class="form-control" name="experienceId" [(ngModel)]="myoffre.experienceId" style="line-height:13px;">
+                                        <select class="form-control" name="experienceId" [(ngModel)]="myoffre.experienceId">
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
                                     </div>
@@ -296,7 +322,7 @@
                                 <div class="form-row">
                                     <div class="name">Diplome</div>
                                     <div class="value">
-                                        <select class="form-control" name="diplomaId" [(ngModel)]="myoffre.diplomaId" style="line-height:13px;">
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="myoffre.diplomaId">
                                             <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
                                         </select>
                                     </div>
@@ -304,22 +330,19 @@
                                 <div class="form-row">
                                     <div class="name">Pays</div>
                                     <div class="value">
-                                        <select class="form-control" name="countryId"  [(ngModel)]="myoffre.countryId" style="line-height:13px;">
+                                        <select class="form-control" name="countryId"  [(ngModel)]="myoffre.countryId">
                                             <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                         </select>
                                     </div>
-                                </div>
-                                
-                                
+                                </div>                                                              
                                 <div class="form-row">
                                     <div class="name">Type de Contrat</div>
                                     <div class="value">
-                                        <select class="form-control" name="contratId" [(ngModel)]="myoffre.contratTypeId" style="line-height:13px;">
+                                        <select class="form-control" name="contratId" [(ngModel)]="myoffre.contratTypeId">
                                             <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
                                         </select>
                                     </div>
-                                </div>
-                                
+                                </div>                               
                                 <div class="form-row">
                                     <div class="name">Salaire minimum</div>
                                     <div class="value">
@@ -341,20 +364,18 @@
                                 <div class="form-row">
                                     <div class="name">Date de publication</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" name="publicationDate" style="line-height:13px;" [(ngModel)]="myoffre.publicationDate">
+                                        <input type="date" class="form-control" name="publicationDate" [(ngModel)]="myoffre.publicationDate">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" name="expirationDate" style="line-height:13px;" [(ngModel)]="myoffre.expirationDate" >
+                                        <input type="date" class="form-control" name="expirationDate" [(ngModel)]="myoffre.expirationDate" >
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                            <span style="color:aliceblue;padding-left: 200px;">
-                                <input class="btn btn-warning" type="submit" value="Ajouter" (click)="addOffre()">
-                                </span>                         
+                        </div>   
+                            <button class="btn btn-warning" type="submit" (click)="addOffre()"><span style="color:aliceblue;">Ajouter</span></button>                      
                     </div>
                 </div>
             </div>

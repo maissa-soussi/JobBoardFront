@@ -68,11 +68,122 @@
                     {{offre.publicationDate}}        
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button><i class="fas fa-edit" style="color: #1fb659;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
+                    <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp; <a><button
+                        class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button" data-bs-toggle="modal" data-bs-target="#updateModal" >
+                        modifier
+                      </button>
+                      </a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="offreDelete(offre.id)"></i></button></a></span>           
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a><button><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                        <!--Modal pour la modification-->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                <div class="wrapper wrapper--w900">
+                    <div class="card card-6">
+                        <div class="card-heading">
+                            <h2 class="title">Offre d'Emploi modification</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                <div class="form-row">
+                                    <div class="name">Reference</div>
+                                    <div class="value">
+                                        <input class="form-control" type="text"  id="reference" name="reference"   [(ngModel)]="offre.reference">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Domaine</div>
+                                    <div class="value">
+                                        <select class="form-control" name="domainId" [(ngModel)]="offre.domainId" style="line-height:13px;">
+                                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Expérience</div>
+                                    <div class="value">
+                                        <select class="form-control" name="experienceId" [(ngModel)]="offre.experienceId" style="line-height:13px;">
+                                            <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Diplome</div>
+                                    <div class="value">
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="offre.diplomaId" style="line-height:13px;">
+                                            <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Pays</div>
+                                    <div class="value">
+                                        <select class="form-control" name="countryId"  [(ngModel)]="offre.countryId" style="line-height:13px;">
+                                            <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-row">
+                                    <div class="name">Type de Contrat</div>
+                                    <div class="value">
+                                        <select class="form-control" name="contratId" [(ngModel)]="offre.contratTypeId" style="line-height:13px;">
+                                            <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="name">Salaire minimum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="minSalary"  [(ngModel)]="offre.minSalary">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Salaire maximum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="maxSalary" [(ngModel)]="offre.maxSalary">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Description</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="description"[(ngModel)]="offre.description">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date de publication</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="publicationDate" style="line-height:13px;" [(ngModel)]="offre.publicationDate">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date d'expiration</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="expirationDate" style="line-height:13px;" [(ngModel)]="offre.expirationDate" >
+                                    </div>
+                                </div>
+                                <span style="color:aliceblue;padding-left: 200px;">
+                                    <input class="btn btn-warning" type="submit" value="Modifier" (click)="updateOffre(offre.id,offre)">
+                                    </span>   
+                            </form>
+                        </div>
+                                                  
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>           
+                       
                 </td>
                     <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class AdminOffresComponent implements OnInit {
   offres: any=[];
   myoffre:any={};
+  myoffre1:any={};
+  myid:any;
   public Countries: any[] = []
   public Domaines: any[] = []
   public Experiences: any[] = []
@@ -89,6 +91,20 @@ export class AdminOffresComponent implements OnInit {
       console.log(reponse);
       this.myoffre={};
     }  
+    updateOffre(id:any,offre:any)
+    {
+      this.myservice.updateOffre(id,offre).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+      window.location.reload()
+    }
 
 
 }

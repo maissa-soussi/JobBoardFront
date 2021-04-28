@@ -19,4 +19,8 @@ export class AdminOffresService {
         console.log(offre);
         return this.http.post(this.url,offre);
        }
+       updateOffre(id:any,offre:any)
+       {
+         return this.http.put(this.url+'/'+id,offre) ;
+       }
 }

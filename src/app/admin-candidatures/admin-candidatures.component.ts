@@ -8,7 +8,9 @@ import { AdminCandidaturesService } from './admin-candidatures.service';
 })
 export class AdminCandidaturesComponent implements OnInit {
   candidatures: any=[];
+  t:any={};
   constructor(private myservice: AdminCandidaturesService) { }
+
 
   ngOnInit(): void {
     this.getallcandidatures();
@@ -35,6 +37,28 @@ export class AdminCandidaturesComponent implements OnInit {
       );
       window.location.reload()
       }
+    }
+    updateOffre(id:any,offre:any)
+    {
+      console.log(offre)
+      this.myservice.updateCandidature(id,offre).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload()
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+      
+    }
+    test(objet:any)
+    {
+      console.log(objet)
+ this.t=objet;
+ console.log(this.t)
     }
 
 }

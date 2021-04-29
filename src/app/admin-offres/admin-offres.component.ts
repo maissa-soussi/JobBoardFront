@@ -100,8 +100,8 @@ export class AdminOffresComponent implements OnInit {
       offre.experienceId=offre.experienceId-0;
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
-          console.log(data);
           alert("modification avec succes");
+          window.location.reload()
           return data;
         },
         (err)=>{
@@ -109,7 +109,7 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-      window.location.reload()
+      //
     }
     test(objet:any)
     {

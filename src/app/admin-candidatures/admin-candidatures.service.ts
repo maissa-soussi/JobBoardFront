@@ -15,4 +15,8 @@ export class AdminCandidaturesService {
       deleteCandidature(id:number){
         return this.http.delete(`${this.url}/${id}`);
       }
+      updateCandidature(id:any,candidature:any)
+       {
+         return this.http.put(this.url+'/'+id,candidature) ;
+       }
 }

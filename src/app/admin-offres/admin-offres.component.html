@@ -74,7 +74,7 @@
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a><button data-bs-toggle="modal" data-bs-target="#candidatureModal"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                        <a><button [routerLink]="['/offre-candidatures']"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
                         <!--update Modal -->
                         <div class="modal fade" id="updateModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -189,7 +189,7 @@
                 <div class="wrapper wrapper--w900">
                     <div class="card card-6">
                         <div class="card-heading">
-                            <h2 class="title">offre d'Emploi: {{t.id}}</h2>
+                            <h2 class="title">offre d'Emploi: {{t.reference}}</h2>
                         </div>
                         <div class="card-body">
                             <form>                               
@@ -377,7 +377,7 @@
                                 </div>
                             </form>
                         </div>   
-                            <button class="btn btn-warning" type="submit" (click)="addOffre()"><span style="color:aliceblue;">Ajouter</span></button>                      
+                            <button type="submit" (click)="addOffre()"><span style="color:aliceblue;">Ajouter</span></button>                      
                     </div>
                 </div>
             </div>

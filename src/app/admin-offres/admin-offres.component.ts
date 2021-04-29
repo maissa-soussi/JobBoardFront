@@ -94,8 +94,13 @@ export class AdminOffresComponent implements OnInit {
     }  
     updateOffre(id:any,offre:any)
     {
+      offre.diplomaId=offre.diplomaId-0;
+      offre.countryId=offre.countryId-0;
+      offre.domainId=offre.domainId-0;
+      offre.experienceId=offre.experienceId-0;
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
+          console.log(data);
           alert("modification avec succes");
           return data;
         },
@@ -104,7 +109,7 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-      //window.location.reload()
+      window.location.reload()
     }
     test(objet:any)
     {

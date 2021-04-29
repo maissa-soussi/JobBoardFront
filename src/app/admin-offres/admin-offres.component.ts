@@ -12,6 +12,7 @@ export class AdminOffresComponent implements OnInit {
   myoffre:any={};
   myoffre1:any={};
   myid:any;
+  t:any={};
   public Countries: any[] = []
   public Domaines: any[] = []
   public Experiences: any[] = []
@@ -103,7 +104,11 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-      window.location.reload()
+      //window.location.reload()
+    }
+    test(objet:any)
+    {
+ this.t=objet;
     }
 
 

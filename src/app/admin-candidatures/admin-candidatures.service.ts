@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminCandidaturesService {
   candidatures:any=[];
-  url="https://localhost:44304/api/Candidatures";
+  url="https://localhost:44338/Candidatures";
   constructor(private http:HttpClient) { }
   getcandidatures(){
     this.candidatures=this.http.get(this.url);

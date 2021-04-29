@@ -21,6 +21,7 @@ import { AdminOffresComponent } from './admin-offres/admin-offres.component';
 import { CandidatComponent } from './candidat/candidat.component';
 import { GestionAdminsComponent } from './gestion-admins/gestion-admins.component';
 import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
+import { OffreCandidaturesComponent } from './offre-candidatures/offre-candidatures.component';
 import { CandidatureSpontanneeComponent } from './candidature-spontannee/candidature-spontannee.component';
 import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.component';
 import { MapComponent } from './map/map.component';
@@ -45,6 +46,7 @@ import { MapComponent } from './map/map.component';
     CandidatComponent,
     GestionAdminsComponent,
     AdminCandidaturesComponent,
+    OffreCandidaturesComponent,
     CandidatureSpontanneeComponent,
     MesCandidaturesComponent,
     MapComponent

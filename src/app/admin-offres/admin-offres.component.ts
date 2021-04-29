@@ -102,6 +102,7 @@ export class AdminOffresComponent implements OnInit {
         (data)=>{
           console.log(data);
           alert("modification avec succes");
+          window.location.reload();
           return data;
         },
         (err)=>{
@@ -109,7 +110,6 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-      window.location.reload()
     }
     test(objet:any)
     {

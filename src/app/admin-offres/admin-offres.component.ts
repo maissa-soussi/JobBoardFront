@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-admin-offres',
   templateUrl: './admin-offres.component.html',
-  styleUrls: ['../parametre/parametre.component.css']
+  styleUrls: ['../parametre/parametre.component.css','./admin-offres.component.css']
 })
 export class AdminOffresComponent implements OnInit {
   offres: any=[];

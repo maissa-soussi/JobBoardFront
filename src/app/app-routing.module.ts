@@ -14,6 +14,7 @@ import { OffresComponent } from './offres/offres.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -34,44 +35,54 @@ const routes: Routes = [
   },
   {
     path: "profile",
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "dashboard",
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "parametre",
-    component: ParametreComponent
+    component: ParametreComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "candidats",
-    component: CandidatComponent
+    component: CandidatComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "admins",
-    component: GestionAdminsComponent
+    component: GestionAdminsComponent,
+    canActivate:[AuthGuard]
   }
   ,
   {
     path: "offres-admin",
-    component: AdminOffresComponent
+    component: AdminOffresComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "candidatures-admin",
-    component: AdminCandidaturesComponent
+    component: AdminCandidaturesComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "offre-candidatures",
-    component: OffreCandidaturesComponent
+    component: OffreCandidaturesComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "candidature-spontannee",
-    component: CandidatureSpontanneeComponent
+    component: CandidatureSpontanneeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "mescandidatures",
-    component: MesCandidaturesComponent
+    component: MesCandidaturesComponent,
+    canActivate:[AuthGuard]
   }
   
 

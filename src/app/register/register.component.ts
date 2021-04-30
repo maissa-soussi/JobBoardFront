@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
   myuser:any={};
   public erreur:String=""
   public registerForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     let registerFormControls = {
       firstname: new FormControl("", [
         Validators.required,
@@ -35,20 +36,23 @@ export class RegisterComponent implements OnInit {
    get password2() { return this.registerForm.get('password2') }
  
   ngOnInit(): void {
+    let token = localStorage.getItem("mytoken")
+    if (token)
+    this.router.navigateByUrl('/dashboard'); 
   }
 
-  addUser(){
+  registerUser(){
     this.myuser.role ="candidat";
-    this.http.post("https://localhost:44338/Users",this.myuser).subscribe(
-      (data)=>{
-        alert("Ajouté avec succès");
-        return data;
+    this.http.post<any>("https://localhost:44338/Users",this.myuser)
+    .subscribe(
+      (result) => {
+       console.log(result)
+       this.router.navigateByUrl('/login');
       },
-      (err)=>{
-        alert("Candidat existe deja");
-        console.log(err);
+      (error) => { console.log(error) 
+        this.erreur="Compte existe deja!"
       }
-    );
+    )
   }
 
 }

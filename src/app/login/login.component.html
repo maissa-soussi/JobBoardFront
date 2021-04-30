@@ -17,7 +17,7 @@
                                     <h1 class="h4 text-gray-900 mb-4">Se connecter </h1>
                                 </div>
                                 
-                                <form [formGroup]="loginForm" class="user">
+                                <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="user">
                                     <div class="form-group">
                                         <label for="email">Email </label>
                                         <input type="email" formControlName="email" class="form-control" id="email">
@@ -35,7 +35,8 @@
                                             <small *ngIf="password?.errors?.minlength">Minimum 8 caractères </small>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" [disabled]="loginForm.invalid"
+                                    [ngClass]="{'btn-secondary':loginForm.invalid,'btn-primary':loginForm.valid}" class="btn btn-primary">Se connecter</button>
 
                                 </form>
 

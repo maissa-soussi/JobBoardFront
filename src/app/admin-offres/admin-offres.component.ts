@@ -101,11 +101,7 @@ export class AdminOffresComponent implements OnInit {
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
           alert("modification avec succes");
-<<<<<<< HEAD
-          window.location.reload()
-=======
           window.location.reload();
->>>>>>> 1c34c3693e2ac15df428f5d99f3ed88d1ed607bf
           return data;
         },
         (err)=>{
@@ -113,10 +109,6 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-<<<<<<< HEAD
-      //
-=======
->>>>>>> 1c34c3693e2ac15df428f5d99f3ed88d1ed607bf
     }
     test(objet:any)
     {

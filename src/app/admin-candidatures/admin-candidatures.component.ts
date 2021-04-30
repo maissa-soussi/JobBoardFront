@@ -57,7 +57,6 @@ export class AdminCandidaturesComponent implements OnInit {
     test(objet:any)
     {
       console.log(objet)
-      objet.candidate.other={}
  this.t=objet;
  console.log(this.t)
     }

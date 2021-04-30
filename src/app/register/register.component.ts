@@ -37,8 +37,13 @@ export class RegisterComponent implements OnInit {
  
   ngOnInit(): void {
     let token = localStorage.getItem("mytoken")
+    let role = localStorage.getItem("role")
     if (token)
+    { if (role =="candidat")
+    this.router.navigateByUrl('/profile'); 
+    else 
     this.router.navigateByUrl('/dashboard'); 
+  }
   }
 
   registerUser(){

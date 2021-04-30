@@ -78,6 +78,11 @@ export class AdminOffresComponent implements OnInit {
       }
     }
     addOffre(){
+      this.myoffre.diplomaId=this.myoffre.diplomaId-0;
+      this.myoffre.countryId=this.myoffre.countryId-0;
+      this.myoffre.domainId=this.myoffre.domainId-0;
+      this.myoffre.experienceId=this.myoffre.experienceId-0;
+      this.myoffre.contratTypeId=this.myoffre.contratTypeId-0;
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(
         (data)=>{
           alert("ajout succées");
@@ -98,14 +103,11 @@ export class AdminOffresComponent implements OnInit {
       offre.countryId=offre.countryId-0;
       offre.domainId=offre.domainId-0;
       offre.experienceId=offre.experienceId-0;
+      offre.contratTypeId=offre.contratTypeId-0;
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
           alert("modification avec succes");
-<<<<<<< HEAD
-          window.location.reload()
-=======
           window.location.reload();
->>>>>>> 1c34c3693e2ac15df428f5d99f3ed88d1ed607bf
           return data;
         },
         (err)=>{
@@ -113,10 +115,6 @@ export class AdminOffresComponent implements OnInit {
           console.log(err);
         }
       );
-<<<<<<< HEAD
-      //
-=======
->>>>>>> 1c34c3693e2ac15df428f5d99f3ed88d1ed607bf
     }
     test(objet:any)
     {

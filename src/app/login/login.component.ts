@@ -27,19 +27,31 @@ export class LoginComponent implements OnInit {
   get password() {return this.loginForm.get('password')}
   ngOnInit(): void {
     let token = localStorage.getItem("mytoken")
+    let role = localStorage.getItem("role")
     if (token)
+    { if (role =="candidat")
+    this.router.navigateByUrl('/profile'); 
+    else 
     this.router.navigateByUrl('/dashboard'); 
+      
+
+  }
   }
 
   loginUser()
   {
     let data = this.loginForm.value
-    this.http.post<any>("https://localhost:44338/Users",data)
+    this.http.post<any>("https://localhost:44338/auth/login",data)
     .subscribe(
       (result) => {
        console.log(result)
        let token = result.token
+       let role = result.role
        localStorage.setItem("mytoken",token)
+       localStorage.setItem("role",role)
+       if (result.role =="candidat")
+       this.router.navigateByUrl('/profile'); 
+       else 
        this.router.navigateByUrl('/dashboard'); 
       },
       (err) => { console.log(err) 

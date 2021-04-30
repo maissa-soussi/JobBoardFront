@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   loginUser()
   {
     let data = this.loginForm.value
-    this.http.post<any>("https://localhost:44338/auth/login",data)
+    this.http.post<any>("https://localhost:44338/auth",data)
     .subscribe(
       (result) => {
        console.log(result)

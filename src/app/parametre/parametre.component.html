@@ -225,10 +225,11 @@
                         <div class="col-md-6">
                           <div  *ngIf="StudiesLevels.length == 0" class="alert alert-warning" style="margin-left: 10%; margin-top: 20px;">Pas de résultats</div>
                           <ul *ngIf="StudiesLevels.length > 0" class="list-group" style="width: 300px; margin: 50px;">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Bac +3
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i
-                                    class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                            <li *ngFor="let StudiesLevel of StudiesLevels" class="list-group-item d-flex justify-content-between align-items-center">
+                              {{StudiesLevel.name}}
+                              <span> <a><button><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
+                                <a> <button><i
+                                    class="fas fa-trash-alt" style="color: red;" (click)="educationlevelDelete(StudiesLevel.id)"></i></button></a></span>
                             </li>
 
                 
@@ -239,10 +240,10 @@
                             <div class="form-row row">
                               <div class="form-group col-md-6">
 
-                                <input type="text" class="form-control aj" placeholder="Niveau d'étude" id="ajitem">
+                                <input type="text" class="form-control aj" placeholder="Niveau d'étude" name="name" [(ngModel)]="nvstudieslevel.name">
                               </div>
                               <div class="form-group col-md-6">
-                                <button type="submit" class="btn">Ajouter</button>
+                                <button type="submit" class="btn" (click)="addEducationLevel()">Ajouter</button>
                               </div>
                             </div>
                           </form>

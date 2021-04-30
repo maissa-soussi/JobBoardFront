@@ -27,16 +27,20 @@
                         offre d'emplpoi
                     </th>
                     <th
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Nom candidat
+                    </th>
+                    <th
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Email
+                    </th>
+                    <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Date entretien d'embauche
             </th>
             <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Date_Postulation
-            </th>
-            <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                candidat
             </th>
             <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -55,16 +59,19 @@
                     {{candidature.jobOffer.reference}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {{candidature.jobInterviewDate}}
+                    {{candidature.candidate.user.firstName}} {{candidature.candidate.user.lastName}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.candidate.user.email}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.jobInterviewDate}} 
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{candidature.candidatureDate}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {{candidature.candidate.user.firstName}} | {{candidature.candidate.user.lastName}} | {{candidature.candidate.user.email}} |{{candidature.candidate.phone}} 
-                </td>
-                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {{candidature.id}}
+                    {{candidature.status.name}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <span><a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(candidature)"><i class="fas fa-edit" style="color: #14e942;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>           
@@ -77,7 +84,7 @@
                             <div class="wrapper wrapper--w900">
                                 <div class="card card-6">
                                     <div class="card-heading">
-                                        <h2 class="title">Choisir Date de l'entretien {{t.id}}</h2>
+                                        <h2 class="title">Modifier candidature</h2>
                                     </div>
                                     <div class="card-body">
                                         <form method="POST">
@@ -86,10 +93,18 @@
                                                 <div class="value">
                                                     <input class="form-control" type="text"  id="JobInterviewDate" name="JobInterviewDate"   [(ngModel)]="t.jobInterviewDate">
                                                 </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="name">Etat</div>
+                                                <div class="value">
+                                                    <select class="form-control" name="statusId" [(ngModel)]="t.statusId">
+                                                        <option *ngFor="let Status of Statuses" value="{{Status.id}}" >{{Status.name}}</option>                                            
+                                                    </select>
+                                                </div>
                                             </div>                                  
                                         </form>                           
                                     </div> 
-                                    <button type="submit" value="Modifier" (click)="updateOffre(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                    <button type="submit" value="Modifier" (click)="updateCandidature(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
                                 </div>
                             </div>
                         </div>

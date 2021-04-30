@@ -85,7 +85,7 @@ export class AdminOffresComponent implements OnInit {
           return data;
         },
         (err)=>{
-          alert("offre existe déja");
+          alert("erreur");
           console.log(err);
         }
       );

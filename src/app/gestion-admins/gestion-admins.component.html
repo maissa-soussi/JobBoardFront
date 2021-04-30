@@ -20,7 +20,7 @@
                                               <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                                                 <button
                                                   class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                                  type="button">
+                                                  type="button" data-bs-toggle="modal" data-bs-target="#addModal">
                                                   Ajouter un administrateur
                                                 </button>
                                               </div>
@@ -31,6 +31,10 @@
                                             <table class="items-center w-full bg-transparent border-collapse">
                                               <thead>
                                                 <tr>
+                                                  <th
+                                                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                                    Nom & Prenom
+                                                  </th>
                                                   <th
                                                     class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                                     Email
@@ -48,38 +52,34 @@
                                               </thead>
                                               <tbody>
                                                 
-                                                <tr>
+                                                <tr *ngFor="let admin of admins">
                                                   <th
                                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                    maissa.soussi@ensi-uma.tn
+                                                    {{admin.firstName}} {{admin.lasttName}} 
+                                                  </th>
+                                                  <th
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                                                    {{admin.email}}
                                                   </th>
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    nbshdykrtk
+                                                    {{admin.password}}
                                                   </td>
                                                   
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
+                                                    <span> <a><button><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
+                                                      <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="adminDelete(admin.id)"></i></button></a></span>
                                            
                                                   </td>
+
+
+                            
+
+
+
+                                            
                                                 </tr>
 
-                                                <tr>
-                                                    <th
-                                                      class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                                      maissa.soussi@ensi-uma.tn
-                                                    </th>
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                      hdkdfuygdf
-                                                    </td>
-                                                   
-                                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                        <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; <a><i class="fas fa-trash-alt" style="color: red;"></i></a></span>
-                                           
-                                                    </td>
-                                                  </tr>
-
-                                                 
-                                               
+                                                                                    
                                               </tbody>
                                             </table>
                                           </div>
@@ -98,4 +98,59 @@
             <app-footer-admin></app-footer-admin>
         </div>
     </div>
+</div>
+
+
+
+<!--add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="page-wrapper bg-dark p-t-100 p-b-50">
+              <div class="wrapper wrapper--w900">
+                  <div class="card card-6">
+                      <div class="card-heading">
+                          <h4 class="title">Ajouter un administrateur</h4>
+                      </div>
+                      <div class="card-body">
+                          <form method="POST">
+                              <div class="form-row">
+                                  <div class="name">Prenom</div>
+                                  <div class="value">
+                                      <input class="input--style-6" type="text" name="firstName" [(ngModel)]="myadmin.firstName">
+                                  </div>
+                              </div>
+                              
+                                                         
+                              <div class="form-row">
+                                  <div class="name">Nom</div>
+                                  <div class="value">
+                                      <input class="input--style-6" type="text" name="lastName"  [(ngModel)]="myadmin.lastName">
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="name">Email</div>
+                                  <div class="value">
+                                      <input class="input--style-6" type="text" name="email" [(ngModel)]="myadmin.email">
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="name">Mot de passe</div>
+                                  <div class="value">
+                                      <input class="input--style-6" type="text" name="password" [(ngModel)]="myadmin.password">
+                                  </div>
+                              </div>
+                            
+                          </form>
+                      </div>   
+                      <div style="background-color: white; height: 30px;">
+                          <button class="bg-dark btpop" type="submit" (click)="addAdmin()"><span class="spanpop">Ajouter</span></button>                      
+                      </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>

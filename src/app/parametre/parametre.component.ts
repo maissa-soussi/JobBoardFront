@@ -62,14 +62,19 @@ export class ParametreComponent implements OnInit {
         (result) => { this.Domaines = result },
         (error) => { console.log(error) }
       )
-      //get Domaines
+      //get StudiesLevels
+      this.http.get<any>("https://localhost:44338/EducationLevels")
+      .subscribe(
+        (result) => { this.StudiesLevels = result },
+        (error) => { console.log(error) }
+      )
       //get Experiences
       this.http.get<any>("https://localhost:44338/Experiences")
       .subscribe(
         (result) => { this.Experiences = result },
         (error) => { console.log(error) }
       )
-      //get Experiences
+      //get Contrat types
       this.http.get<any>("https://localhost:44338/ContratTypes")
       .subscribe(
         (result) => { this.Contrats = result },
@@ -131,6 +136,17 @@ export class ParametreComponent implements OnInit {
     if (confirm('Voulez vous supprimé ce domaine ?'))
       {
         this.http.delete(`https://localhost:44338/Domains/${id}`)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+  }
+
+  educationlevelDelete(id:number){
+    if (confirm('Voulez vous supprimé ce niveau d études ?'))
+      {
+        this.http.delete(`https://localhost:44338/EducationLevels/${id}`)
       .subscribe(
         err =>{console.log(err)}
       );
@@ -225,6 +241,21 @@ export class ParametreComponent implements OnInit {
       },
       (err)=>{
         alert("Domaine existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguage={};
+    window.location.reload()
+  }
+
+  addEducationLevel(){
+    this.http.post("https://localhost:44338/EducationLevels",this.nvstudieslevel).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Niveau existe deja");
         console.log(err);
       }
     );

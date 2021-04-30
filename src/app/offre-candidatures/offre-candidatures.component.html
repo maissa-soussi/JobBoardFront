@@ -54,26 +54,26 @@
         </thead>
         <tbody>
                                                         
-                <tr>
+                <tr *ngFor="let joboffercandidature of JobOfferCandidatures; let i=index">
                 <td
                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                    
+                    {{joboffercandidature.candidate.user.firstName}} {{joboffercandidature.candidate.user.lastName}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    
+                    {{joboffercandidature.candidate.user.email}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    
+                    {{joboffercandidature.candidatureDate}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    
+                    {{joboffercandidature.jobInterviewDate}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    
+                    {{joboffercandidature.status.name}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <span><a><button><i class="fas fa-edit" style="color: #1fb659;"></i></button></a> &nbsp; 
-                        <a><button><i class="fas fa-trash-alt" style="color: red;" ></i></button></a></span>           
+                        <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(joboffercandidature.candidatureId)"></i></button></a></span>           
                 </td>
                 </tr>           
                 </tbody>

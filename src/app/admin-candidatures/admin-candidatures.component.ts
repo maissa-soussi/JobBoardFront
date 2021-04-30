@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminCandidaturesService } from './admin-candidatures.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-candidatures',
@@ -9,11 +10,17 @@ import { AdminCandidaturesService } from './admin-candidatures.service';
 export class AdminCandidaturesComponent implements OnInit {
   candidatures: any=[];
   t:any={};
-  constructor(private myservice: AdminCandidaturesService) { }
+  public Statuses: any[] = []
+  constructor(private myservice: AdminCandidaturesService, public http: HttpClient) { }
 
 
   ngOnInit(): void {
     this.getallcandidatures();
+    this.http.get<any>("https://localhost:44338/Status")
+      .subscribe(
+        (result) => { this.Statuses = result },
+        (error) => { console.log(error) }
+      )
   }
   getallcandidatures()
   {
@@ -38,13 +45,13 @@ export class AdminCandidaturesComponent implements OnInit {
       window.location.reload()
       }
     }
-    updateOffre(id:any,offre:any)
+    updateCandidature(id:any,candidature:any)
     {
-      console.log(offre)
-      this.myservice.updateCandidature(id,offre).subscribe(
+      candidature.statusId=candidature.statusId-0;
+      this.myservice.updateCandidature(id,candidature).subscribe(
         (data)=>{
           alert("modification avec succes");
-          window.location.reload()
+          window.location.reload();
           return data;
         },
         (err)=>{
@@ -52,12 +59,10 @@ export class AdminCandidaturesComponent implements OnInit {
           console.log(err);
         }
       );
-      
     }
     test(objet:any)
     {
       console.log(objet)
-      objet.candidate.other={}
  this.t=objet;
  console.log(this.t)
     }

@@ -38,78 +38,26 @@
 				<div class="col-lg-8 mx-auto">
 					<h3>Les dernières offres</h3>
 					<br/>
-					<div class="list-group">
-						<div class="card">
+					<div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 240px; margin-left: 250px; text-align: center;">Pas d'offres</div>
+					<div *ngIf="offres.length > 0" class="list-group">
+						<div *ngFor="let offre of offres" class="card" style="margin-bottom: 10px;">
 							<a href="#"
 								class="list-group-item list-group-item-action flex-column align-items-start bg-light">
 								<div class="d-flex w-100 justify-content-between">
-									<h5 class="mb-1">List group item heading</h5>
-									<small>12/12/2021</small>
+									<h5 class="mb-1">{{offre.ref}}</h5>
+									<small>{{offre.publicationDate}}</small>
 								</div>
 							</a>
 							<div class="card-body">
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-									risus varius blandit.</p>
-								<small><i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunis,
-									Tunisia</small>
-
-							</div>
-						</div> <br />
-
-						<div class="card">
-							<a href="#"
-								class="list-group-item list-group-item-action flex-column align-items-start bg-light">
-								<div class="d-flex w-100 justify-content-between">
-									<h5 class="mb-1">List group item heading</h5>
-									<small>12/12/2021</small>
-								</div>
-							</a>
-							<div class="card-body">
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-									risus varius blandit.</p>
-								<small><i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunis,
-									Tunisia</small>
-
-							</div>
-						</div> <br />
-
-						<div class="card">
-							<a href="#"
-								class="list-group-item list-group-item-action flex-column align-items-start bg-light">
-								<div class="d-flex w-100 justify-content-between">
-									<h5 class="mb-1">List group item heading</h5>
-									<small>12/12/2021</small>
-								</div>
-							</a>
-							<div class="card-body">
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-									risus varius blandit.</p>
-								<small><i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunis,
-									Tunisia</small>
-
-							</div>
-						</div> <br />
-
-						<div class="card">
-							<a href="#"
-								class="list-group-item list-group-item-action flex-column align-items-start bg-light">
-								<div class="d-flex w-100 justify-content-between">
-									<h5 class="mb-1">List group item heading</h5>
-									<small>12/12/2021</small>
-								</div>
-							</a>
-							<div class="card-body">
-								<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-									risus varius blandit.</p>
-								<small><i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunis,
-									Tunisia</small>
+								<p class="mb-1">{{offre.description}}</p>
+								<small><i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>{{offre.country.name}}</small>
 
 							</div>
 						</div>
 
 					</div>
 					<br/>
-					<div class="text-center">
+					<div *ngIf="offres.length > 0" class="text-center">
 						<a class="small" routerLink="/offres"><h6> Voir toutes les offres </h6></a>
 					</div>
 					

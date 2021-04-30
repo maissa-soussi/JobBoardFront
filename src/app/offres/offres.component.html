@@ -1,23 +1,24 @@
 <app-navbar-candidate></app-navbar-candidate>
 <div class="container" style="background-color: #E6E5EA; margin-top: 120px;" >
     <div class="main-body">
-       
-      <div class="card text-center">
+      <div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 250px; margin-left: 20px; margin-top: 20px; text-align: center;">Pas d'offres</div>
+        <div *ngIf="offres.length > 0">
+      <div *ngFor="let offre of offres" class="card text-center" style="margin-bottom: 20px;">
         <div class="card-header">
-          Ingénieur Full Stack
+          {{offre.ref}}
         </div>
         <div class="card-body">
          <!-- <h5 class="card-title">Special title treatment</h5>-->
-          <p class="card-text">Description ....................................</p>
+          <p class="card-text">{{offre.description}}</p>
           <div class="row">
-            <div class="col-md-4">Domaine : Logistique</div>
-            <div class="col-md-4">Expérience : Ingénieur</div>
-            <div class="col-md-4">Diplome : Ingénieur</div>
+            <div class="col-md-4">Domaine : {{offre.Domaine.name}}</div>
+            <div class="col-md-4">Expérience : {{offre.Experience.name}}</div>
+            <div class="col-md-4">Diplome : {{offre.Diplome.name}}</div>
           </div>
           <div class="row">
-            <div class="col-md-4">Type du contrat : SIVP</div>
-            <div class="col-md-4">Min Salaire : 2000 dt</div>
-            <div class="col-md-4">Max Salaire : 5000 dt</div>
+            <div class="col-md-4">Type du contrat : {{offre.Contrat.name}}</div>
+            <div class="col-md-4">Min Salaire : {{offre.minSalary}} dt</div>
+            <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
           </div>
           <br/>
           <a href="#" class="btn btn-primary">Postuler</a>
@@ -25,45 +26,14 @@
         <div class=" card-footer text-muted">
           <div class="row">
           <div class="col-md-4">
-            <i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunisia
+            <i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>{{offre.country.name}}
           </div>
-          <div class="col-md-4">Date de Publication : 22-12-2020 </div>
-          <div class="col-md-4">Date d'expiration : 22-01-2021 </div>
+          <div class="col-md-4">Date de Publication : {{offre.publicationDate}} </div>
+          <div class="col-md-4">Date d'expiration : {{offre.expirationDate}} </div>
         </div>
         </div>
       </div>
-      <br>
-      <div class="card text-center">
-        <div class="card-header">
-          Ingénieur Full Stack
-        </div>
-        <div class="card-body">
-         <!-- <h5 class="card-title">Special title treatment</h5>-->
-          <p class="card-text">Description ....................................</p>
-          <div class="row">
-            <div class="col-md-4">Domaine : Logistique</div>
-            <div class="col-md-4">Expérience : Ingénieur</div>
-            <div class="col-md-4">Diplome : Ingénieur</div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">Type du contrat : SIVP</div>
-            <div class="col-md-4">Min Salaire : 2000 dt</div>
-            <div class="col-md-4">Max Salaire : 5000 dt</div>
-          </div>
-          <br/>
-          <a href="#" class="btn btn-primary">Postuler</a>
-        </div>
-        <div class="card-footer text-muted">
-          <div class="row">
-          <div class="col-md-4">
-            <i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>Tunisia
-          </div>
-          <div class="col-md-4">Date de Publication : 22-12-2020 </div>
-          <div class="col-md-4">Date d'expiration : 22-01-2021 </div>
-        </div>
-        </div>
-      </div>
-
+    </div>
         
         
     </div>

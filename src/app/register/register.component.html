@@ -11,11 +11,11 @@
                             <h1 class="h4 text-gray-900 mb-4">Créer un compte</h1>
                         </div>
                         
-                        <form [formGroup]="registerForm" class="user">
+                        <form [formGroup]="registerForm" class="user" method="POST">
 
                             <div class="form-group">
                             
-                                <input type="text" formControlName="firstname" placeholder="Prénom" class="form-control" id="firstname">
+                                <input type="text" formControlName="firstname" placeholder="Prénom" class="form-control" id="firstname" name="firstName" [(ngModel)]="myuser.firstName">
                                 <div *ngIf="firstname?.touched && firstname?.invalid" class="text-danger">
                                     <small *ngIf="firstname?.errors?.required" >Champ obligatoire <br></small> 
                                     <small *ngIf="firstname?.errors?.pattern" >Prénom invalide <br></small> 
@@ -24,7 +24,7 @@
                             </div>
                             <div class="form-group">
                                 
-                                <input type="text" formControlName="lastname" placeholder="nom" class="form-control" id="lastname">
+                                <input type="text" formControlName="lastname" placeholder="nom" class="form-control" id="lastname" name="lastName" [(ngModel)]="myuser.lastName">
                                 <div *ngIf="lastname?.touched && lastname?.invalid" class="text-danger">
                                     <small *ngIf="lastname?.errors?.required">Champ obligatoire <br></small> 
                                     <small *ngIf="lastname?.errors?.pattern">Nom invalide <br></small> 
@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group">
                              
-                                <input type="email" formControlName="email" placeholder="Email" class="form-control" id="mail">
+                                <input type="email" formControlName="email" placeholder="Email" class="form-control" id="mail" name="email" [(ngModel)]="myuser.email">
                                 <div  *ngIf="email?.touched && email?.invalid" class="text-danger">
                                     <small *ngIf="email?.errors?.required">Champ obligatoire <br></small> 
                                     <small *ngIf="email?.errors?.email">Email invalide</small>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                
-                                <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" id="password">
+                                <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" id="password" name="password" [(ngModel)]="myuser.password">
                                 <div  *ngIf="password?.touched && password?.invalid" class="text-danger">
                                     <small *ngIf="password?.errors?.required">Champ Obligatoire <br></small> 
                                     <small *ngIf="password?.errors?.minlength">Minimum 8 caractères</small>
@@ -57,7 +57,7 @@
                                 </div>
                             
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" (click)="addUser()">Submit</button>
                         </form>
                         <hr class="hr">
                         <div class="text-center">

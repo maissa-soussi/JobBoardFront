@@ -8,6 +8,7 @@ import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  myuser:any={};
   public erreur:String=""
   public registerForm: FormGroup
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
@@ -34,6 +35,20 @@ export class RegisterComponent implements OnInit {
    get password2() { return this.registerForm.get('password2') }
  
   ngOnInit(): void {
+  }
+
+  addUser(){
+    this.myuser.role ="candidat";
+    this.http.post("https://localhost:44338/Users",this.myuser).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Candidat existe deja");
+        console.log(err);
+      }
+    );
   }
 
 }

@@ -49,7 +49,12 @@ export class ProfileComponent implements OnInit {
         (result) => { this.Domaines = result },
         (error) => { console.log(error) }
       )
-      //get Domaines
+      //get StudiesLevels
+      this.http.get<any>("https://localhost:44338/EducationLevels")
+      .subscribe(
+        (result) => { this.StudiesLevels = result },
+        (error) => { console.log(error) }
+      )
       //get Experiences
       this.http.get<any>("https://localhost:44338/Experiences")
       .subscribe(

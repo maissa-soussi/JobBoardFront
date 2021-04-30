@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionAdminsComponent implements OnInit {
   public admins: any[] = []
-  constructor(public http: HttpClient) { }
   myadmin:any={};
+  constructor(public http: HttpClient) { }
+  
   ngOnInit(): void {
      //get admins
      this.http.get<any>("https://localhost:44338/Users")

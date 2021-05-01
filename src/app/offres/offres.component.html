@@ -5,18 +5,18 @@
         <div *ngIf="offres.length > 0">
       <div *ngFor="let offre of offres" class="card text-center" style="margin-bottom: 20px;">
         <div class="card-header">
-          {{offre.ref}}
+          {{offre.reference}}
         </div>
         <div class="card-body">
          <!-- <h5 class="card-title">Special title treatment</h5>-->
           <p class="card-text">{{offre.description}}</p>
           <div class="row">
-            <div class="col-md-4">Domaine : {{offre.Domaine.name}}</div>
-            <div class="col-md-4">Expérience : {{offre.Experience.name}}</div>
-            <div class="col-md-4">Diplome : {{offre.Diplome.name}}</div>
+            <div class="col-md-4">Domaine : {{offre.domain.name}}</div>
+            <div class="col-md-4">Expérience : {{offre.experience.name}}</div>
+            <div class="col-md-4">Diplome : {{offre.diploma.name}}</div>
           </div>
           <div class="row">
-            <div class="col-md-4">Type du contrat : {{offre.Contrat.name}}</div>
+            <div class="col-md-4">Type du contrat : {{offre.contratType.name}}</div>
             <div class="col-md-4">Min Salaire : {{offre.minSalary}} dt</div>
             <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
           </div>

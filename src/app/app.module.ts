@@ -58,7 +58,7 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AdminOffresComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

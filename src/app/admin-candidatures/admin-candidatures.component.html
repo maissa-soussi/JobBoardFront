@@ -94,17 +94,10 @@
                                                     <input class="form-control" type="text"  id="JobInterviewDate" name="JobInterviewDate"   [(ngModel)]="t.jobInterviewDate">
                                                 </div>
                                             </div>
-                                            <div class="form-row">
-                                                <div class="name">Etat</div>
-                                                <div class="value">
-                                                    <select class="form-control" name="statusId" [(ngModel)]="t.statusId">
-                                                        <option *ngFor="let Status of Statuses" value="{{Status.id}}" >{{Status.name}}</option>                                            
-                                                    </select>
-                                                </div>
-                                            </div>                                  
+                                                                           
                                         </form>                           
                                     </div> 
-                                    <button type="submit" value="Modifier" (click)="updateCandidature(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                    <button type="submit" value="Modifier" (click)="updateCandidature(t.id,t)"><span style="color:rgb(111, 33, 184);">Modifier</span></button>                                                  
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@
     <div class="relative md:ml-64 bg-blueGray-100">
         <app-admin-navbar></app-admin-navbar>
         <app-admin-header></app-admin-header>
+        <!--<app-offre-candidatures [idOffre]=1></app-offre-candidatures>-->
         <div class="px-4 md:px-10 mx-auto w-full -m-24">
             <div class="flex flex-wrap cm">
                 <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">                                                
@@ -82,7 +83,7 @@
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a><button [routerLink]="['/offre-candidatures']"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                        <a><button (click)="passe(offre.id)" [routerLink]="['/offre-candidatures']"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
                         <!--update Modal -->
                         <div class="modal fade" id="updateModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

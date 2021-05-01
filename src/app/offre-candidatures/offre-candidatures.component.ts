@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OffreCandidaturesService } from './offre-candidatures.service';
 import { HttpClient } from '@angular/common/http';
+import { AdminOffresComponent } from '../admin-offres/admin-offres.component';
 
 @Component({
   selector: 'app-offre-candidatures',
@@ -8,13 +9,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['../parametre/parametre.component.css']
 })
 export class OffreCandidaturesComponent implements OnInit {
+  idOffre:any=1;
   t:any={};
+  id:any;
   candidatures: any=[];
   JobOfferCandidatures: any=[];
-  constructor(private myservice: OffreCandidaturesService, public http: HttpClient) { }
+  constructor(private myservice: OffreCandidaturesService, public http: HttpClient,private com:AdminOffresComponent) { }
 
   ngOnInit(): void {
-    this.getallJobOfferCandidatures(1);
+    console.log(this.idOffre)
+    this.getallJobOfferCandidatures(this.idOffre);
   }
   getallJobOfferCandidatures(id:number)
   {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AdminOffresService } from './admin-offres.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,10 +8,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['../parametre/parametre.component.css','./admin-offres.component.css']
 })
 export class AdminOffresComponent implements OnInit {
+  //@Input()  idOffre:any=1;
+  idOffre:any;
   offres: any=[];
   myoffre:any={};
   myoffre1:any={};
   myid:any;
+ 
   t:any={};
   public Countries: any[] = []
   public Domaines: any[] = []
@@ -119,6 +122,11 @@ export class AdminOffresComponent implements OnInit {
     test(objet:any)
     {
  this.t=objet;
+    }
+    passe(id:any)
+    {
+      this.idOffre=id;
+      console.log(this.idOffre);
     }
 
 

@@ -70,7 +70,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: "offre-candidatures",
+    path: "offre-candidatures/:id",
     component: OffreCandidaturesComponent,
     canActivate:[AuthGuard]
   },

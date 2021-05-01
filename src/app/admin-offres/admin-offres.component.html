@@ -83,7 +83,7 @@
                 </td>
                 <td><!-- Button trigger modal -->
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a><button (click)="passe(offre.id)" [routerLink]="['/offre-candidatures']"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
+                        <a><button (click)="passe(offre.id)" [routerLink]="['/offre-candidatures', offre.id]"><i class="fas fa-street-view" style="color: #e0c215;"></i></button></a></span>
                         <!--update Modal -->
                         <div class="modal fade" id="updateModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

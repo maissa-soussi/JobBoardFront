@@ -54,6 +54,7 @@ export class AdminCandidaturesComponent implements OnInit {
     updateCandidature(id:any,candidature:any)
     {
       candidature.statusId=candidature.statusId-0;
+      candidature.candidate.other={};
       this.myservice.updateCandidature(id,candidature).subscribe(
         (data)=>{
           alert("modification avec succes");

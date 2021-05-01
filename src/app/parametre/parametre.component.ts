@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-parametre',
@@ -29,9 +30,14 @@ export class ParametreComponent implements OnInit {
   public nvcontrat: any = {}
   public nvsalaire: any = {}
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="candidat")
+    this.router.navigateByUrl('/');
+    else 
+    {
     //get languages
     this.http.get<any>("https://localhost:44338/Languages")
       .subscribe(
@@ -86,7 +92,7 @@ export class ParametreComponent implements OnInit {
         (result) => { this.Salaires = result },
         (error) => { console.log(error) }
       )
-  }
+  }}
   // void pour delete
   languageDelete(id:number){
     if (confirm('Voulez vous supprimé cette langue ?'))

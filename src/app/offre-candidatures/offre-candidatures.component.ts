@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OffreCandidaturesService } from './offre-candidatures.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-offre-candidatures',
@@ -11,9 +12,13 @@ export class OffreCandidaturesComponent implements OnInit {
   t:any={};
   candidatures: any=[];
   JobOfferCandidatures: any=[];
-  constructor(private myservice: OffreCandidaturesService, public http: HttpClient) { }
+  constructor(private myservice: OffreCandidaturesService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="candidat")
+    this.router.navigateByUrl('/');
+    else 
     this.getallJobOfferCandidatures(1);
   }
   getallJobOfferCandidatures(id:number)

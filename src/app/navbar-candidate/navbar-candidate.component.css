@@ -2,3 +2,9 @@
     background-color: white;
     border-bottom: solid 1px lightblue;
 }
+
+button {
+    outline: none !important;
+    border: none;
+    background-color: white;
+  }

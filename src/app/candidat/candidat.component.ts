@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CandidatService } from './candidat.service';
 
 @Component({
@@ -10,9 +11,13 @@ export class CandidatComponent implements OnInit {
 
   candidats: any=[];
 
-  constructor(private myservice: CandidatService) { }
+  constructor(private myservice: CandidatService, private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="candidat")
+    this.router.navigateByUrl('/');
+    else
     this.getallcandidats();
   }
   getallcandidats()

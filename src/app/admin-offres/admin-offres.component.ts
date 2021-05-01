@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminOffresService } from './admin-offres.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-offres',
@@ -18,9 +19,14 @@ export class AdminOffresComponent implements OnInit {
   public Experiences: any[] = []
   public Contrats: any[] = []
   public Diplomes: any[] = []
-  constructor(private myservice: AdminOffresService, public http: HttpClient) { }
+  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="candidat")
+    this.router.navigateByUrl('/'); 
+    else 
+    {
     this.getalloffres();
       //get Countries
       this.http.get<any>("https://localhost:44338/Countries")
@@ -52,7 +58,7 @@ export class AdminOffresComponent implements OnInit {
         (result) => { this.Contrats = result },
         (error) => { console.log(error) }
       )
-  }
+  }}
   getalloffres()
   {
     this.myservice.getoffres().subscribe(

@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/profile'); 
     else 
     this.router.navigateByUrl('/dashboard'); 
-      
-
-  }
+     }
   }
 
   loginUser()
@@ -56,8 +54,10 @@ export class LoginComponent implements OnInit {
       },
       (err) => { console.log(err) 
         this.erreur=err.error.message
+        window.location.reload();
       }
     )
   }
 
+ 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminCandidaturesService } from './admin-candidatures.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-candidatures',
@@ -11,16 +12,21 @@ export class AdminCandidaturesComponent implements OnInit {
   candidatures: any=[];
   t:any={};
   public Statuses: any[] = []
-  constructor(private myservice: AdminCandidaturesService, public http: HttpClient) { }
+  constructor(private myservice: AdminCandidaturesService, public http: HttpClient, private router : Router) { }
 
 
   ngOnInit(): void {
-    this.getallcandidatures();
+    let role = localStorage.getItem("role")
+    if (role =="candidat")
+    this.router.navigateByUrl('/'); 
+    else 
+    {this.getallcandidatures();
     this.http.get<any>("https://localhost:44338/Status")
       .subscribe(
         (result) => { this.Statuses = result },
         (error) => { console.log(error) }
       )
+    }
   }
   getallcandidatures()
   {

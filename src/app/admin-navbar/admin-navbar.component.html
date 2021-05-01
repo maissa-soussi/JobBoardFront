@@ -5,7 +5,7 @@
     <!-- Brand -->
     <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold" [routerLink]="['/dashboard']">Tableau de bord</a>
         
-    <a class=" text-blueGray-700 text-sm uppercase hidden lg:inline-block font-semibold" [routerLink]="['/dashboard']">Se déconnecter <i class="fas fa-sign-out-alt"></i></a>
+    <a class=" text-blueGray-700 text-sm uppercase hidden lg:inline-block font-semibold"> <button (click)="logout()">Se déconnecter <i class="fas fa-sign-out-alt"></i></button></a>
    
   </div>
 </nav>

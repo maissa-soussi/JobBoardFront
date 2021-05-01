@@ -4067,3 +4067,8 @@ select {
 
 @media (min-width: 1536px) {
 }
+
+
+button {
+  outline: none !important;
+}

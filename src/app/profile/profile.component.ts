@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -16,9 +17,14 @@ export class ProfileComponent implements OnInit {
   public StudiesLevels: any[] = []
   public Contrats: any[] = []
   public Salaires: any[] = []
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="admin")
+    this.router.navigateByUrl('/');
+    else 
+    {
     //get languages
     this.http.get<any>("https://localhost:44338/Languages")
       .subscribe(
@@ -73,6 +79,6 @@ export class ProfileComponent implements OnInit {
         (result) => { this.Salaires = result },
         (error) => { console.log(error) }
       )
-  }
+  }}
 
 }

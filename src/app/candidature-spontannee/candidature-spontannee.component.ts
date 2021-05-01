@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-candidature-spontannee',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatureSpontanneeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+    let role = localStorage.getItem("role")
+    if (role =="admin")
+    this.router.navigateByUrl('/');
   }
 
 }

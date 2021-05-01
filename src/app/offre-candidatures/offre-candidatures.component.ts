@@ -1,11 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OffreCandidaturesService } from './offre-candidatures.service';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
-import { AdminOffresComponent } from '../admin-offres/admin-offres.component';
-=======
 import { Router } from '@angular/router';
->>>>>>> 1e3b9cf9efa3b6bf2475946a7af9a105d9e80145
 
 @Component({
   selector: 'app-offre-candidatures',
@@ -18,13 +14,6 @@ export class OffreCandidaturesComponent implements OnInit {
   id:any;
   candidatures: any=[];
   JobOfferCandidatures: any=[];
-<<<<<<< HEAD
-  constructor(private myservice: OffreCandidaturesService, public http: HttpClient,private com:AdminOffresComponent) { }
-
-  ngOnInit(): void {
-    console.log(this.idOffre)
-    this.getallJobOfferCandidatures(this.idOffre);
-=======
   constructor(private myservice: OffreCandidaturesService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
@@ -33,7 +22,6 @@ export class OffreCandidaturesComponent implements OnInit {
     this.router.navigateByUrl('/');
     else 
     this.getallJobOfferCandidatures(1);
->>>>>>> 1e3b9cf9efa3b6bf2475946a7af9a105d9e80145
   }
   getallJobOfferCandidatures(id:number)
   {

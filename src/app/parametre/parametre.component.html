@@ -10,9 +10,6 @@
             <div class="rounded-t mb-0 px-4 py-3 ">
               <div class="flex flex-wrap items-center">
                 <div class="relative w-full max-w-full flex-grow flex-1 mh-400 bg-blueGray-100">
-
-
-
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="langue-tab" data-bs-toggle="tab" data-bs-target="#langue"
@@ -57,7 +54,6 @@
                   <div class="tab-content" id="myTabContent">
                     <!--langues-->
                     <div class="tab-pane fade show active" id="langue" role="tabpanel" aria-labelledby="langue-tab">
-
                       <div class="row">
                         <div class="col-md-6">
                           <div  *ngIf="languages.length == 0" class="alert alert-warning" style="margin-left: 10%; margin-top: 20px;">Pas de résultats</div>
@@ -65,10 +61,41 @@
                             <li *ngFor="let language of languages"
                               class="list-group-item d-flex justify-content-between align-items-center">
                               {{language.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateLanguage" (click)="test(language)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="languageDelete(language.id)"></i></button></a></span>
-                            </li>
+                                  
+                                  <!--update Modal -->
+                                  <div class="modal fade" id="updateLanguage"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                                <div class="wrapper wrapper--w900">
+                                                    <div class="card card-6">
+                                                        <div class="card-heading">
+                                                            <h2 class="title">Modifier Langue: </h2>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <form method="POST">
+                                                                <div class="form-row">
+                                                                    <div class="name">Langue</div>
+                                                                    <div class="value">
+                                                                        <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                                    </div>
+                                                                </div>                                                                                                                                             
+                                                            </form>                           
+                                                        </div> 
+                                                        <button type="submit" value="Modifier" (click)="updateLanguage(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -95,10 +122,41 @@
                           <ul *ngIf="languageLevels.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let languageLevel of languageLevels" class="list-group-item d-flex justify-content-between align-items-center">
                               {{languageLevel.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateLanguageLevel" (click)="test(languageLevel)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="languageLevelDelete(languageLevel.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateLanguageLevel"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier niveau de Langue: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Niveau</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateLanguageLevel(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -128,10 +186,41 @@
                           <ul *ngIf="DrivingLicences.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let DrivingLicence of DrivingLicences" class="list-group-item d-flex justify-content-between align-items-center">
                               {{DrivingLicence.type}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateDrivingLicence" (click)="test(DrivingLicence)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="drivingLicenceDelete(DrivingLicence.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateDrivingLicence"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Permis: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Permis</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="type" name="type"   [(ngModel)]="t.type">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateDrivingLicence(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -160,10 +249,41 @@
                           <ul *ngIf="Countries.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let Countrie of Countries" class="list-group-item d-flex justify-content-between align-items-center">
                               {{Countrie.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateCountry" (click)="test(Countrie)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp;  
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="countryDelete(Countrie.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateCountry"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Pays: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Pays</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateCountry(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -193,10 +313,41 @@
                           <ul *ngIf="Domaines.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let Domaine of Domaines" class="list-group-item d-flex justify-content-between align-items-center">
                               {{Domaine.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateDomain" (click)="test(Domaine)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="domaineDelete(Domaine.id)"></i></button></a></span>
-                            </li>
+                            
+                                  <!--update Modal -->
+                                  <div class="modal fade" id="updateDomain"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                                <div class="wrapper wrapper--w900">
+                                                    <div class="card card-6">
+                                                        <div class="card-heading">
+                                                            <h2 class="title">Modifier Domaine: </h2>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <form method="POST">
+                                                                <div class="form-row">
+                                                                    <div class="name">Domaine</div>
+                                                                    <div class="value">
+                                                                        <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                                    </div>
+                                                                </div>                                                                                                                                             
+                                                            </form>                           
+                                                        </div> 
+                                                        <button type="submit" value="Modifier" (click)="updateDomain(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -227,10 +378,41 @@
                           <ul *ngIf="StudiesLevels.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let StudiesLevel of StudiesLevels" class="list-group-item d-flex justify-content-between align-items-center">
                               {{StudiesLevel.name}}
-                              <span> <a><button><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateEducationLevel" (click)="test(StudiesLevel)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a> <button><i
                                     class="fas fa-trash-alt" style="color: red;" (click)="educationlevelDelete(StudiesLevel.id)"></i></button></a></span>
-                            </li>
+                            
+                                    <!--update Modal -->
+                                  <div class="modal fade" id="updateEducationLevel"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                                <div class="wrapper wrapper--w900">
+                                                    <div class="card card-6">
+                                                        <div class="card-heading">
+                                                            <h2 class="title">Modifier Niveau d'étude: </h2>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <form method="POST">
+                                                                <div class="form-row">
+                                                                    <div class="name">Niveau</div>
+                                                                    <div class="value">
+                                                                        <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                                    </div>
+                                                                </div>                                                                                                                                             
+                                                            </form>                           
+                                                        </div> 
+                                                        <button type="submit" value="Modifier" (click)="updateEducationLevel(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>             
+                            
+                                  </li>
 
                 
                           </ul>
@@ -262,10 +444,41 @@
                           <ul *ngIf="Experiences.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let Experience of Experiences" class="list-group-item d-flex justify-content-between align-items-center">
                               {{Experience.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateExperience" (click)="test(Experience)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="experienceDelete(Experience.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateExperience"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Niveau d'éxperience: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Niveau d'éxperience</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateExperience(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -296,10 +509,41 @@
                           <ul *ngIf="Contrats.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let Contrat of Contrats" class="list-group-item d-flex justify-content-between align-items-center">
                               {{Contrat.name}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateContratType" (click)="test(Contrat)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="contratDelete(Contrat.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateContratType"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Type de Contrat: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Type de Contrat</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateContratType(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">
@@ -328,10 +572,41 @@
                           <ul *ngIf="Salaires.length > 0" class="list-group" style="width: 300px; margin: 50px;">
                             <li *ngFor="let Salaire of Salaires" class="list-group-item d-flex justify-content-between align-items-center">
                               {{Salaire.salary}}
-                              <span> <a><i class="fas fa-edit" style="color: #6366F1;"></i></a> &nbsp; 
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateSalaryWish" (click)="test(Salaire)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
                                 <a><button>
                                   <i class="fas fa-trash-alt" style="color: red;" (click)="salaireDelete(Salaire.id)"></i></button></a></span>
-                            </li>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateSalaryWish"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Salaire: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Salaire</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="salary" name="salary"   [(ngModel)]="t.salary">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <button type="submit" value="Modifier" (click)="updateSalaryWish(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+
+                                </li>
                           </ul>
                         </div>
                         <div class="col-md-6" style="margin-top: 10%;">

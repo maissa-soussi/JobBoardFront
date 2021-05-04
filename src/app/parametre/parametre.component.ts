@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ParametreService } from './parametre.service';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 
@@ -29,8 +29,9 @@ export class ParametreComponent implements OnInit {
   public nvstudieslevel: any = {}
   public nvcontrat: any = {}
   public nvsalaire: any = {}
+  t:any={};
 
-  constructor(public http: HttpClient, private router : Router) { }
+  constructor(private myservice: ParametreService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
@@ -327,6 +328,148 @@ export class ParametreComponent implements OnInit {
     );
     this.nvlanguage={};
     window.location.reload()
-  } 
+  }
+  
+  updateLanguage(id:any,Language:any)
+    {
+      this.myservice.updateLanguage(id,Language).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateLanguageLevel(id:any,LanguageLevel:any)
+    {
+      this.myservice.updateLanguageLevel(id,LanguageLevel).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateDrivingLicence(id:any,DrivingLicence:any)
+    {
+      this.myservice.updateDrivingLicence(id,DrivingLicence).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateCountry(id:any,Country:any)
+    {
+      this.myservice.updateCountry(id,Country).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateDomain(id:any,Domain:any)
+    {
+      this.myservice.updateDomain(id,Domain).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateEducationLevel(id:any,EducationLevel:any)
+    {
+      this.myservice.updateEducationLevel(id,EducationLevel).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateExperience(id:any,Experience:any)
+    {
+      this.myservice.updateExperience(id,Experience).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateContratType(id:any,ContratType:any)
+    {
+      this.myservice.updateContratType(id,ContratType).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateSalaryWish(id:any,SalaryWish:any)
+    {
+      this.myservice.updateSalaryWish(id,SalaryWish).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+    test(objet:any)
+    {
+ this.t=objet;
+    }
+    
+
 
 }
+

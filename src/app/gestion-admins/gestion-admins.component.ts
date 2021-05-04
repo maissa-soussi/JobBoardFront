@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class GestionAdminsComponent implements OnInit {
   public admins: any[] = []
   myadmin:any={};
+  t:any={};
   constructor(public http: HttpClient, private router : Router) { }
   
   ngOnInit(): void {
@@ -53,5 +54,25 @@ export class GestionAdminsComponent implements OnInit {
     );
     window.location.reload()
   }
+
+  updateAdmin(id:any,admin:any)
+    {
+      
+      this.http.put("https://localhost:44338/Users"+'/'+id,admin).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+    test(objet:any)
+    {
+ this.t=objet;
+    }
 
 }

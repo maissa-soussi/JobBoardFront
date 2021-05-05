@@ -20,7 +20,7 @@ export class GestionAdminsComponent implements OnInit {
     else 
     {
      //get admins
-     this.http.get<any>("https://localhost:44338/Users")
+     this.http.get<any>("https://localhost:44338/Admins")
      .subscribe(
        (result) => { this.admins = result },
        (error) => { console.log(error) }

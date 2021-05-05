@@ -13,12 +13,18 @@ import { DatePipe } from '@angular/common';
 export class DashboardComponent implements OnInit, AfterViewInit {
   public candidatures: any[] = []
   candidature: any={}
+  stat:any={};
   constructor(private router : Router, public http: HttpClient, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
     if (role =="candidat")
     this.router.navigateByUrl('/');
+    this.http.get("https://localhost:44338/Stats")
+      .subscribe(
+        (result) => { this.stat = result },
+        (error) => { console.log(error) }
+      )
   }
 
   @ViewChild('myCalendar', { static: false }) myCalendar: jqxCalendarComponent;

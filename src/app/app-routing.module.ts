@@ -15,6 +15,7 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,11 @@ const routes: Routes = [
   {
     path: "mescandidatures",
     component: MesCandidaturesComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: "candidat-profile",
+    component: AdminCandidatProfileComponent,
     canActivate:[AuthGuard]
   }
   

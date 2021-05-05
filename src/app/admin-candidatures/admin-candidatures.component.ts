@@ -42,7 +42,7 @@ export class AdminCandidaturesComponent implements OnInit {
     console.log(this.candidatures);
     }
     onDelete(id:number){
-      if (confirm('Are you sure to delete this candidate?'))
+      if (confirm('Voulez vous supprimer cette candidature?'))
       {
       this.myservice.deleteCandidature(id)
       .subscribe(

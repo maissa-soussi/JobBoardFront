@@ -26,6 +26,7 @@ import { CandidatureSpontanneeComponent } from './candidature-spontannee/candida
 import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.component';
 import { MapComponent } from './map/map.component';
 import { jqxCalendarModule }   from 'jqwidgets-ng/jqxcalendar';
+import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { jqxCalendarModule }   from 'jqwidgets-ng/jqxcalendar';
     OffreCandidaturesComponent,
     CandidatureSpontanneeComponent,
     MesCandidaturesComponent,
-    MapComponent
+    MapComponent,
+    AdminCandidatProfileComponent
   ],
   imports: [
     BrowserModule,

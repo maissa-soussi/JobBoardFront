@@ -1,0 +1,129 @@
+<div>
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="relative md:ml-64 bg-blueGray-100">
+        <app-admin-navbar></app-admin-navbar>
+        <app-admin-header></app-admin-header>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+            <div class="flex flex-wrap cm">
+                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+               <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+                  <div class="rounded-t mb-0 px-4 py-3 border-0">
+                 <div class="flex flex-wrap items-center">
+                <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                 <h3 class="font-semibold text-base text-blueGray-700">Liste des candidatures spontanées</h3>
+                </div>
+                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                </div>
+                </div>
+            </div>
+            <div class="block w-full overflow-x-auto">
+                <!-- Projects table -->
+                <table class="items-center w-full bg-transparent border-collapse">
+                <thead>
+                    <tr>
+                    <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Identité
+                    </th>
+                    <th
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Nom candidat
+                    </th>
+                    <th
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    Email
+                    </th>
+                    <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Date entretien d'embauche
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Date_Postulation
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Etat
+            </th>
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            --
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+                                                        
+                <tr *ngFor="let candidature of CandidaturesSpontanees; let i=index">
+                <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                    {{candidature.id}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.candidate.user.firstName}} {{candidature.candidate.user.lastName}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.candidate.user.email}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.jobInterviewDate}} 
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.candidatureDate}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{candidature.status.name}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <span><a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(candidature)"><i class="fas fa-edit" style="color: #14e942;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>           
+                 <!--update Modal -->
+                 <div class="modal fade" id="updateModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                <div class="wrapper wrapper--w900">
+                                    <div class="card card-6">
+                                        <div class="card-heading">
+                                            <h2 class="title">Modifier candidature</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST">
+                                                <div class="form-row">
+                                                    <div class="name">Date d'entretien</div>
+                                                    <div class="value">
+                                                        <input class="form-control" type="text"  id="JobInterviewDate" name="JobInterviewDate"   [(ngModel)]="t.jobInterviewDate">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="name">Etat</div>
+                                                    <div class="value">
+                                                        <select class="form-control" name="statusId" [(ngModel)]="t.statusId">
+                                                            <option *ngFor="let Status of Statuses" value="{{Status.id}}" >{{Status.name}}</option>                                            
+                                                        </select>
+                                                    </div>
+                                                </div>                                  
+                                            </form>                           
+                                        </div> 
+                                        <button type="submit" value="Modifier" (click)="updateCandidatureSpontanee(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                </tr>           
+                </tbody>
+                </table>
+            </div>
+            </div>         
+                    </div>
+                </div>
+            </div>
+
+            <app-footer-admin></app-footer-admin>
+        </div>
+    </div>
+</div>
+            

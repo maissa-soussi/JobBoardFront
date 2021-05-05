@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminCandidaturesComponent } from './admin-candidatures/admin-candidatures.component';
+import { AdminCandidaturesSpontaneesComponent } from './admin-candidatures-spontanees/admin-candidatures-spontanees.component';
 import { OffreCandidaturesComponent } from './offre-candidatures/offre-candidatures.component';
 import { AdminOffresComponent } from './admin-offres/admin-offres.component';
 import { CandidatComponent } from './candidat/candidat.component';
@@ -68,6 +69,11 @@ const routes: Routes = [
   {
     path: "candidatures-admin",
     component: AdminCandidaturesComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: "candidatures-spontanees-admin",
+    component: AdminCandidaturesSpontaneesComponent,
     canActivate:[AuthGuard]
   },
   {

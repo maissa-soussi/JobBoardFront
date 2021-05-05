@@ -2,11 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AdminOffresService } from './admin-offres.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-offres',
   templateUrl: './admin-offres.component.html',
-  styleUrls: ['../parametre/parametre.component.css','./admin-offres.component.css']
+  styleUrls: ['../parametre/parametre.component.css','./admin-offres.component.css'],
+  providers: [DatePipe]
 })
 export class AdminOffresComponent implements OnInit {
   //@Input()  idOffre:any=1;
@@ -22,7 +24,7 @@ export class AdminOffresComponent implements OnInit {
   public Experiences: any[] = []
   public Contrats: any[] = []
   public Diplomes: any[] = []
-  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router) { }
+  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
@@ -92,6 +94,7 @@ export class AdminOffresComponent implements OnInit {
       this.myoffre.domainId=this.myoffre.domainId-0;
       this.myoffre.experienceId=this.myoffre.experienceId-0;
       this.myoffre.contratTypeId=this.myoffre.contratTypeId-0;
+      this.myoffre.publicationDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(
         (data)=>{
           alert("ajout succées");

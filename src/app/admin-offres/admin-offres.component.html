@@ -140,25 +140,19 @@
                                                         <div class="form-row">
                                                             <div class="name">Salaire minimum</div>
                                                             <div class="value">
-                                                                <input class="form-control" type="number" name="minSalary"  [(ngModel)]="t.minSalary">
+                                                                <input class="form-control" type="number" name="minSalary" step="50"  [(ngModel)]="t.minSalary">
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="name">Salaire maximum</div>
                                                             <div class="value">
-                                                                <input class="form-control" type="number" name="maxSalary" [(ngModel)]="t.maxSalary">
+                                                                <input class="form-control" type="number" name="maxSalary" step="50" [(ngModel)]="t.maxSalary">
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="name">Description</div>
                                                             <div class="value">
-                                                                <input class="form-control" type="text" name="description"[(ngModel)]="t.description">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-row">
-                                                            <div class="name">Date de publication</div>
-                                                            <div class="value">
-                                                                <input type="text" class="form-control" name="publicationDate" [(ngModel)]="t.publicationDate">
+                                                                <textarea class="form-control" type="text" name="description"[(ngModel)]="t.description" cols="26" rows="4"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
@@ -257,7 +251,7 @@
                                 <div class="form-row">
                                     <div class="name">Description</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="description" [(ngModel)]="t.description" disabled>
+                                        <textarea name="description" [(ngModel)]="t.description" cols="26" rows="4" disabled></textarea>                                       
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -363,27 +357,21 @@
                                 <div class="form-row">
                                     <div class="name">Salaire minimum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="number" name="minSalary"  [(ngModel)]="myoffre.minSalary">
+                                        <input class="input--style-6" type="number" name="minSalary" step="50"  [(ngModel)]="myoffre.minSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Salaire maximum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="number" name="maxSalary" [(ngModel)]="myoffre.maxSalary">
+                                        <input class="input--style-6" type="number" name="maxSalary" step="50" [(ngModel)]="myoffre.maxSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Description</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" name="description"[(ngModel)]="myoffre.description">
+                                        <textarea name="description"[(ngModel)]="myoffre.description" cols="26" rows="4"></textarea>
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="name">Date de publication</div>
-                                    <div class="value">
-                                        <input type="date" class="form-control" name="publicationDate" [(ngModel)]="myoffre.publicationDate">
-                                    </div>
-                                </div>
+                                </div>                               
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">

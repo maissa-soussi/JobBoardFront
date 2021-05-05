@@ -17,9 +17,11 @@ export class ProfileComponent implements OnInit {
   public StudiesLevels: any[] = []
   public Contrats: any[] = []
   public Salaires: any[] = []
+  public ID : number
   constructor(public http: HttpClient, private router : Router) { }
-
+  
   ngOnInit(): void {
+    let id = localStorage.getItem("id")
     let role = localStorage.getItem("role")
     if (role =="admin")
     this.router.navigateByUrl('/');

@@ -14,6 +14,7 @@ import { MesCandidaturesComponent } from './mes-candidatures/mes-candidatures.co
 import { OffresComponent } from './offres/offres.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AjoutProfileComponent } from './ajout-profile/ajout-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
@@ -38,6 +39,11 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: "ajout-profile",
+    component: AjoutProfileComponent,
     canActivate:[AuthGuard]
   },
   {

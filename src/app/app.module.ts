@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OffresComponent } from './offres/offres.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AjoutProfileComponent } from './ajout-profile/ajout-profile.component';
 import { NavbarCandidateComponent } from './navbar-candidate/navbar-candidate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
@@ -38,6 +39,7 @@ import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-ca
     RegisterComponent,
     OffresComponent,
     ProfileComponent,
+    AjoutProfileComponent,
     NavbarCandidateComponent,
     DashboardComponent,
     SidebarAdminComponent,

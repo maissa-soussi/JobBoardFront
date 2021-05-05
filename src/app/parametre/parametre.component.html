@@ -50,6 +50,10 @@
                       <button class="nav-link" id="salaire-tab" data-bs-toggle="tab" data-bs-target="#salaire"
                         type="button" role="tab" aria-controls="salaire" aria-selected="false">Salaires</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="etat-tab" data-bs-toggle="tab" data-bs-target="#etat"
+                        type="button" role="tab" aria-controls="etat" aria-selected="false">Etats des candidatures</button>
+                    </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">
                     <!--langues-->
@@ -86,8 +90,9 @@
                                                                 </div>                                                                                                                                             
                                                             </form>                           
                                                         </div> 
-                                                        <button type="submit" value="Modifier" (click)="updateLanguage(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                                    </div>
+                                                        <div style="background-color: white; height: 30px;">
+                                                          <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateLanguage(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                      </div> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,8 +152,9 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateLanguageLevel(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateLanguageLevel(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div></div>
                                           </div>
                                       </div>
                                   </div>
@@ -211,8 +217,9 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateDrivingLicence(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateDrivingLicence(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div>  </div>
                                           </div>
                                       </div>
                                   </div>
@@ -274,8 +281,9 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateCountry(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateCountry(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div> </div>
                                           </div>
                                       </div>
                                   </div>
@@ -338,8 +346,9 @@
                                                                 </div>                                                                                                                                             
                                                             </form>                           
                                                         </div> 
-                                                        <button type="submit" value="Modifier" (click)="updateDomain(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                                    </div>
+                                                        <div style="background-color: white; height: 30px;">
+                                                          <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateDomain(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                      </div> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -403,8 +412,9 @@
                                                                 </div>                                                                                                                                             
                                                             </form>                           
                                                         </div> 
-                                                        <button type="submit" value="Modifier" (click)="updateEducationLevel(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                                    </div>
+                                                        <div style="background-color: white; height: 30px;">
+                                                          <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateEducationLevel(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                      </div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -469,8 +479,9 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateExperience(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateExperience(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div> </div>
                                           </div>
                                       </div>
                                   </div>
@@ -534,8 +545,10 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateContratType(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                   <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateContratType(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div>
+                                                </div>
                                           </div>
                                       </div>
                                   </div>
@@ -597,8 +610,10 @@
                                                           </div>                                                                                                                                             
                                                       </form>                           
                                                   </div> 
-                                                  <button type="submit" value="Modifier" (click)="updateSalaryWish(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                                              </div>
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateSalaryWish(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div>
+                                                 </div>
                                           </div>
                                       </div>
                                   </div>
@@ -625,6 +640,74 @@
                       </div>
                     </div>
                     <!-- fin salaire-->
+
+
+
+                     <!-- etat -->
+                     <div class="tab-pane fade" id="etat" role="tabpanel" aria-labelledby="etat-tab">
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div  *ngIf="Etats.length == 0" class="alert alert-warning" style="margin-left: 10%; margin-top: 20px;">Pas de résultats</div>
+                          <ul *ngIf="Etats.length > 0" class="list-group" style="width: 300px; margin: 50px;">
+                            <li *ngFor="let Etat of Etats" class="list-group-item d-flex justify-content-between align-items-center">
+                              {{Etat.name}}
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateEtat" (click)="test(Etat)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
+                                <a><button>
+                                  <i class="fas fa-trash-alt" style="color: red;" (click)="etatDelete(Etat.id)"></i></button></a></span>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateEtat"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier Etat: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Etat</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="etat" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateEtat(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div>
+                                               </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+
+                                </li>
+                          </ul>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 10%;">
+                          <form method="POST">
+                            <div class="form-row row">
+                              <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control aj" placeholder="Etat" name="name" [(ngModel)]="nvetat.name">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <button type="submit" class="btn" (click)="addEtat()">Ajouter</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- fin etat-->
 
                   </div>
                 </div>

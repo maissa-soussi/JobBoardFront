@@ -19,6 +19,7 @@ export class ParametreComponent implements OnInit {
   public StudiesLevels: any[] = []
   public Contrats: any[] = []
   public Salaires: any[] = []
+  public Etats: any[] = []
   // objets pour l'ajout
   public nvlanguage: any = {}
   public nvlanguagelevel: any = {}
@@ -29,6 +30,7 @@ export class ParametreComponent implements OnInit {
   public nvstudieslevel: any = {}
   public nvcontrat: any = {}
   public nvsalaire: any = {}
+  public nvetat: any = {}
   t:any={};
 
   constructor(private myservice: ParametreService, public http: HttpClient, private router : Router) { }
@@ -91,6 +93,12 @@ export class ParametreComponent implements OnInit {
       this.http.get<any>("https://localhost:44338/SalaryWishes")
       .subscribe(
         (result) => { this.Salaires = result },
+        (error) => { console.log(error) }
+      )
+      //get Etats
+      this.http.get<any>("https://localhost:44338/Status")
+      .subscribe(
+        (result) => { this.Etats = result },
         (error) => { console.log(error) }
       )
   }}
@@ -191,6 +199,16 @@ export class ParametreComponent implements OnInit {
       window.location.reload()
       }
   }
+  etatDelete(id:number){
+    if (confirm('Voulez vous supprimé cet état?'))
+      {
+        this.http.delete(`https://localhost:44338/Status/${id}`)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+  }
 
   // void pour l'ajout 
   addLanguage(){
@@ -219,7 +237,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvlanguagelevel={};
     window.location.reload()
   } 
 
@@ -234,7 +252,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvdrivinglicence={};
     window.location.reload()
   }
 
@@ -251,7 +269,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvdomaine={};
     window.location.reload()
   }
 
@@ -266,7 +284,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvstudieslevel={};
     window.location.reload()
   }
 
@@ -281,7 +299,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvcountry={};
     window.location.reload()
   }
 
@@ -296,7 +314,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvexperience={};
     window.location.reload()
   }
 
@@ -311,7 +329,7 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvcontrat={};
     window.location.reload()
   } 
 
@@ -326,7 +344,22 @@ export class ParametreComponent implements OnInit {
         console.log(err);
       }
     );
-    this.nvlanguage={};
+    this.nvsalaire={};
+    window.location.reload()
+  }
+
+  addEtat(){
+    this.http.post("https://localhost:44338/Status",this.nvetat).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Etat existe deja");
+        console.log(err);
+      }
+    );
+    this.nvetat={};
     window.location.reload()
   }
   
@@ -453,6 +486,21 @@ export class ParametreComponent implements OnInit {
     updateSalaryWish(id:any,SalaryWish:any)
     {
       this.myservice.updateSalaryWish(id,SalaryWish).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateEtat(id:any,Etat:any)
+    {
+      this.myservice.updateEtat(id,Etat).subscribe(
         (data)=>{
           alert("modification avec succes");
           window.location.reload();

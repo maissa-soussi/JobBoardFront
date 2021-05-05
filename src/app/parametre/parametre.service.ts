@@ -14,6 +14,7 @@ export class ParametreService {
   Experiences:any=[];
   ContratTypes:any=[];
   SalaryWishes:any=[];
+  Etats:any=[];
   url1="https://localhost:44338/Languages";
   url2="https://localhost:44338/LanguageLevels";
   url3="https://localhost:44338/DrivingLicences";
@@ -23,6 +24,7 @@ export class ParametreService {
   url7="https://localhost:44338/Experiences";
   url8="https://localhost:44338/ContratTypes";
   url9="https://localhost:44338/SalaryWishes";
+  url10="https://localhost:44338/Status";
   constructor(private http:HttpClient) { }
       updateLanguage(id:any,Language:any)
        {
@@ -59,5 +61,9 @@ export class ParametreService {
        updateSalaryWish(id:any,SalaryWish:any)
        {
          return this.http.put(this.url9+'/'+id,SalaryWish) ;
+       }
+       updateEtat(id:any,Etat:any)
+       {
+         return this.http.put(this.url10+'/'+id,Etat) ;
        }
 }

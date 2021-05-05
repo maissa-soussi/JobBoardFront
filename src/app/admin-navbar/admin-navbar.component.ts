@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['../dashboard/dashboard.component.css']
 })
 export class AdminNavbarComponent implements OnInit {
-
+  
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    
   }
 
 

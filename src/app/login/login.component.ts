@@ -46,9 +46,13 @@ export class LoginComponent implements OnInit {
        let token = result.token
        let role = result.role
        let id = result.id
+       let nom = result.lastName
+       let prenom = result.firstName
        localStorage.setItem("mytoken",token)
        localStorage.setItem("role",role)
        localStorage.setItem("id",id)
+       localStorage.setItem("nom",nom)
+       localStorage.setItem("prenom",prenom)
        if (result.role =="candidat")
        this.router.navigateByUrl('/profile'); 
        else 

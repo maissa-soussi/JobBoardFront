@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarAdminComponent implements OnInit {
   collapseShow = "hidden";
+  public nom = localStorage.getItem("nom");
+  public prenom = localStorage.getItem("prenom");
   constructor() { }
 
   ngOnInit(): void {

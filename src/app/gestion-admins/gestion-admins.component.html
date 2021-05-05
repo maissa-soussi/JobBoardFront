@@ -55,7 +55,7 @@
                                                   </th>
                                                                                                     
                                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    <span> <a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(admin)"><i class="fas fa-edit" style="color: #14e942;"></i></button></a> &nbsp;  
+                                                    <span> <a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(admin)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp;  
                                                       <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="adminDelete(admin.id)"></i></button></a></span>
                                            
 <!--update Modal -->
@@ -98,8 +98,11 @@
                                                              
                           </form>                           
                       </div> 
-                      <button type="submit" value="Modifier" (click)="updateAdmin(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
-                  </div>
+
+                      <div style="background-color: white; height: 30px;">
+                        <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateAdmin(t.id,t)"><span class="spanpop">Ajouter</span></button>                      
+                    </div>
+                     </div>
               </div>
           </div>
       </div>
@@ -162,9 +165,12 @@
                                   </div>
                               </div>                           
                           </form>
-                      </div>   
-                      <button type="submit" value="Ajouter" (click)="addAdmin()"><span style="color:aliceblue;">Ajouter</span></button>                                                                        
-                      </div>
+                      </div> 
+                      
+                      <div style="background-color: white; height: 30px;">
+                        <button class="bg-dark btpop" type="submit" value="Ajouter" (click)="addAdmin()"><span class="spanpop">Ajouter</span></button>                      
+                    </div>
+           </div>
               </div>
           </div>
       </div>

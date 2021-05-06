@@ -1,11 +1,11 @@
 <app-navbar-candidate></app-navbar-candidate>
-<div class="container" style="background-color: #E6E5EA; margin-top: 120px;" >
+<div class="container" style="background-color: #E6E5EA; margin-top: 120px; width: 850px;" >
     <div class="main-body">
       <div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 250px; margin-left: 20px; margin-top: 20px; text-align: center;">Pas d'offres</div>
         <div *ngIf="offres.length > 0">
       <div *ngFor="let offre of offres" class="card text-center" style="margin-bottom: 20px;">
-        <div class="card-header">
-          {{offre.reference}}
+        <div class="card-header" style="color: rgb(14, 14, 109); font-weight: bold;">
+          {{offre.name}}
         </div>
         <div class="card-body">
          <!-- <h5 class="card-title">Special title treatment</h5>-->
@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-md-4">Domaine : {{offre.domain.name}}</div>
             <div class="col-md-4">Expérience : {{offre.experience.name}}</div>
-            <div class="col-md-4">Diplome : {{offre.diploma.name}}</div>
+            <div class="col-md-4">Diplome : <!--{{offre.diploma.name}}--></div>
           </div>
           <div class="row">
             <div class="col-md-4">Type du contrat : {{offre.contratType.name}}</div>
@@ -21,7 +21,8 @@
             <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
           </div>
           <br/>
-          <a href="#" class="btn btn-primary">Postuler</a>
+          <button type="submit" [disabled]="test==false"
+          [ngClass]="{'btn-secondary':test==false,'btn-primary':test}"class="btn btn-primary">Postuler</button>
         </div>
         <div class=" card-footer text-muted">
           <div class="row">

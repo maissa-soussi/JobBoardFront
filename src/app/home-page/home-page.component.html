@@ -41,12 +41,12 @@
 					<div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 240px; margin-left: 250px; text-align: center;">Pas d'offres</div>
 					<div *ngIf="offres.length > 0" class="list-group">
 						<div *ngFor="let offre of offres" class="card" style="margin-bottom: 10px;">
-							<a href="#"
+							<a href="offres"
 								class="list-group-item list-group-item-action flex-column align-items-start bg-light">
 								<div class="d-flex w-100 justify-content-between">
-									<h5 class="mb-1">{{offre.reference}}: {{offre.name}}</h5>
+									<h5 class="mb-1" style="color : rgb(14, 14, 109);">{{offre.name}}</h5>
 
-									<small>{{offre.publicationDate}}</small>
+									<small style="color : rgb(128, 128, 134);">{{offre.publicationDate}}</small>
 								</div>
 							</a>
 							<div class="card-body">

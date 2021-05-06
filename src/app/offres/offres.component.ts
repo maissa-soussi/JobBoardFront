@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffresComponent implements OnInit {
   public offres: any[] = []
+  public test: boolean
   constructor(public http: HttpClient) { }
 
   ngOnInit(): void {
+    if (localStorage.length!=0)
+    this.test=true;
+    else 
+    this.test=false;
     //get offres
     this.http.get<any>("https://localhost:44338/JobOffers")
       .subscribe(

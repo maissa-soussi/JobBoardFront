@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar-candidate.component.css']
 })
 export class NavbarCandidateComponent implements OnInit {
-
+  public nom = localStorage.getItem("nom");
+  public prenom = localStorage.getItem("prenom");
   constructor(private router : Router) { }
 
   ngOnInit(): void {
@@ -17,6 +18,9 @@ export class NavbarCandidateComponent implements OnInit {
   {
     localStorage.removeItem("mytoken");
     localStorage.removeItem("role");
+    localStorage.removeItem("id");
+    localStorage.removeItem("nom");
+    localStorage.removeItem("prenom");
     this.router.navigateByUrl('/');
   }
 

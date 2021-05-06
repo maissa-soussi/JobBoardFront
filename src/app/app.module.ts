@@ -29,7 +29,7 @@ import { MapComponent } from './map/map.component';
 import { jqxCalendarModule }   from 'jqwidgets-ng/jqxcalendar';
 import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
 import { AddCandidateComponent } from './add-candidate/add-candidate.component';
-import { UpdateCadidateComponent } from './update-cadidate/update-cadidate.component';
+import { UpdateCandidateComponent } from './update-candidate/update-candidate.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { UpdateCadidateComponent } from './update-cadidate/update-cadidate.compo
     MapComponent,
     AdminCandidatProfileComponent,
     AddCandidateComponent,
-    UpdateCadidateComponent
+    UpdateCandidateComponent
   ],
   imports: [
     BrowserModule,

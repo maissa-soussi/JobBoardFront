@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OffresComponent } from './offres/offres.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AjoutProfileComponent } from './ajout-profile/ajout-profile.component';
 import { NavbarCandidateComponent } from './navbar-candidate/navbar-candidate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
@@ -41,7 +40,6 @@ import { UpdateCadidateComponent } from './update-cadidate/update-cadidate.compo
     RegisterComponent,
     OffresComponent,
     ProfileComponent,
-    AjoutProfileComponent,
     NavbarCandidateComponent,
     DashboardComponent,
     SidebarAdminComponent,

@@ -30,6 +30,8 @@ import { jqxCalendarModule }   from 'jqwidgets-ng/jqxcalendar';
 import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
 import { AddCandidateComponent } from './add-candidate/add-candidate.component';
 import { UpdateCandidateComponent } from './update-candidate/update-candidate.component';
+import { UploadPictureComponent } from './upload-picture/upload-picture.component';
+import { UploadCvComponent } from './upload-cv/upload-cv.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { UpdateCandidateComponent } from './update-candidate/update-candidate.co
     MapComponent,
     AdminCandidatProfileComponent,
     AddCandidateComponent,
-    UpdateCandidateComponent
+    UpdateCandidateComponent,
+    UploadPictureComponent,
+    UploadCvComponent
   ],
   imports: [
     BrowserModule,

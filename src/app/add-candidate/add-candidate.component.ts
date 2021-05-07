@@ -29,6 +29,8 @@ export class AddCandidateComponent implements OnInit {
   candidateLanguage:any={};
   candidateExperience:any={};
   candidateDiploma:any={};
+  public response1: {dbPath: ''};
+  public response2: {dbPath: ''};
   constructor(private myservice: AddCandidateService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
@@ -126,6 +128,8 @@ export class AddCandidateComponent implements OnInit {
     this.candidate.countryId=this.candidate.countryId-0;
     this.candidate.drivingLicenceId=this.candidate.drivingLicenceId-0;
     this.candidate.salaryWishId=this.candidate.salaryWishId-0;
+    this.candidate.picturePath=this.response1.dbPath;
+    this.candidate.cvPath=this.response2.dbPath;
     var reponse=this.myservice.addCandidate(this.candidate).subscribe(
       (data)=>{
         alert("ajout succées");
@@ -235,6 +239,14 @@ export class AddCandidateComponent implements OnInit {
         }
       );
       console.log(this.experiences);
+      }
+
+      public uploadPictureFinished = (event:any) => {
+        this.response1 = event;
+      }
+
+      public uploadCvFinished = (event:any) => {
+        this.response2 = event;
       }
   
 }

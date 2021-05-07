@@ -98,7 +98,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: "candidat-profile",
+    path: "candidat-profile/:id",
     component: AdminCandidatProfileComponent,
     canActivate:[AuthGuard]
   }

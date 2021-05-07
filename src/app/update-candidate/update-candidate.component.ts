@@ -29,6 +29,8 @@ export class UpdateCandidateComponent implements OnInit {
   candidateLanguage:any={};
   candidateExperience:any={};
   candidateDiploma:any={};
+  public response1: {dbPath: ''};
+  public response2: {dbPath: ''};
   constructor(private myservice: UpdateCandidateService, public http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
@@ -235,6 +237,12 @@ export class UpdateCandidateComponent implements OnInit {
       candidate.countryId=candidate.countryId-0;
       candidate.drivingLicenceId=candidate.drivingLicenceId-0;
       candidate.salaryWishId=candidate.salaryWishId-0;
+      if(this.response1 != undefined){
+        candidate.picturePath=this.response1.dbPath;
+      }
+      if(this.response2 != undefined){
+        candidate.cvPath=this.response2.dbPath;
+      }     
       this.myservice.updatecandidate(id,candidate).subscribe(
         (data)=>{
           alert("modification avec succes");
@@ -246,6 +254,18 @@ export class UpdateCandidateComponent implements OnInit {
           console.log(err);
         }
       );
+    }
+
+    public createImgPath = (serverPath: string) => {
+      return `https://localhost:44304/${serverPath}`;
+    }
+
+    public uploadPictureFinished = (event:any) => {
+      this.response1 = event;
+    }
+
+    public uploadCvFinished = (event:any) => {
+      this.response2 = event;
     }
   
 }

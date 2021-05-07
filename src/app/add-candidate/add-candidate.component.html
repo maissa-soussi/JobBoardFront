@@ -152,7 +152,7 @@
                             <h6 class="mb-0 text-secondary">CV</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input class="form-control" type="file" name="cvPath" [(ngModel)]="candidate.cvPath">
+                            <app-upload-cv (onUploadFinished)="uploadCvFinished($event)"></app-upload-cv>
                         </div>
                     </div>
                     <br/>
@@ -161,7 +161,7 @@
                             <h6 class="mb-0 text-secondary">Photo</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input class="form-control" type="file" name="picturePath" [(ngModel)]="candidate.picturePath">
+                            <app-upload-picture (onUploadFinished)="uploadPictureFinished($event)"></app-upload-picture>
                         </div>
                     </div>
                     <br />

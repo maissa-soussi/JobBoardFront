@@ -52,4 +52,8 @@ export class AdminCandidatProfileComponent implements OnInit {
     return `https://localhost:44304/${serverPath}`;
   }
 
+  public createCvPath = (serverPath: string) => {
+    return `https://localhost:44304/${serverPath}`;
+  }
+
 }

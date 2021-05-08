@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
   public Contrats: any[] = []
   public Salaires: any[] = []
   public ID : number
-  public c : any[] = []
   public test : boolean
   constructor(public http: HttpClient, private router : Router) { }
   
@@ -31,10 +30,10 @@ export class ProfileComponent implements OnInit {
     else 
     {
       // get candidate 
-      this.http.get<any>("https://localhost:44338/Getcandidat/"+id)
+      this.http.get<any>("https://localhost:44338/Getcandidate/"+id)
       .subscribe(
-        (result) => { this.c = result;
-        this.test=true         
+        (result) => { 
+          this.test = result.id == 0;     
         },
         (error) => { console.log(error) }
       )
@@ -96,5 +95,5 @@ export class ProfileComponent implements OnInit {
         (error) => { console.log(error) }
       )
   }}
-
+ 
 }

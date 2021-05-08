@@ -7,7 +7,6 @@
         
         <div class="col-md-4 mb-3">
             <!-- photo de profil -->
-            add
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
@@ -28,8 +27,8 @@
                     <div class="card-body">                                             
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-facebook-square"></i> Facebook</h6>                            
-                            <div class="text-secondary" style="margin-top: 10px;">                              
-                                <input type="url" class="form-control" formControlName="facebookUrl" id="facebookUrl" placeholder="Lien" name="facebookUrl" [(ngModel)]="candidate.facebookUrl">                           
+                            <div class="text-secondary" style="margin-top: 10px;">
+                                    <input type="url" formControlName="facebookUrl" placeholder="Lien" class="form-control" id="facebookUrl" name="facebookUrl">                                                        
                                 <div *ngIf="facebookUrl?.touched && facebookUrl?.invalid" class="text-danger">
                                     <small *ngIf="facebookUrl?.errors?.pattern">Champ invalide <br></small>
                                 </div>
@@ -52,9 +51,12 @@
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="drivingLicenceId" [(ngModel)]="candidate.drivingLicenceId">
+                                    <select class="form-select" name="drivingLicenceId" formControlName="drivingLicenceId" [(ngModel)]="candidate.drivingLicenceId">
                                         <option *ngFor="let permis of DrivingLicences" value="{{permis.id}}" >{{permis.type}}</option>                                            
                                     </select>
+                                    <div *ngIf="drivingLicenceId?.touched && drivingLicenceId?.invalid" class="text-danger">
+                                        <small *ngIf="drivingLicenceId?.errors?.required">Champ obligatoire <br></small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -65,9 +67,12 @@
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="salaryWishId" [(ngModel)]="candidate.salaryWishId">
+                                    <select class="form-select" name="salaryWishId" formControlName="salaryWishId" [(ngModel)]="candidate.salaryWishId">
                                         <option *ngFor="let salaire of Salaires" value="{{salaire.id}}" >{{salaire.salary}}</option>                                            
                                     </select>
+                                    <div *ngIf="salaryWishId?.touched && salaryWishId?.invalid" class="text-danger">
+                                        <small *ngIf="salaryWishId?.errors?.required">Champ obligatoire <br></small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,9 +93,11 @@
                             <h6 class="mb-0 text-secondary">Date de naissance</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
+                            <div [formGroup]="addForm">
                             <input type="date" class="form-control" formControlName="birthdayDate" id="birthdayDate" name="birthdayDate" [(ngModel)]="candidate.birthdayDate">
                             <div *ngIf="birthdayDate?.touched && birthdayDate?.invalid" class="text-danger">
                                 <small *ngIf="birthdayDate?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -101,9 +108,11 @@
                             <h6 class="mb-0 text-secondary">Téléphone</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
+                            <div [formGroup]="addForm">
                             <input type="text" class="form-control" formControlName="phone" id="phone" name="phone" [(ngModel)]="candidate.phone">
                             <div *ngIf="phone?.touched && phone?.invalid" class="text-danger">
                                 <small *ngIf="phone?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -114,10 +123,13 @@
                         </div>
                         <div class="col-sm-6 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="gender" [(ngModel)]="candidate.gender">
+                                <select class="form-select" name="gender" formControlName="gender" [(ngModel)]="candidate.gender">
                                     <option value="Homme">Homme</option>
                                     <option value="Femme">Femme</option>                                             
                                 </select>
+                                <div *ngIf="gender?.touched && gender?.invalid" class="text-danger">
+                                    <small *ngIf="gender?.errors?.required">Champ obligatoire <br></small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,9 +139,11 @@
                             <h6 class="mb-0 text-secondary">Rue</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
+                            <div [formGroup]="addForm">
                             <input type="text" class="form-control" formControlName="street" id="street" name="street" [(ngModel)]="candidate.street">
                             <div *ngIf="street?.touched && street?.invalid" class="text-danger">
                                 <small *ngIf="street?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -141,17 +155,21 @@
                         <div class="col-sm-9 text-secondary">
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <div [formGroup]="addForm">
                                     <input type="text" class="form-control" formControlName="city" id="city" name="city" [(ngModel)]="candidate.city">
                                     <div *ngIf="city?.touched && city?.invalid" class="text-danger">
                                         <small *ngIf="city?.errors?.required">Champ obligatoire <br></small>
                                     </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
+                                    <div [formGroup]="addForm">
                                     <input type="text" class="form-control" formControlName="zipCode" id="zipCode" placeholder="Code postal"
                                             name="zipCode" [(ngModel)]="candidate.zipCode">
                                             <div *ngIf="zipCode?.touched && zipCode?.invalid" class="text-danger">
                                                 <small *ngIf="zipCode?.errors?.required">Champ obligatoire <br></small>
                                             </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,9 +181,12 @@
                         </div>
                         <div class="col-sm-4 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="countryId" [(ngModel)]="candidate.countryId">
+                                <select class="form-select" name="countryId" formControlName="countryId" [(ngModel)]="candidate.countryId">
                                     <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                 </select>
+                                <div *ngIf="countryId?.touched && countryId?.invalid" class="text-danger">
+                                    <small *ngIf="countryId?.errors?.required">Champ obligatoire <br></small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,14 +196,7 @@
                             <h6 class="mb-0 text-secondary">CV</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-<<<<<<< HEAD
-                            <input class="form-control" formControlName="cvPath" id="cvPath" type="file" name="cvPath"  [(ngModel)]="candidate.cvPath">
-                            <div *ngIf="cvPath?.touched && cvPath?.invalid" class="text-danger">
-                                <small *ngIf="cvPath?.errors?.required">Champ obligatoire <br></small>
-                            </div>
-=======
                             <app-upload-cv (onUploadFinished)="uploadCvFinished($event)"></app-upload-cv>
->>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
                         </div>
                     </div>
                     <br/>
@@ -191,20 +205,13 @@
                             <h6 class="mb-0 text-secondary">Photo</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-<<<<<<< HEAD
-                            <input class="form-control" type="file" formControlName="picturePath" id="picturePath" name="picturePath" [(ngModel)]="candidate.picturePath">
-                            <div *ngIf="picturePath?.touched && picturePath?.invalid" class="text-danger">
-                                <small *ngIf="picturePath?.errors?.required">Champ obligatoire <br></small>
-                            </div>
-=======
                             <app-upload-picture (onUploadFinished)="uploadPictureFinished($event)"></app-upload-picture>
->>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
                         </div>
                     </div>
                     <br />
                     <div class="row justify-content-center">
                         <div class="col-sm-4 text-secondary bbt">
-                            <button class="btn btn-outline-primary editable-submit" type="submit">Confirmer</button> 
+                            <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="addForm.invalid">Confirmer</button> 
                         </div>
                     </div>
                     <br/>
@@ -215,347 +222,3 @@
     </div>
 </form>
 <!-- Fin partie I-->
-<!-- Partie II-->
-    <div class="row gutters-sm">
-       <!-- --------- -->     
-             <div class="col-md-4 mb-3">
-                <form method="POST" class="fadmin1">
-             <div class="card">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h6 class="mb-0 text-secondary">Langues</h6>
-                            </div>
-                            <div class="col-sm-8 text-secondary">
-                                <div class="col-auto">
-                                    <select class="form-select" name="languageId" [(ngModel)]="candidateLanguage.languageId">
-                                        <option *ngFor="let language of Languages" value="{{language.id}}">{{language.name}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h6 class="mb-0 text-secondary">Niveau</h6>
-                            </div>
-                            <div class="col-sm-8 text-secondary">
-                                <div class="col-auto">
-                                    <select class="form-select" name="languageLevelId" [(ngModel)]="candidateLanguage.languageLevelId">
-                                        <option *ngFor="let languageLevel of languageLevels" value="{{languageLevel.id}}"> {{languageLevel.name}} </option>                
-                                    </select>
-                                </div>
-                            </div>
-                        </div>        
-                        <br/>
-                        <div class="row justify-content-center">
-
-                            <div class="col-sm-3 text-secondary ">
-                                <button class="btn btn-outline-primary editable-submit bbt1" type="submit" (click)="addCandidateLanguage()">Confirmer</button> 
-                            </div>
-                            
-                        </div>
-                        <hr>
-                        <div class="accordion" id="accordionExample1">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne0">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne0" aria-expanded="false" aria-controls="collapseOne0">
-                                Mes Langues
-                                </button>
-                              </h2>
-                              <div id="collapseOne0" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample0">
-                                <div class="accordion-body">
-                                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                                        <div class="col" style="width: 100%;">
-                                          <div class="card">
-                                            <div class="card-body" *ngFor="let lg of languages; let i=index ">
-                                              
-                                              <div class="card-text">
-                                                  <table class="contenu">                                                   
-                                                    <tr>
-                                                        <td> Langue : </td>
-                                                        <td> {{lg.language.name}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td> Niveau : </td>
-                                                      <td> {{lg.languageLevel.name}}</td>
-                                                  </tr>
-                                               
-                                                </table>                                               
-                                              </div>                                           
-                                            </div>
-                                          </div>
-                                        </div>                                                                      
-                                      </div>
-                                </div>
-                              </div>
-                            </div>                                                     
-                          </div>                        
-                    </div>
-                </div>
-            </div>
-        </form>
-        </div>
-            
-
-        <!-- --------- -->
-
-       
-        <div class="col-md-8">
-            <form method="POST" class="fadmin2">
-            <div class="card mb-3">
-                <div class="card-header">
-                   <b> Expériences professionnelles </b>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Nom de l'entreprise</h6>
-                        </div>
-                        <div class="col-sm-3 text-secondary">
-                            <input type="text" class="form-control" name="companyName" [(ngModel)]="candidateExperience.companyName">
-
-                        </div>
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Profession</h6>
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" name="profession" [(ngModel)]="candidateExperience.profession">
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Domaine</h6>
-                        </div>
-                        <div class="col-sm-3 text-secondary">
-                            <div class="col-auto">
-                                <select class="form-select" name="domainId" [(ngModel)]="candidateExperience.domainId">
-                                    <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}"> {{Domaine.name}}</option>                                   
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Niveau d'expérience</h6>
-                        </div>
-                        <div class="col-sm-3 text-secondary">
-                            <div class="col-auto">
-                                <select class="form-select" name="experienceId" [(ngModel)]="candidateExperience.experienceId">
-                                    <option *ngFor="let Experience of Experiences" value="{{Experience.id}}">{{Experience.name}}</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Date de début</h6>
-                        </div>
-                        <div class="col-sm-3 text-secondary">
-                            <input type="date" class="form-control" name="startDate" [(ngModel)]="candidateExperience.startDate">
-                        </div>
-                        <div class="col-sm-3">
-                            <h6 class="mb-0 text-secondary">Date de fin</h6>
-                        </div>
-                        <div class="col-sm-3 text-secondary">
-                            <input type="date" class="form-control" name="endDate" [(ngModel)]="candidateExperience.endDate">
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row justify-content-center">
-
-                            <div class="col-sm-4 text-secondary bbt">
-                                <button class="btn btn-outline-primary editable-submit" type="submit" (click)="addCandidateExperience()">Confirmer</button> 
-                            </div>
-                        
-                    </div>
-
-                    <hr>
-
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                              Mes Experiences
-                            </button>
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="row row-cols-1 row-cols-md-3 g-4">
-                                    <div class="col" style="width: 100%;">
-                                      <div class="card">
-                                        <div class="card-body" *ngFor="let ex of experiences; let i=index ">
-                                          
-                                          <div class="card-text">
-                                              <table class="contenu">
-                                                  <tr>
-                                                      <td> Domaine : {{ex.domain.name}} </td>
-                                                      <td> Nom de l'entreprise : {{ex.companyName}}</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td> Niveau d'expérience : {{ex.experience.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Date de début : {{ex.startDate}}</td>
-                                                    <td>Date de fin : {{ex.endDate}}</td>
-                                                </tr>
-                                              </table>
-                                           
-                                          </div>
-                                        
-                                        </div>
-                                      </div>
-                                    </div>
-                                 
-                                
-                                  </div>
-                            
-                            </div>
-                          </div>
-                        </div>
-                       
-                       
-                      </div>
-
-
-
-                </div>
-            </div>
-        </form>
-        </div>
-    </div>
-
-
-<!-- Fin partie II-->
-
-<!-- Partie III-->
-
-<div class="row gutters-sm">
-
-      <div class="col-md-4 mb-3">
- 
-    <!-- partie vide -->
- </div>
-     
-
-
-
- <div class="col-md-8">
-     <form method="POST" class="fadmin3">
-    <div class="card mb-3">
-        <div class="card-header">
-        <b> Diplomes </b>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0 text-secondary">Université/Ecole</h6>
-                </div>
-                <div class="col-sm-3 text-secondary">
-                    <input type="text" class="form-control" name="university" [(ngModel)]="candidateDiploma.university">
-                </div>
-                <div class="col-sm-3">
-                    <h6 class="mb-0 text-secondary">Niveau</h6>
-                </div>
-                <div class="col-sm-3 text-secondary">
-                    <div class="col-auto">
-                        <select class="form-select" name="educationLevelId" [(ngModel)]="candidateDiploma.educationLevelId">
-                            <option *ngFor="let StudiesLevel of StudiesLevels" value="{{StudiesLevel.id}}">{{StudiesLevel.name}}</option>                          
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0 text-secondary">Nom du diplome</h6>
-                </div>
-                <div class="col-sm-3 text-secondary">
-                    <div class="col-auto">
-                        <select class="form-select" name="diplomaId" [(ngModel)]="candidateDiploma.diplomaId">
-                            <option *ngFor="let diploma of Diplomas" value="{{diploma.id}}">{{diploma.name}}</option>                          
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <h6 class="mb-0 text-secondary">Domaine</h6>
-                </div>
-                <div class="col-sm-3 text-secondary">
-                    <div class="col-auto">
-                        <select class="form-select" name="domainId" [(ngModel)]="candidateDiploma.domainId">
-                            <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}">{{Domaine.name}}</option>                          
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0 text-secondary">Date du diplome</h6>
-                </div>
-                <div class="col-sm-4 text-secondary">
-                    <input type="date" class="form-control" name="date" [(ngModel)]="candidateDiploma.date">
-                </div>
-            </div>
-            <br />
-            <div class="row justify-content-center">
-                <div class="col-sm-4 text-secondary bbt">
-                    <button class="btn btn-outline-primary editable-submit" type="submit" (click)="addCandidateDiploma()">Confirmer</button> 
-                </div>
-            </div>
-            <hr>
-
-
-            <div class="accordion" id="accordionExample1">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne1">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
-                      Mes Diplomes
-                    </button>
-                  </h2>
-                  <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
-                    <div class="accordion-body">
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            <div class="col" style="width: 100%;">
-                              <div class="card">
-                                <div class="card-body" *ngFor="let dip of diplomas; let i=index ">
-                                  
-                                  <div class="card-text">                                     
-                                      <table class="contenu">
-                                        <tr>
-                                            <td> Domaine : {{dip.domain.name}} </td>
-                                            <td> Université/Ecole : {{dip.university}}</td>
-                                        </tr>
-                                        <tr>
-                                          <td> Niveau : {{dip.educationLevel.name}}</td>
-                                          <td> Date : {{dip.date}}</td>
-                                      </tr>                                  
-                                    </table>
-                                   
-                                  </div>
-                                
-                                </div>
-                              </div>
-                            </div>
-                         
-                        
-                          </div>
-                    
-                    </div>
-                  </div>
-                </div>
-               
-               
-              </div>
-
-
-        </div>
-    </div>
-</form>
- </div>
-</div>
-
-
-<!-- Fin partie III-->

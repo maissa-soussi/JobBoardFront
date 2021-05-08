@@ -30,7 +30,9 @@ export class AddCandidateComponent implements OnInit {
   candidateLanguage:any={};
   candidateExperience:any={};
   candidateDiploma:any={};
-<<<<<<< HEAD
+  public response1: {dbPath: ''};
+  public response2: {dbPath: ''};
+
   selectedCv = null;
   public addForm: FormGroup
   constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router) {
@@ -75,12 +77,9 @@ export class AddCandidateComponent implements OnInit {
    get picturePath() {return this.addForm.get('picturePath')}
    get facebookUrl() {return this.addForm.get('facebookUrl')}
    get linkedinUrl() {return this.addForm.get('linkedinUrl')}
-=======
-  public response1: {dbPath: ''};
-  public response2: {dbPath: ''};
-  constructor(private myservice: AddCandidateService, public http: HttpClient, private router : Router) { }
 
->>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
+ 
+  
   ngOnInit(): void {
     let userid = localStorage.getItem("id")
     let role = localStorage.getItem("role")

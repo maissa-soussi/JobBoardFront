@@ -30,6 +30,7 @@ export class AddCandidateComponent implements OnInit {
   candidateLanguage:any={};
   candidateExperience:any={};
   candidateDiploma:any={};
+<<<<<<< HEAD
   selectedCv = null;
   public addForm: FormGroup
   constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router) {
@@ -74,6 +75,12 @@ export class AddCandidateComponent implements OnInit {
    get picturePath() {return this.addForm.get('picturePath')}
    get facebookUrl() {return this.addForm.get('facebookUrl')}
    get linkedinUrl() {return this.addForm.get('linkedinUrl')}
+=======
+  public response1: {dbPath: ''};
+  public response2: {dbPath: ''};
+  constructor(private myservice: AddCandidateService, public http: HttpClient, private router : Router) { }
+
+>>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
   ngOnInit(): void {
     let userid = localStorage.getItem("id")
     let role = localStorage.getItem("role")
@@ -169,6 +176,8 @@ export class AddCandidateComponent implements OnInit {
     this.candidate.countryId=this.candidate.countryId-0;
     this.candidate.drivingLicenceId=this.candidate.drivingLicenceId-0;
     this.candidate.salaryWishId=this.candidate.salaryWishId-0;
+    this.candidate.picturePath=this.response1.dbPath;
+    this.candidate.cvPath=this.response2.dbPath;
     var reponse=this.myservice.addCandidate(this.candidate).subscribe(
       (data)=>{
         alert("ajout succées");
@@ -278,6 +287,14 @@ export class AddCandidateComponent implements OnInit {
         }
       );
       console.log(this.experiences);
+      }
+
+      public uploadPictureFinished = (event:any) => {
+        this.response1 = event;
+      }
+
+      public uploadCvFinished = (event:any) => {
+        this.response2 = event;
       }
   
 }

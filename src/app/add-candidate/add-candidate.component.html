@@ -175,10 +175,14 @@
                             <h6 class="mb-0 text-secondary">CV</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
+<<<<<<< HEAD
                             <input class="form-control" formControlName="cvPath" id="cvPath" type="file" name="cvPath"  [(ngModel)]="candidate.cvPath">
                             <div *ngIf="cvPath?.touched && cvPath?.invalid" class="text-danger">
                                 <small *ngIf="cvPath?.errors?.required">Champ obligatoire <br></small>
                             </div>
+=======
+                            <app-upload-cv (onUploadFinished)="uploadCvFinished($event)"></app-upload-cv>
+>>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
                         </div>
                     </div>
                     <br/>
@@ -187,10 +191,14 @@
                             <h6 class="mb-0 text-secondary">Photo</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
+<<<<<<< HEAD
                             <input class="form-control" type="file" formControlName="picturePath" id="picturePath" name="picturePath" [(ngModel)]="candidate.picturePath">
                             <div *ngIf="picturePath?.touched && picturePath?.invalid" class="text-danger">
                                 <small *ngIf="picturePath?.errors?.required">Champ obligatoire <br></small>
                             </div>
+=======
+                            <app-upload-picture (onUploadFinished)="uploadPictureFinished($event)"></app-upload-picture>
+>>>>>>> 11cae252016ffbfa8f919b190f0e0b8118bc01c8
                         </div>
                     </div>
                     <br />

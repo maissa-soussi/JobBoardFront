@@ -11,12 +11,20 @@ export class MesCandidaturesComponent implements OnInit {
   public mesCandidatures: any[] = []
   public mesCandidatureSponts: any[] = []
   public id:any={}
+  public Countries: any[] = []
+  public Domaines: any[] = []
+  public Experiences: any[] = []
+  public Contrats: any[] = []
+  public Diplomes: any[] = []
+  t:any={};
+
 
 
 
   constructor(private router : Router,public http: HttpClient) { }
 
   ngOnInit(): void {
+    
     let role = localStorage.getItem("role")
     if (role =="admin")
     this.router.navigateByUrl('/'); 
@@ -32,6 +40,40 @@ export class MesCandidaturesComponent implements OnInit {
       (result) => { this.mesCandidatureSponts = result },
       (error) => { console.log(error) }
     )
+    this.http.get<any>("https://localhost:44338/Countries")
+      .subscribe(
+        (result) => { this.Countries = result },
+        (error) => { console.log(error) }
+      )
+      //get Diplomes
+      this.http.get<any>("https://localhost:44338/Diplomas")
+      .subscribe(
+        (result) => { this.Diplomes = result },
+        (error) => { console.log(error) }
+      )
+      //get Domaines
+      this.http.get<any>("https://localhost:44338/Domains")
+      .subscribe(
+        (result) => { this.Domaines = result },
+        (error) => { console.log(error) }
+      )
+      //get Experiences
+      this.http.get<any>("https://localhost:44338/Experiences")
+      .subscribe(
+        (result) => { this.Experiences = result },
+        (error) => { console.log(error) }
+      )
+      //get contrattype
+      this.http.get<any>("https://localhost:44338/ContratTypes")
+      .subscribe(
+        (result) => { this.Contrats = result },
+        (error) => { console.log(error) }
+      )
+  }
+
+  test(objet:any)
+  {
+this.t=objet;
   }
 
 }

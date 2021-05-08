@@ -10,6 +10,7 @@
                 <th scope="col">Date_Postulation</th>
                 <th scope="col">Etat</th>
                 <th scope="col">Date entretien d'embauche</th>
+                <th>Offre</th>
               </tr>
             </thead>
             <tbody>
@@ -21,13 +22,18 @@
                 <td>{{candidature.candidatureDate}}</td>
                 <td>{{candidature.status.name}}</td>
                 <td >{{candidature.jobInterviewDate}}</td>
-              </tr>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <span> <a><button data-bs-toggle="modal" data-bs-target="#viewModal" (click)="test(candidature.jobOffer)"><i class="fas fa-eye" style="color: #6366F1;"></i></button></a> &nbsp;  
+                  </span>           
+              </td>     
+                     </tr>
               <tr *ngFor="let candidature of mesCandidatureSponts; let i=index">
                 <th scope="row"></th>
                 <td>Candidature Spontanée</td>
                 <td>{{candidature.candidatureDate}}</td>
                 <td>{{candidature.status.name}}</td>
                 <td >{{candidature.jobInterviewDate}}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--</td>
               </tr>
 
              
@@ -37,3 +43,103 @@
         
     </div>
 </div>
+
+  <!--view Modal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                <div class="wrapper wrapper--w900">
+                    <div class="card card-6">
+                        <div class="card-heading">
+                            <h2 class="title">offre d'Emploi: {{t.reference}}</h2>
+                        </div>
+                        <div class="card-body">
+                            <form class="fadmin">                               
+                                <div class="form-row">
+                                    <div class="name">Titre</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="name" [(ngModel)]="t.name" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="name">Domaine</div>
+                                  <div class="value">
+                                      <select class="form-control" name="domainId" [(ngModel)]="t.domainId" disabled>
+                                          <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="name">Expérience</div>
+                                  <div class="value">
+                                      <select class="form-control" name="experienceId" [(ngModel)]="t.experienceId" disabled>
+                                          <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="name">Diplome</div>
+                                  <div class="value">
+                                      <select class="form-control" name="diplomaId" [(ngModel)]="t.diplomaId" disabled>
+                                          <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="name">Pays</div>
+                                  <div class="value">
+                                      <select class="form-control" name="countryId"  [(ngModel)]="t.countryId" disabled>
+                                          <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
+                                      </select>
+                                  </div>
+                              </div>                                                             
+                              <div class="form-row">
+                                  <div class="name">Type de Contrat</div>
+                                  <div class="value">
+                                      <select class="form-control" name="contratId" [(ngModel)]="t.contratTypeId" disabled>
+                                          <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
+                                      </select>
+                                  </div>
+                              </div>                                
+                                <div class="form-row">
+                                    <div class="name">Salaire minimum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="minSalary"  [(ngModel)]="t.minSalary" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Salaire maximum</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="text" name="maxSalary" [(ngModel)]="t.maxSalary" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Description</div>
+                                    <div class="value">
+                                        <textarea name="description" [(ngModel)]="t.description" cols="26" rows="4" disabled></textarea>                                       
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date de publication</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="publicationDate" [(ngModel)]="t.publicationDate" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Date d'expiration</div>
+                                    <div class="value">
+                                        <input type="text" class="form-control" name="expirationDate" [(ngModel)]="t.expirationDate" disabled>
+                                    </div>
+                                </div>                                    
+                            </form>                           
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+                       

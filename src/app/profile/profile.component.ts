@@ -18,15 +18,29 @@ export class ProfileComponent implements OnInit {
   public Contrats: any[] = []
   public Salaires: any[] = []
   public ID : number
+  public c : any[] = []
+  public test : boolean
   constructor(public http: HttpClient, private router : Router) { }
   
   ngOnInit(): void {
+    this.test=false
     let id = localStorage.getItem("id")
     let role = localStorage.getItem("role")
     if (role =="admin")
     this.router.navigateByUrl('/');
     else 
     {
+      // get candidate 
+      this.http.get<any>("https://localhost:44338/Getcandidat/"+id)
+      .subscribe(
+        (result) => { this.c = result;
+        this.test=true         
+        },
+        (error) => { console.log(error) }
+      )
+      
+
+      console.log("test : ",this.test)
     //get languages
     this.http.get<any>("https://localhost:44338/Languages")
       .subscribe(

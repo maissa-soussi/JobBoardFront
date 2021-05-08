@@ -8,13 +8,13 @@
                 <h5 class="mb-0 text-secondary">Entrez votre lettre de motivation</h5>
             </div>
             <div class="col-sm-9 text-secondary">
-                <input class="form-control" type="file" id="formFile">
+                <app-upload-coverletter (onUploadFinished)="uploadCvFinished($event)"></app-upload-coverletter>
             </div>
         </div>
         <div class="row justify-content-center" style="margin: 50px;">
 
             <div class="col-sm-6 text-secondary ">
-                <button class="btn btn-outline-primary editable-submit">Enregistrer</button> &nbsp; &nbsp;
+                <button class="btn btn-outline-primary editable-submit" type="submit" (click)=addCandidature()>Postuler</button> &nbsp; &nbsp;
                 
             </div>
         </div>

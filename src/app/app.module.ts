@@ -33,6 +33,7 @@ import { AddCandidateComponent } from './add-candidate/add-candidate.component';
 import { UpdateCandidateComponent } from './update-candidate/update-candidate.component';
 import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 import { UploadCvComponent } from './upload-cv/upload-cv.component';
+import { UploadCoverletterComponent } from './upload-coverletter/upload-coverletter.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { UploadCvComponent } from './upload-cv/upload-cv.component';
     AddCandidateComponent,
     UpdateCandidateComponent,
     UploadPictureComponent,
-    UploadCvComponent
+    UploadCvComponent,
+    UploadCoverletterComponent
   ],
   imports: [
     BrowserModule,

@@ -13,29 +13,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Ingenieur Full Stack</td>
-                <td>12/12/2020</td>
-                <td>En cours</td>
-                <td>12/02/2021</td>
-              </tr>
+             
               
-              <tr>
+              <tr *ngFor="let candidature of mesCandidatures; let i=index">
                 <th scope="row">2</th>
-                <td>Ingenieur Full Stack</td>
-                <td>12/12/2020</td>
-                <td>En cours</td>
-                <td>12/02/2021</td>
+                <td>{{candidature.jobOffer.name}}</td>
+                <td>{{candidature.candidatureDate}}</td>
+                <td>{{candidature.status.name}}</td>
+                <td >{{candidature.jobInterviewDate}}</td>
               </tr>
 
-              <tr>
-                <th scope="row">3</th>
-                <td>Ingenieur Full Stack</td>
-                <td>12/12/2020</td>
-                <td>En cours</td>
-                <td>12/02/2021</td>
-              </tr>
+             
             </tbody>
           </table>
        

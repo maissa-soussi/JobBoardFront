@@ -12,6 +12,7 @@ import {DatePipe} from '@angular/common';
 export class OffresComponent implements OnInit {
   public offres: any[] = []
   public mycandidature:any={}
+  public candidate:any={}
   public test: boolean
   public id:any={}
   constructor(public http: HttpClient,private datePipe: DatePipe) { }
@@ -19,7 +20,10 @@ export class OffresComponent implements OnInit {
   ngOnInit(): void {
     this.id = localStorage.getItem("id")
     if (localStorage.length!=0)
+    {
     this.test=true;
+    this.id = localStorage.getItem("id")
+    }
     else 
     this.test=false;
     //get offres
@@ -28,10 +32,16 @@ export class OffresComponent implements OnInit {
         (result) => { this.offres = result },
         (error) => { console.log(error) }
       )
+      this.http.get<any>("https://localhost:44338/GetCandidate/"+this.id)
+      .subscribe(
+        (result) => { this.candidate = result
+        console.log(this.candidate) },
+        (error) => { console.log(error) }
+      )
   }
   addOffre(offre:any){
     this.mycandidature.jobOfferId=offre.id;
-    this.mycandidature.candidateId=this.id-0;
+    this.mycandidature.candidateId=this.candidate.id;
     this.mycandidature.statusId=1;
     //à corriger
     this.mycandidature.coverLetterPath="à corriger"

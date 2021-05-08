@@ -211,7 +211,8 @@
                     <br />
                     <div class="row justify-content-center">
                         <div class="col-sm-4 text-secondary bbt">
-                            <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="addForm.invalid">Confirmer</button> 
+                            <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="addForm.invalid"
+                            [ngClass]="{'btn-outline-secondary':addForm.invalid,'btn-outline-primary':addForm.valid}">Confirmer</button> 
                         </div>
                     </div>
                     <br/>

@@ -21,7 +21,7 @@
             <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
           </div>
           <br/>
-          <button type="submit" [disabled]="test==false"
+          <button type="submit" [disabled]="test==false" (click)=addOffre(offre)
           [ngClass]="{'btn-secondary':test==false,'btn-primary':test}"class="btn btn-primary">Postuler</button>
         </div>
         <div class=" card-footer text-muted">

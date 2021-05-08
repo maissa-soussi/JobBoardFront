@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {DatePipe} from '@angular/common';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
@@ -72,7 +73,7 @@ import { UploadCvComponent } from './upload-cv/upload-cv.component';
     ReactiveFormsModule,
     jqxCalendarModule
   ],
-  providers: [AdminOffresComponent],
+  providers: [AdminOffresComponent,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

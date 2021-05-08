@@ -54,7 +54,8 @@ export class AdminCandidaturesSpontaneesComponent implements OnInit {
     updateCandidatureSpontanee(id:any,CandidatureSpontanee:any)
     {
         CandidatureSpontanee.statusId=CandidatureSpontanee.statusId-0;
-        CandidatureSpontanee.candidate.other={};
+        
+        console.log(CandidatureSpontanee);
       this.myservice.updateCandidatureSpontanee(id,CandidatureSpontanee).subscribe(
         (data)=>{
           alert("modification avec succes");

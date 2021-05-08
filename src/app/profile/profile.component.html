@@ -2,8 +2,8 @@
 <div class="container bg-light">
     <div class="main-body">
 
-            <app-update-candidate></app-update-candidate>
-            <!--<app-update-candidate *ngIf="test == true"></app-update-candidate>-->
+            <app-add-candidate *ngIf="test == true"></app-add-candidate>
+            <app-update-candidate *ngIf="test == false"></app-update-candidate>
 
     </div>
 </div>

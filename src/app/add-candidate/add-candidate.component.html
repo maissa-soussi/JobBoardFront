@@ -2,11 +2,12 @@
 
         <!-- /Breadcrumb -->
 <!-- partie I-->
-<form method="POST" class="fadmin">
+<form [formGroup]="addForm" (ngSubmit)="addCandidate()" class="fadmin">
     <div class="row gutters-sm">
         
         <div class="col-md-4 mb-3">
             <!-- photo de profil -->
+            add
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
@@ -28,14 +29,20 @@
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-facebook-square"></i> Facebook</h6>                            
                             <div class="text-secondary" style="margin-top: 10px;">                              
-                                <input type="url" class="form-control" placeholder="Lien" name="facebookUrl" [(ngModel)]="candidate.facebookUrl">                           
+                                <input type="url" class="form-control" formControlName="facebookUrl" id="facebookUrl" placeholder="Lien" name="facebookUrl" [(ngModel)]="candidate.facebookUrl">                           
+                                <div *ngIf="facebookUrl?.touched && facebookUrl?.invalid" class="text-danger">
+                                    <small *ngIf="facebookUrl?.errors?.pattern">Champ invalide <br></small>
+                                </div>
                             </div>
                         </div>
                         <br/>
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-linkedin"></i> LinkedIn</h6>                          
                             <div class="text-secondary" style="margin-top: 10px;">                              
-                                <input type="url" class="form-control" placeholder="Lien" name="linkedinUrl" [(ngModel)]="candidate.linkedinUrl">                              
+                                <input type="url" class="form-control" formControlName="linkedinUrl" id="linkedinUrl" placeholder="Lien" name="linkedinUrl" [(ngModel)]="candidate.linkedinUrl">                              
+                                <div *ngIf="linkedinUrl?.touched && linkedinUrl?.invalid" class="text-danger">
+                                    <small *ngIf="linkedinUrl?.errors?.pattern">Champ invalide <br></small>
+                                </div>
                             </div>
                         </div>                       
                         <hr style="margin-top: 20px; margin-bottom: 20px;"> 
@@ -81,16 +88,23 @@
                             <h6 class="mb-0 text-secondary">Date de naissance</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="date" class="form-control" name="birthdayDate" [(ngModel)]="candidate.birthdayDate">
+                            <input type="date" class="form-control" formControlName="birthdayDate" id="birthdayDate" name="birthdayDate" [(ngModel)]="candidate.birthdayDate">
+                            <div *ngIf="birthdayDate?.touched && birthdayDate?.invalid" class="text-danger">
+                                <small *ngIf="birthdayDate?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                         </div>
                     </div>
+                    
                     <br />                   
                     <div class="row">
                         <div class="col-sm-3">
                             <h6 class="mb-0 text-secondary">Téléphone</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="text" class="form-control" name="phone" [(ngModel)]="candidate.phone">
+                            <input type="text" class="form-control" formControlName="phone" id="phone" name="phone" [(ngModel)]="candidate.phone">
+                            <div *ngIf="phone?.touched && phone?.invalid" class="text-danger">
+                                <small *ngIf="phone?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -113,7 +127,10 @@
                             <h6 class="mb-0 text-secondary">Rue</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input type="text" class="form-control" name="street" [(ngModel)]="candidate.street">
+                            <input type="text" class="form-control" formControlName="street" id="street" name="street" [(ngModel)]="candidate.street">
+                            <div *ngIf="street?.touched && street?.invalid" class="text-danger">
+                                <small *ngIf="street?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                         </div>
                     </div>
                     <br />
@@ -124,11 +141,17 @@
                         <div class="col-sm-9 text-secondary">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="city" [(ngModel)]="candidate.city">
+                                    <input type="text" class="form-control" formControlName="city" id="city" name="city" [(ngModel)]="candidate.city">
+                                    <div *ngIf="city?.touched && city?.invalid" class="text-danger">
+                                        <small *ngIf="city?.errors?.required">Champ obligatoire <br></small>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" placeholder="Code postal"
+                                    <input type="text" class="form-control" formControlName="zipCode" id="zipCode" placeholder="Code postal"
                                             name="zipCode" [(ngModel)]="candidate.zipCode">
+                                            <div *ngIf="zipCode?.touched && zipCode?.invalid" class="text-danger">
+                                                <small *ngIf="zipCode?.errors?.required">Champ obligatoire <br></small>
+                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +175,10 @@
                             <h6 class="mb-0 text-secondary">CV</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input class="form-control" type="file" name="cvPath" [(ngModel)]="candidate.cvPath">
+                            <input class="form-control" formControlName="cvPath" id="cvPath" type="file" name="cvPath"  [(ngModel)]="candidate.cvPath">
+                            <div *ngIf="cvPath?.touched && cvPath?.invalid" class="text-danger">
+                                <small *ngIf="cvPath?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                         </div>
                     </div>
                     <br/>
@@ -161,13 +187,16 @@
                             <h6 class="mb-0 text-secondary">Photo</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input class="form-control" type="file" name="picturePath" [(ngModel)]="candidate.picturePath">
+                            <input class="form-control" type="file" formControlName="picturePath" id="picturePath" name="picturePath" [(ngModel)]="candidate.picturePath">
+                            <div *ngIf="picturePath?.touched && picturePath?.invalid" class="text-danger">
+                                <small *ngIf="picturePath?.errors?.required">Champ obligatoire <br></small>
+                            </div>
                         </div>
                     </div>
                     <br />
                     <div class="row justify-content-center">
                         <div class="col-sm-4 text-secondary bbt">
-                            <button class="btn btn-outline-primary editable-submit" type="submit" (click)="addCandidate()">Confirmer</button> 
+                            <button class="btn btn-outline-primary editable-submit" type="submit">Confirmer</button> 
                         </div>
                     </div>
                     <br/>

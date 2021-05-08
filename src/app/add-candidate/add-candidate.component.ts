@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AddCandidateService } from './add-candidate.service';
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 
 @Component({
   selector: 'app-add-candidate',
@@ -29,8 +30,50 @@ export class AddCandidateComponent implements OnInit {
   candidateLanguage:any={};
   candidateExperience:any={};
   candidateDiploma:any={};
-  constructor(private myservice: AddCandidateService, public http: HttpClient, private router : Router) { }
-
+  selectedCv = null;
+  public addForm: FormGroup
+  constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router) {
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    let addFormControls = {
+      birthdayDate: new FormControl("",[
+        Validators.required
+      ]),
+      phone: new FormControl("",[
+        Validators.required
+      ]),
+      street: new FormControl("",[
+        Validators.required
+      ]),
+      city: new FormControl("",[
+        Validators.required
+      ]),
+      zipCode: new FormControl("",[
+        Validators.required
+      ]),
+      cvPath: new FormControl("",[
+        Validators.required
+      ]),
+      picturePath: new FormControl("",[
+        Validators.required
+      ]),
+      facebookUrl: new FormControl("",[
+        Validators.pattern(reg)
+      ]),
+      linkedinUrl: new FormControl("",[
+        Validators.pattern(reg)
+      ])
+    }
+    this.addForm= formBuilder.group(addFormControls)
+   }
+   get birthdayDate() {return this.addForm.get('birthdayDate')}
+   get phone() {return this.addForm.get('phone')}
+   get street() {return this.addForm.get('street')}
+   get city() {return this.addForm.get('city')}
+   get zipCode() {return this.addForm.get('zipCode')}
+   get cvPath() {return this.addForm.get('cvPath')}
+   get picturePath() {return this.addForm.get('picturePath')}
+   get facebookUrl() {return this.addForm.get('facebookUrl')}
+   get linkedinUrl() {return this.addForm.get('linkedinUrl')}
   ngOnInit(): void {
     let userid = localStorage.getItem("id")
     let role = localStorage.getItem("role")

@@ -20,9 +20,15 @@
             <div class="col-md-4">Min Salaire : {{offre.minSalary}} dt</div>
             <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
           </div>
+          
           <br/>
+          Entrer lettre de motivation:
+          <div style="margin-left: 270px ;">
+          <app-upload-coverletter (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
+          </div>
           <button type="submit" [disabled]="test==false" (click)=addOffre(offre)
           [ngClass]="{'btn-secondary':test==false,'btn-primary':test}"class="btn btn-primary">Postuler</button>
+          
         </div>
         <div class=" card-footer text-muted">
           <div class="row">

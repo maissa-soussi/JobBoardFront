@@ -15,6 +15,7 @@ export class OffresComponent implements OnInit {
   public candidate:any={}
   public test: boolean
   public id:any={}
+  public response: {dbPath: ''};
   constructor(public http: HttpClient,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class OffresComponent implements OnInit {
     this.mycandidature.candidateId=this.candidate.id;
     this.mycandidature.statusId=1;
     //à corriger
-    this.mycandidature.coverLetterPath="à corriger"
+    this.mycandidature.coverLetterPath=this.response.dbPath;
     var date = new Date();
     this.mycandidature.candidatureDate= this.datePipe.transform(date,"dd-MM-yyyy");
     console.log(this.mycandidature);
@@ -58,6 +59,10 @@ export class OffresComponent implements OnInit {
         alert("Erreur");
       }
     )
+  }
+
+  public uploadCoverLettreFinished = (event:any) => {
+    this.response = event;
   }
 
 }

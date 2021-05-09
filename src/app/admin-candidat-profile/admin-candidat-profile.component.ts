@@ -14,6 +14,7 @@ export class AdminCandidatProfileComponent implements OnInit {
   public languages: any[] = []
   public diplomas: any[] = []
   public experiences: any[] = []
+  public stats: any = {}
   constructor(public http: HttpClient, private router : Router, private _Activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -44,6 +45,12 @@ export class AdminCandidatProfileComponent implements OnInit {
       this.http.get<any>(`https://localhost:44338/CandidateExperiences/${this.id}`)
       .subscribe(
         (result) => { this.experiences = result;},
+        (error) => { console.log(error) }
+      )
+
+      this.http.get<any>(`https://localhost:44338/Stats/${this.id}`)
+      .subscribe(
+        (result) => { this.stats = result;},
         (error) => { console.log(error) }
       )
     }

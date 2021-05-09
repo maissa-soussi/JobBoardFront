@@ -98,7 +98,7 @@ export class AdminOffresComponent implements OnInit {
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(
         (data)=>{
           alert("ajout succées");
-          this.getalloffres();
+          window.location.reload();
           return data;
         },
         (err)=>{

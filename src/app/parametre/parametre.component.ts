@@ -12,6 +12,7 @@ export class ParametreComponent implements OnInit {
   //objets pour le select
   public languages: any[] = []
   public languageLevels: any[] = []
+  public diplomes: any[] = []
   public DrivingLicences: any[] = []
   public Countries: any[] = []
   public Domaines: any[] = []
@@ -23,6 +24,7 @@ export class ParametreComponent implements OnInit {
   // objets pour l'ajout
   public nvlanguage: any = {}
   public nvlanguagelevel: any = {}
+  public nvdiplome: any = {}
   public nvdrivinglicence: any = {}
   public nvcountry: any = {}
   public nvdomaine: any = {}
@@ -51,6 +53,12 @@ export class ParametreComponent implements OnInit {
       this.http.get<any>("https://localhost:44338/LanguageLevels")
       .subscribe(
         (result) => { this.languageLevels = result },
+        (error) => { console.log(error) }
+      )
+      //get diplomes
+      this.http.get<any>("https://localhost:44338/Diplomas")
+      .subscribe(
+        (result) => { this.diplomes = result },
         (error) => { console.log(error) }
       )
       //get DrivingLicence
@@ -118,6 +126,17 @@ export class ParametreComponent implements OnInit {
     if (confirm('Voulez vous supprimé ce niveau de langue ?'))
       {
         this.http.delete(`https://localhost:44338/LanguageLevels/${id}`)
+      .subscribe(
+        err =>{console.log(err)}
+      );
+      window.location.reload()
+      }
+  }
+
+  diplomeDelete(id:number){
+    if (confirm('Voulez vous supprimé ce diplome ?'))
+      {
+        this.http.delete(`https://localhost:44338/Diplomas/${id}`)
       .subscribe(
         err =>{console.log(err)}
       );
@@ -228,6 +247,21 @@ export class ParametreComponent implements OnInit {
 
   addLanguageLevel(){
     this.http.post("https://localhost:44338/LanguageLevels",this.nvlanguagelevel).subscribe(
+      (data)=>{
+        alert("Ajouté avec succès");
+        return data;
+      },
+      (err)=>{
+        alert("Niveau existe deja");
+        console.log(err);
+      }
+    );
+    this.nvlanguagelevel={};
+    window.location.reload()
+  } 
+
+  addDiplome(){
+    this.http.post("https://localhost:44338/Diplomas",this.nvdiplome).subscribe(
       (data)=>{
         alert("Ajouté avec succès");
         return data;
@@ -381,6 +415,21 @@ export class ParametreComponent implements OnInit {
     updateLanguageLevel(id:any,LanguageLevel:any)
     {
       this.myservice.updateLanguageLevel(id,LanguageLevel).subscribe(
+        (data)=>{
+          alert("modification avec succes");
+          window.location.reload();
+          return data;
+        },
+        (err)=>{
+          alert("erreur");
+          console.log(err);
+        }
+      );
+    }
+
+    updateDiplome(id:any,Diplome:any)
+    {
+      this.myservice.updateDiplome(id,Diplome).subscribe(
         (data)=>{
           alert("modification avec succes");
           window.location.reload();

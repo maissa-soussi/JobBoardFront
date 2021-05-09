@@ -20,6 +20,10 @@
                         type="button" role="tab" aria-controls="niveaulangue" aria-selected="false">Niveaux</button>
                     </li>
                     <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="diplome-tab" data-bs-toggle="tab" data-bs-target="#diplome"
+                        type="button" role="tab" aria-controls="diplome" aria-selected="false">Diplomes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                       <button class="nav-link" id="permis-tab" data-bs-toggle="tab" data-bs-target="#permis"
                         type="button" role="tab" aria-controls="permis" aria-selected="false">Permis de
                         conduire</button>
@@ -183,6 +187,72 @@
                     </div>
 
                     <!-- fin niveau de langues-->
+
+                     <!--diplome-->
+                     <div class="tab-pane fade" id="diplome" role="tabpanel" aria-labelledby="diplome-tab">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div  *ngIf="diplomes.length == 0" class="alert alert-warning" style="margin-left: 10%; margin-top: 20px;">Pas de résultats</div>
+                          <ul *ngIf="diplomes.length > 0" class="list-group" style="width: 300px; margin: 50px;">
+                            <li *ngFor="let diplome of diplomes" class="list-group-item d-flex justify-content-between align-items-center">
+                              {{diplome.name}}
+                              <span> <a><button data-bs-toggle="modal" data-bs-target="#updateDiplome" (click)="test(diplome)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; 
+                                <a><button>
+                                  <i class="fas fa-trash-alt" style="color: red;" (click)="diplomeDelete(diplome.id)"></i></button></a></span>
+                            
+                            <!--update Modal -->
+                            <div class="modal fade" id="updateDiplome"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <div class="page-wrapper bg-dark p-t-100 p-b-50">
+                                          <div class="wrapper wrapper--w900">
+                                              <div class="card card-6">
+                                                  <div class="card-heading">
+                                                      <h2 class="title">Modifier diplome: </h2>
+                                                  </div>
+                                                  <div class="card-body">
+                                                      <form method="POST">
+                                                          <div class="form-row">
+                                                              <div class="name">Diplome</div>
+                                                              <div class="value">
+                                                                  <input class="form-control" type="text"  id="name" name="name"   [(ngModel)]="t.name">
+                                                              </div>
+                                                          </div>                                                                                                                                             
+                                                      </form>                           
+                                                  </div> 
+                                                  <div style="background-color: white; height: 30px;">
+                                                    <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateDiplome(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                                </div></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>             
+                            
+                                </li>
+                          </ul>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 10%;">
+                          <form method="POST">
+                            <div class="form-row row">
+                              <div class="form-group col-md-6">
+
+                                <input type="text" class="form-control aj" placeholder="Diplome" name="name" id="ajitem" [(ngModel)]="nvdiplome.name">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <button type="submit" class="btn" (click)="addDiplome()">Ajouter</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- diplome-->
+
                     <!--permis-->
                     <div class="tab-pane fade" id="permis" role="tabpanel" aria-labelledby="permis-tab">
 

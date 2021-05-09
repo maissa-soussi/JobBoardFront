@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ParametreService {
   Languages:any=[];
   LanguageLevels:any=[];
+  Diplomes:any=[];
   DrivingLicences:any=[];
   Countries:any=[];
   Domains:any=[];
@@ -25,6 +26,7 @@ export class ParametreService {
   url8="https://localhost:44338/ContratTypes";
   url9="https://localhost:44338/SalaryWishes";
   url10="https://localhost:44338/Status";
+  url11="https://localhost:44338/Diplomas";
   constructor(private http:HttpClient) { }
       updateLanguage(id:any,Language:any)
        {
@@ -33,6 +35,10 @@ export class ParametreService {
        updateLanguageLevel(id:any,LanguageLevel:any)
        {
          return this.http.put(this.url2+'/'+id,LanguageLevel) ;
+       }
+       updateDiplome(id:any,Diplome:any)
+       {
+         return this.http.put(this.url11+'/'+id,Diplome) ;
        }
        updateDrivingLicence(id:any,DrivingLicence:any)
        {

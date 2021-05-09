@@ -12,20 +12,29 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                <li *ngIf="test == true && role == false" class="nav-item">
+                    <a class="nav-link js-scroll-trigger" [routerLink]="['/profile']">Profile</a>
+                </li>
+                <li *ngIf="test == true && role == true" class="nav-item">
+                    <a class="nav-link js-scroll-trigger" [routerLink]="['/dashboard']">Dashboard</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#about">A propos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#offres">Offres d'emploi</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="test == false" class="nav-item">
                     <a class="nav-link js-scroll-trigger" routerLink="/login">Se connecter</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="test == false" class="nav-item">
                     <a class="nav-link js-scroll-trigger" routerLink="/register">S'inscrire</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                </li>
+                <li *ngIf="test == true" class="nav-item">
+                    <button class ="b1" (click)="logout()"><a  class="nav-link js-scroll-trigger"> Se déconnecter </a></button>
                 </li>
             </ul>
         </div>

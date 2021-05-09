@@ -22,12 +22,13 @@
           </div>
           
           <br/>
-          Entrer lettre de motivation:
-          <div style="margin-left: 270px ;">
-          <app-upload-coverletter (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
+          
+          <div *ngIf="test == true" class="row" >
+            <div class="col-md-6">Entrer lettre de motivation: </div>
+          <app-upload-coverletter class="col-md-6" (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
           </div>
-          <button type="submit" [disabled]="test==false" (click)=addOffre(offre)
-          [ngClass]="{'btn-secondary':test==false,'btn-primary':test}"class="btn btn-primary">Postuler</button>
+          <button type="submit" (click)=addOffre(offre)
+           class="btn btn-primary">Postuler</button>
           
         </div>
         <div class=" card-footer text-muted">

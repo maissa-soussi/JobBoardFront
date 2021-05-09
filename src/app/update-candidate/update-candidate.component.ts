@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UpdateCandidateService } from './update-candidate.service';
-
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 @Component({
   selector: 'app-update-candidate',
   templateUrl: './update-candidate.component.html',
@@ -31,7 +31,103 @@ export class UpdateCandidateComponent implements OnInit {
   candidateDiploma:any={};
   public response1: {dbPath: ''};
   public response2: {dbPath: ''};
-  constructor(private myservice: UpdateCandidateService, public http: HttpClient, private router : Router) { }
+  public infoForm: FormGroup
+  public expForm: FormGroup
+  public educationForm: FormGroup
+  public langueForm: FormGroup
+  constructor(private formBuilder: FormBuilder, private myservice: UpdateCandidateService, public http: HttpClient, private router : Router) { 
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    this.infoForm = new FormGroup({
+      birthdayDate: new FormControl("",[
+        Validators.required
+      ]),
+      phone: new FormControl("",[
+        Validators.required
+      ]),
+      drivingLicenceId: new FormControl("",[
+        Validators.required
+      ]),
+      salaryWishId: new FormControl("",[
+        Validators.required
+      ]),
+      gender: new FormControl("",[
+        Validators.required
+      ]),
+      countryId: new FormControl("",[
+        Validators.required
+      ]),
+      street: new FormControl("",[
+        Validators.required
+      ]),
+      city: new FormControl("",[
+        Validators.required
+      ]),
+      zipCode: new FormControl("",[
+        Validators.required
+      ]),
+      facebookUrl: new FormControl("",[
+        Validators.pattern(reg)
+      ]),
+      linkedinUrl: new FormControl("",[
+        Validators.pattern(reg)
+      ])
+    })
+
+    this.langueForm = new FormGroup({
+      languageId: new FormControl("",[
+        Validators.required
+      ]),
+      languageLevelId: new FormControl("",[
+        Validators.required
+      ])
+      
+    })
+
+    this.expForm = new FormGroup({
+      companyName: new FormControl("",[
+        Validators.required
+      ]),
+      profession: new FormControl("",[
+        Validators.required
+      ]),
+      domainId: new FormControl("",[
+        Validators.required
+      ]),
+      experienceId: new FormControl("",[
+        Validators.required
+      ]),
+      startDate: new FormControl("",[
+        Validators.required
+      ]),
+      endDate: new FormControl("",[
+        Validators.required
+      ])
+      
+    })
+
+
+    this.educationForm = new FormGroup({
+      university: new FormControl("",[
+        Validators.required
+      ]),
+      educationLevelId: new FormControl("",[
+        Validators.required
+      ]),
+      diploma: new FormControl("",[
+        Validators.required
+      ]),
+      domainId: new FormControl("",[
+        Validators.required
+      ]),
+      date: new FormControl("",[
+        Validators.required
+      ])
+      
+    })
+
+
+
+  }
 
   ngOnInit(): void {
     let userid = localStorage.getItem("id")

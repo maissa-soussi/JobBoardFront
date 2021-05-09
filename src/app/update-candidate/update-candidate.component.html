@@ -2,7 +2,7 @@
 
         <!-- /Breadcrumb -->
 <!-- partie I-->
-<form method="POST" class="fadmin">
+<form [formGroup]="infoForm" (ngSubmit)="updatecandidate(candidate.id,candidate)" class="fadmin">
     <div class="row gutters-sm">
         
         <div class="col-md-4 mb-3">
@@ -28,14 +28,14 @@
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-facebook-square"></i> Facebook</h6>                            
                             <div class="text-secondary" style="margin-top: 10px;">                              
-                                <input type="url" class="form-control" placeholder="Lien" name="facebookUrl" [(ngModel)]="candidate.facebookUrl">                           
+                                <input type="url" class="form-control" placeholder="Lien" name="facebookUrl" formControlName="facebookUrl" [(ngModel)]="candidate.facebookUrl">                           
                             </div>
                         </div>
                         <br/>
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-linkedin"></i> LinkedIn</h6>                          
                             <div class="text-secondary" style="margin-top: 10px;">                              
-                                <input type="url" class="form-control" placeholder="Lien" name="linkedinUrl" [(ngModel)]="candidate.linkedinUrl">                              
+                                <input type="url" class="form-control" placeholder="Lien" name="linkedinUrl" formControlName="linkedinUrl" [(ngModel)]="candidate.linkedinUrl">                              
                             </div>
                         </div>                       
                         <hr style="margin-top: 20px; margin-bottom: 20px;"> 
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="drivingLicenceId" [(ngModel)]="candidate.drivingLicenceId">
+                                    <select class="form-select" name="drivingLicenceId" formControlName="drivingLicenceId" [(ngModel)]="candidate.drivingLicenceId">
                                         <option *ngFor="let permis of DrivingLicences" value="{{permis.id}}" >{{permis.type}}</option>                                            
                                     </select>
                                 </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="salaryWishId" [(ngModel)]="candidate.salaryWishId">
+                                    <select class="form-select" name="salaryWishId" formControlName="salaryWishId" [(ngModel)]="candidate.salaryWishId">
                                         <option *ngFor="let salaire of Salaires" value="{{salaire.id}}" >{{salaire.salary}}</option>                                            
                                     </select>
                                 </div>
@@ -81,7 +81,7 @@
                             <h6 class="mb-0 text-secondary">Date de naissance</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="date" class="form-control" name="birthdayDate" [(ngModel)]="candidate.birthdayDate">
+                            <input type="date" class="form-control" name="birthdayDate" formControlName="birthdayDate" [(ngModel)]="candidate.birthdayDate">
                         </div>
                     </div>
                     <br />                   
@@ -90,7 +90,7 @@
                             <h6 class="mb-0 text-secondary">Téléphone</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="text" class="form-control" name="phone" [(ngModel)]="candidate.phone">
+                            <input type="text" class="form-control" name="phone" formControlName="phone" [(ngModel)]="candidate.phone">
                         </div>
                     </div>
                     <hr>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="col-sm-6 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="gender" [(ngModel)]="candidate.gender">
+                                <select class="form-select" name="gender" formControlName="gender" [(ngModel)]="candidate.gender">
                                     <option value="Homme">Homme</option>
                                     <option value="Femme">Femme</option>                                             
                                 </select>
@@ -113,7 +113,7 @@
                             <h6 class="mb-0 text-secondary">Rue</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input type="text" class="form-control" name="street" [(ngModel)]="candidate.street">
+                            <input type="text" class="form-control" name="street" formControlName="street" [(ngModel)]="candidate.street">
                         </div>
                     </div>
                     <br />
@@ -124,11 +124,11 @@
                         <div class="col-sm-9 text-secondary">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="city" [(ngModel)]="candidate.city">
+                                    <input type="text" class="form-control" name="city" formControlName="city" [(ngModel)]="candidate.city">
                                 </div>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" placeholder="Code postal"
-                                            name="zipCode" [(ngModel)]="candidate.zipCode">
+                                            name="zipCode" formControlName="zipCode" [(ngModel)]="candidate.zipCode">
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="col-sm-4 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="countryId" [(ngModel)]="candidate.countryId">
+                                <select class="form-select" name="countryId" formControlName="countryId" [(ngModel)]="candidate.countryId">
                                     <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                 </select>
                             </div>
@@ -167,7 +167,8 @@
                     <br />
                     <div class="row justify-content-center">
                         <div class="col-sm-4 text-secondary bbt">
-                            <button class="btn btn-outline-primary editable-submit" type="submit" (click)="updatecandidate(candidate.id,candidate)">Modifier</button> 
+                            <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="infoForm.invalid"
+                            [ngClass]="{'btn-outline-secondary':infoForm.invalid,'btn-outline-primary':infoForm.valid}">Modifier</button> 
                         </div>
                     </div>
                     <br/>
@@ -182,7 +183,7 @@
     <div class="row gutters-sm">
        <!-- --------- -->     
              <div class="col-md-4 mb-3">
-                <form method="POST" class="fadmin1">
+                <form [formGroup]="langueForm" (ngSubmit)="addCandidateLanguage()" class="fadmin1">
              <div class="card">
                 <div class="card h-100">
                     <div class="card-body">
@@ -192,7 +193,7 @@
                             </div>
                             <div class="col-sm-8 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="languageId" [(ngModel)]="candidateLanguage.languageId">
+                                    <select class="form-select" name="languageId" formControlName="languageId" [(ngModel)]="candidateLanguage.languageId">
                                         <option *ngFor="let language of Languages" value="{{language.id}}">{{language.name}}</option>
                                     </select>
                                 </div>
@@ -205,7 +206,7 @@
                             </div>
                             <div class="col-sm-8 text-secondary">
                                 <div class="col-auto">
-                                    <select class="form-select" name="languageLevelId" [(ngModel)]="candidateLanguage.languageLevelId">
+                                    <select class="form-select" name="languageLevelId" formControlName="languageLevelId" [(ngModel)]="candidateLanguage.languageLevelId">
                                         <option *ngFor="let languageLevel of languageLevels" value="{{languageLevel.id}}"> {{languageLevel.name}} </option>                
                                     </select>
                                 </div>
@@ -215,7 +216,8 @@
                         <div class="row justify-content-center">
 
                             <div class="col-sm-3 text-secondary ">
-                                <button class="btn btn-outline-primary editable-submit bbt1" type="submit" (click)="addCandidateLanguage()">Confirmer</button> 
+                                <button class="btn btn-outline-primary editable-submit bbt1" type="submit" [disabled]="langueForm.invalid"
+                                [ngClass]="{'btn-outline-secondary':langueForm.invalid,'btn-outline-primary':langueForm.valid}">Confirmer</button> 
                             </div>
                             
                         </div>
@@ -266,7 +268,7 @@
 
        
         <div class="col-md-8">
-            <form method="POST" class="fadmin2">
+            <form [formGroup]="expForm" (ngSubmit)="addCandidateExperience()" class="fadmin2">
             <div class="card mb-3">
                 <div class="card-header">
                    <b> Expériences professionnelles </b>
@@ -277,14 +279,14 @@
                             <h6 class="mb-0 text-secondary">Nom de l'entreprise</h6>
                         </div>
                         <div class="col-sm-3 text-secondary">
-                            <input type="text" class="form-control" name="companyName" [(ngModel)]="candidateExperience.companyName">
+                            <input type="text" class="form-control" name="companyName" formControlName="companyName" [(ngModel)]="candidateExperience.companyName">
 
                         </div>
                         <div class="col-sm-3">
                             <h6 class="mb-0 text-secondary">Profession</h6>
                         </div>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="profession" [(ngModel)]="candidateExperience.profession">
+                            <input type="text" class="form-control" name="profession" formControlName="profession" [(ngModel)]="candidateExperience.profession">
                         </div>
                     </div>
                     <br />
@@ -294,7 +296,7 @@
                         </div>
                         <div class="col-sm-3 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="domainId" [(ngModel)]="candidateExperience.domainId">
+                                <select class="form-select" name="domainId" formControlName="domainId" [(ngModel)]="candidateExperience.domainId">
                                     <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}"> {{Domaine.name}}</option>                                   
                                 </select>
                             </div>
@@ -304,7 +306,7 @@
                         </div>
                         <div class="col-sm-3 text-secondary">
                             <div class="col-auto">
-                                <select class="form-select" name="experienceId" [(ngModel)]="candidateExperience.experienceId">
+                                <select class="form-select" name="experienceId" formControlName="experienceId" [(ngModel)]="candidateExperience.experienceId">
                                     <option *ngFor="let Experience of Experiences" value="{{Experience.id}}">{{Experience.name}}</option>
                                     
                                 </select>
@@ -317,20 +319,22 @@
                             <h6 class="mb-0 text-secondary">Date de début</h6>
                         </div>
                         <div class="col-sm-3 text-secondary">
-                            <input type="date" class="form-control" name="startDate" [(ngModel)]="candidateExperience.startDate">
+                            <input type="date" class="form-control" name="startDate" formControlName="startDate" [(ngModel)]="candidateExperience.startDate">
                         </div>
                         <div class="col-sm-3">
                             <h6 class="mb-0 text-secondary">Date de fin</h6>
                         </div>
                         <div class="col-sm-3 text-secondary">
-                            <input type="date" class="form-control" name="endDate" [(ngModel)]="candidateExperience.endDate">
+                            <input type="date" class="form-control" name="endDate" formControlName="endDate" [(ngModel)]="candidateExperience.endDate">
                         </div>
                     </div>
                     <br />
                     <div class="row justify-content-center">
 
                             <div class="col-sm-4 text-secondary bbt">
-                                <button class="btn btn-outline-primary editable-submit" type="submit" (click)="addCandidateExperience()">Confirmer</button> 
+                                <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="expForm.invalid"
+                                [ngClass]="{'btn-outline-secondary':expForm.invalid,'btn-outline-primary':expForm.valid}">Confirmer</button> 
+                            
                             </div>
                         
                     </div>
@@ -406,7 +410,7 @@
 
 
  <div class="col-md-8">
-     <form method="POST" class="fadmin3">
+     <form [formGroup]="educationForm" (ngSubmit)="addCandidateDiploma()" class="fadmin3">
     <div class="card mb-3">
         <div class="card-header">
         <b> Diplomes </b>
@@ -417,14 +421,14 @@
                     <h6 class="mb-0 text-secondary">Université/Ecole</h6>
                 </div>
                 <div class="col-sm-3 text-secondary">
-                    <input type="text" class="form-control" name="university" [(ngModel)]="candidateDiploma.university">
+                    <input type="text" class="form-control" name="university" formControlName="university" [(ngModel)]="candidateDiploma.university">
                 </div>
                 <div class="col-sm-3">
                     <h6 class="mb-0 text-secondary">Niveau</h6>
                 </div>
                 <div class="col-sm-3 text-secondary">
                     <div class="col-auto">
-                        <select class="form-select" name="educationLevelId" [(ngModel)]="candidateDiploma.educationLevelId">
+                        <select class="form-select" name="educationLevelId" formControlName="educationLevelId" [(ngModel)]="candidateDiploma.educationLevelId">
                             <option *ngFor="let StudiesLevel of StudiesLevels" value="{{StudiesLevel.id}}">{{StudiesLevel.name}}</option>                          
                         </select>
                     </div>
@@ -437,7 +441,7 @@
                 </div>
                 <div class="col-sm-3 text-secondary">
                     <div class="col-auto">
-                        <input type="text" class="form-control" name="diploma" [(ngModel)]="candidateDiploma.diploma">
+                        <input type="text" class="form-control" name="diploma" formControlName="diploma" [(ngModel)]="candidateDiploma.diploma">
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -445,7 +449,7 @@
                 </div>
                 <div class="col-sm-3 text-secondary">
                     <div class="col-auto">
-                        <select class="form-select" name="domainId" [(ngModel)]="candidateDiploma.domainId">
+                        <select class="form-select" name="domainId" formControlName="domainId" [(ngModel)]="candidateDiploma.domainId">
                             <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}">{{Domaine.name}}</option>                          
                         </select>
                     </div>
@@ -457,13 +461,15 @@
                     <h6 class="mb-0 text-secondary">Date du diplome</h6>
                 </div>
                 <div class="col-sm-4 text-secondary">
-                    <input type="date" class="form-control" name="date" [(ngModel)]="candidateDiploma.date">
+                    <input type="date" class="form-control" name="date" formControlName="date" [(ngModel)]="candidateDiploma.date">
                 </div>
             </div>
             <br />
             <div class="row justify-content-center">
                 <div class="col-sm-4 text-secondary bbt">
-                    <button class="btn btn-outline-primary editable-submit" type="submit" (click)="addCandidateDiploma()">Confirmer</button> 
+                    <button class="btn btn-outline-primary editable-submit" type="submit" [disabled]="educationForm.invalid"
+                                [ngClass]="{'btn-outline-secondary':educationForm.invalid,'btn-outline-primary':educationForm.valid}">Confirmer</button> 
+                            
                 </div>
             </div>
             <hr>

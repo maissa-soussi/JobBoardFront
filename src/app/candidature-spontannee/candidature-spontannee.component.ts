@@ -12,10 +12,20 @@ export class CandidatureSpontanneeComponent implements OnInit {
   public response2: {dbPath: ''};
   public mycandidature:any={}
   public candidate:any={}
+  public testcandidat: boolean =false
   public id:any={}
   constructor(private router : Router,public http: HttpClient,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
+
+    this.http.get<any>("https://localhost:44338/GetCandidate/"+this.id)
+      .subscribe(
+        (result) => { this.candidate = result
+          this.testcandidat=true },
+        (error) => { console.log(error) }
+      )
+      if (this.testcandidat)
+      {
     let role = localStorage.getItem("role")
     if (role =="admin")
     this.router.navigateByUrl('/');
@@ -27,6 +37,9 @@ export class CandidatureSpontanneeComponent implements OnInit {
       (error) => { console.log(error) }
     )
   }
+  else 
+  this.router.navigateByUrl('/profile');
+}
   public uploadCvFinished = (event:any) => {
     this.response2 = event;
   }

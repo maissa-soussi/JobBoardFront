@@ -76,3 +76,7 @@ li span {
 }
 
 
+.bdelete{
+    border: none;
+    background-color: white;
+}

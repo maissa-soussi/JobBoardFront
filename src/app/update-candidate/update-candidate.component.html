@@ -237,15 +237,25 @@
                                             <div class="card-body" *ngFor="let lg of languages; let i=index ">
                                               
                                               <div class="card-text">
-                                                  <table class="contenu">                                                   
+                                                  <table class="contenu" style="border-bottom: 1px solid rgb(207, 207, 207);">   
                                                     <tr>
+                                                        <td>
+                                                            <a><button class="bdelete">
+                                                                <i class="fas fa-trash" style="color: rgb(207, 207, 207);" (click)="languageDelete(lg.id)"></i></button></a>
+                                                        </td>
+                                                   
+                                                    </tr>                                              
+                                                    <tr>
+                                                        
                                                         <td> Langue : </td>
                                                         <td> {{lg.language.name}}</td>
                                                     </tr>
                                                     <tr>
+                                                   
                                                       <td> Niveau : </td>
                                                       <td> {{lg.languageLevel.name}}</td>
                                                   </tr>
+                                                  
                                                
                                                 </table>                                               
                                               </div>                                           
@@ -356,8 +366,15 @@
                                         <div class="card-body" *ngFor="let ex of experiences; let i=index ">
                                           
                                           <div class="card-text">
-                                              <table class="contenu">
-                                                  <tr>
+                                              <table class="contenu" style="border-bottom: 1px solid rgb(207, 207, 207);">
+                                                <tr>
+                                                    <td>
+                                                        <a><button class="bdelete">
+                                                            <i class="fas fa-trash" style="color: rgb(207, 207, 207);" (click)="expDelete(ex.id)"></i></button></a>
+                                                    </td>
+                                               
+                                                </tr>  
+                                                <tr>
                                                       <td> Domaine : {{ex.domain.name}} </td>
                                                       <td> Nom de l'entreprise : {{ex.companyName}}</td>
                                                   </tr>
@@ -490,7 +507,14 @@
                                 <div class="card-body" *ngFor="let dip of diplomas; let i=index ">
                                   
                                   <div class="card-text">                                     
-                                      <table class="contenu">
+                                      <table class="contenu" style="border-bottom: 1px solid rgb(207, 207, 207);">
+                                        <tr>
+                                            <td>
+                                                <a><button class="bdelete">
+                                                    <i class="fas fa-trash" style="color: rgb(207, 207, 207);" (click)="diplomeDelete(dip.id)"></i></button></a>
+                                            </td>
+                                       
+                                        </tr>
                                         <tr>
                                             <td> Domaine : {{dip.domain.name}} </td>
                                             <td> Université/Ecole : {{dip.university}}</td>

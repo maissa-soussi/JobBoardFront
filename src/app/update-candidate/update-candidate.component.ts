@@ -356,5 +356,37 @@ export class UpdateCandidateComponent implements OnInit {
     public uploadCvFinished = (event:any) => {
       this.response2 = event;
     }
+
+
+    diplomeDelete(id:number){
+      if (confirm('Voulez vous supprimé ce diplome ?'))
+        {
+          this.http.delete(`https://localhost:44338/CandidateDiplomas/${id}`)
+        .subscribe(
+          err =>{console.log(err)}
+        );
+        window.location.reload()
+        }
+    }
+    expDelete(id:number){
+      if (confirm('Voulez vous supprimé cette expérience ?'))
+        {
+          this.http.delete(`https://localhost:44338/CandidateExperiences/${id}`)
+        .subscribe(
+          err =>{console.log(err)}
+        );
+        window.location.reload()
+        }
+    }
+    languageDelete(id:number){
+      if (confirm('Voulez vous supprimé cette langue ?'))
+        {
+          this.http.delete(`https://localhost:44338/CandidateLanguages/${id}`)
+        .subscribe(
+          err =>{console.log(err)}
+        );
+        window.location.reload()
+        }
+    }
   
 }

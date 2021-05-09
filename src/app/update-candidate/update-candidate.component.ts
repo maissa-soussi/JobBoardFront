@@ -91,12 +91,6 @@ export class UpdateCandidateComponent implements OnInit {
         (result) => { this.Domaines = result },
         (error) => { console.log(error) }
       )
-      //get Diplomas
-      this.http.get<any>("https://localhost:44338/Diplomas")
-      .subscribe(
-        (result) => { this.Diplomas = result },
-        (error) => { console.log(error) }
-      )
       //get StudiesLevels
       this.http.get<any>("https://localhost:44338/EducationLevels")
       .subscribe(
@@ -163,7 +157,6 @@ export class UpdateCandidateComponent implements OnInit {
   addCandidateDiploma(){   
     this.candidateDiploma.candidateId=this.candidateDiploma.candidateId-0;
     this.candidateDiploma.domainId=this.candidateDiploma.domainId-0;
-    this.candidateDiploma.diplomaId=this.candidateDiploma.diplomaId-0;
     this.candidateDiploma.educationLevelId=this.candidateDiploma.educationLevelId-0;
     var reponse=this.myservice.addCandidateDiploma(this.candidateDiploma).subscribe(
       (data)=>{

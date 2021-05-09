@@ -38,6 +38,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
               this.myCalendar.addSpecialDate(date, '', "candudature: " + element.id);
         });
 });
+
+this.http.get<any>("https://localhost:44338/CandidatureSponts")
+.subscribe((data: any)=> {                     
+      data.forEach((element: any) => {              
+        let date = new Date(element.jobInterviewDate);
+        console.log(date);
+        this.myCalendar.addSpecialDate(date, '', "candudature spontanée: " + element.id);
+  });
+});
       
     }
 

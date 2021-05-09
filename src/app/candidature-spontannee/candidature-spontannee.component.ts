@@ -34,8 +34,7 @@ export class CandidatureSpontanneeComponent implements OnInit {
     this.mycandidature.candidateId=this.candidate.id;
     this.mycandidature.statusId=1;
     this.mycandidature.coverLetterPath=this.response2.dbPath;
-    var date = new Date();
-    this.mycandidature.candidatureDate= this.datePipe.transform(date,"dd-MM-yyyy");
+    this.mycandidature.candidatureDate= this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     console.log(this.mycandidature);
     this.http.post<any>("https://localhost:44338/CandidatureSponts",this.mycandidature)
     .subscribe(

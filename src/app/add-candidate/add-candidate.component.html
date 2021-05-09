@@ -28,7 +28,7 @@
                         <div class="row">                           
                                 <h6 class="mb-0 text-secondary"> <i class="fab fa-facebook-square"></i> Facebook</h6>                            
                             <div class="text-secondary" style="margin-top: 10px;">
-                                    <input type="url" formControlName="facebookUrl" placeholder="Lien" class="form-control" id="facebookUrl" name="facebookUrl">                                                        
+                                    <input type="url" formControlName="facebookUrl" placeholder="Lien" class="form-control" id="facebookUrl" name="facebookUrl" [(ngModel)]="candidate.facebookUrl">                                                        
                                 <div *ngIf="facebookUrl?.touched && facebookUrl?.invalid" class="text-danger">
                                     <small *ngIf="facebookUrl?.errors?.pattern">Champ invalide <br></small>
                                 </div>

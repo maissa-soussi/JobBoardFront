@@ -24,24 +24,24 @@
                     <tr>
                     <th
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Identité
+                        Candidat
                     </th>
                     <th
                     class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                    Candidat
+                    Date Entretien 
                     </th>
                    
                     <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                Entretien d'embauche
-            </th>
-            <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Date_Postulation
             </th>
             <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 Etat
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Lettre de motivation
             </th>
             <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
             --
@@ -53,20 +53,21 @@
                 <tr *ngFor="let candidature of CandidaturesSpontanees; let i=index">
                 <td
                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                    {{candidature.id}}
-                </td>
-                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <button [routerLink]="['/candidat-profile', candidature.candidate.id]">{{candidature.candidate.user.firstName}} {{candidature.candidate.user.lastName}}</button>
                 </td>
-                
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {{candidature.jobInterviewDate}} 
+                    {{candidature.jobInterviewDate}}
                 </td>
+                
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{candidature.candidatureDate}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {{candidature.status.name}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://localhost:44304/{{candidature.coverLetterPath}}"><i class="fas fa-download" style="color: #15d44f ;"></i></a></span>
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <span><a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(candidature)"><i class="fas fa-edit" style="color: #6366F1"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>           

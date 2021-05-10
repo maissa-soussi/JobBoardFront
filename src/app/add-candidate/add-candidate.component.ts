@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AddCandidateService } from './add-candidate.service';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-candidate',
   templateUrl: './add-candidate.component.html',
-  styleUrls: ['../profile/profile.component.css']
+  styleUrls: ['../profile/profile.component.css'],
+  providers: [DatePipe]
 })
 export class AddCandidateComponent implements OnInit {
   public DrivingLicences: any[] = []
@@ -20,7 +22,7 @@ export class AddCandidateComponent implements OnInit {
   public response1: {dbPath: ''};
   public response2: {dbPath: ''};
   public addForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router) {
+  constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe) {
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.addForm = new FormGroup({
       birthdayDate: new FormControl("",[
@@ -115,6 +117,7 @@ export class AddCandidateComponent implements OnInit {
     this.candidate.salaryWishId=this.candidate.salaryWishId-0;
     this.candidate.picturePath=this.response1.dbPath;
     this.candidate.cvPath=this.response2.dbPath;
+    this.candidate.birthdayDate = this.datePipe.transform(this.candidate.birthdayDate, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidate(this.candidate).subscribe(
       (data)=>{
         alert("ajout succées");

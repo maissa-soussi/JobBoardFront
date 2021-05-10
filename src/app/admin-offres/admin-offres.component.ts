@@ -95,6 +95,7 @@ export class AdminOffresComponent implements OnInit {
       this.myoffre.experienceId=this.myoffre.experienceId-0;
       this.myoffre.contratTypeId=this.myoffre.contratTypeId-0;
       this.myoffre.publicationDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      this.myoffre.expirationDate = this.datePipe.transform(this.myoffre.expirationDate, 'yyyy-MM-dd');
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(
         (data)=>{
           alert("ajout succées");
@@ -116,6 +117,7 @@ export class AdminOffresComponent implements OnInit {
       offre.domainId=offre.domainId-0;
       offre.experienceId=offre.experienceId-0;
       offre.contratTypeId=offre.contratTypeId-0;
+      offre.expirationDate = this.datePipe.transform(offre.expirationDate, 'yyyy-MM-dd');
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
           alert("modification avec succes");

@@ -73,7 +73,7 @@
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <span> 
-                        <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(joboffercandidature.candidatureId)"></i></button></a></span>           
+                        <a><button [routerLink]="['/candidat-profile', joboffercandidature.candidate.id]"><i class="fas fa-eye" style="color: #18ac71;"></i></button></a> &nbsp;<a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(joboffercandidature.candidatureId)"></i></button></a></span>           
                     </td>
                 </tr>           
                 </tbody>

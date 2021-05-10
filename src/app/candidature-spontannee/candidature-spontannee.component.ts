@@ -13,24 +13,18 @@ export class CandidatureSpontanneeComponent implements OnInit {
   public mycandidature:any={}
   public candidate:any={}
   public testcandidat: boolean =false
-  public id:any={}
-  public test : boolean = false
   constructor(private router : Router,public http: HttpClient,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     
-    let id = localStorage.getItem("id")
-
-    this.http.get<any>("https://localhost:44338/Getcandidate/"+id)
-    .subscribe(
-      (result) => { this.candidate=result;
-        this.test = result.id == 0;
-      },
-      (error) => { console.log(error); }
-    )
-
-    /*if (this.test == false)
-    this.router.navigateByUrl('/profile'); */
+    let id=localStorage.getItem("id")
+    this.http.get<any>("https://localhost:44338/GetCandidate/"+id)
+      .subscribe(
+        (result) => { this.candidate = result
+          this.testcandidat=result.id != 0
+        console.log(this.testcandidat) },
+        (error) => { console.log(error) }
+      )
     
   }
 

@@ -35,7 +35,8 @@ export class OffresComponent implements OnInit {
     this.http.get<any>("https://localhost:44338/GetCandidate/"+this.id)
       .subscribe(
         (result) => { this.candidate = result
-          this.testcandidat=true },
+          this.testcandidat=result.id != 0
+        console.log(this.testcandidat) },
         (error) => { console.log(error) }
       )
           if (localStorage.getItem("role")=="candidat")

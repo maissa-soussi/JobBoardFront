@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-candidatures-spontanees',
   templateUrl: './admin-candidatures-spontanees.component.html',
-  styleUrls: ['../admin-candidatures/admin-candidatures.component.css']
+  styleUrls: ['../parametre/parametre.component.css','../admin-candidatures/admin-candidatures.component.css']
 })
 export class AdminCandidaturesSpontaneesComponent implements OnInit {
   CandidaturesSpontanees: any=[];

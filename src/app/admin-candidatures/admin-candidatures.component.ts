@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-candidatures',
   templateUrl: './admin-candidatures.component.html',
-  styleUrls: ['./admin-candidatures.component.css']
+  styleUrls: ['../parametre/parametre.component.css','./admin-candidatures.component.css']
 })
 export class AdminCandidaturesComponent implements OnInit {
   candidatures: any=[];

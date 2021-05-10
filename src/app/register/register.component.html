@@ -60,9 +60,7 @@
                             <button type="submit" [disabled]="registerForm.invalid || password2?.value != password?.value" [ngClass]="{'btn-secondary':registerForm.invalid || password2?.value != password?.value,'btn-primary':registerForm.valid}" class="btn btn-primary">Enregistrer</button>
                         </form>
                         <hr class="hr">
-                        <div class="text-center">
-                            <a class="small" href="">Mot de passe oublié?</a>
-                        </div>
+                       
                         <div class="text-center">
                             <a class="small" href="" routerLink="/login">Vous avez déjà un compte? Se connecter!</a>
                         </div>

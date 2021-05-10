@@ -74,7 +74,7 @@
                     {{candidature.status.name}}
                 </td>
                 <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <span><a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(candidature)"><i class="fas fa-edit" style="color: #14e942;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>           
+                    <span><a><button data-bs-toggle="modal" data-bs-target="#updateModal" (click)="test(candidature)"><i class="fas fa-edit" style="color: #6366F1;"></i></button></a> &nbsp; <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(candidature.id)"></i></button></a></span>           
                  
                   <!--view Modal -->
   <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,20 +181,22 @@
                                                 <div class="form-row">
                                                     <div class="name">Date d'entretien</div>
                                                     <div class="value">
-                                                        <input class="form-control" type="date"  id="JobInterviewDate" name="JobInterviewDate"   [(ngModel)]="t.jobInterviewDate">
+                                                        <input class="form-control fc" type="date"  id="JobInterviewDate" name="JobInterviewDate"   [(ngModel)]="t.jobInterviewDate">
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="name">Etat</div>
                                                     <div class="value">
-                                                        <select class="form-select" name="statusId" [(ngModel)]="t.statusId">
+                                                        <select class="form-control fc" name="statusId" [(ngModel)]="t.statusId">
                                                             <option *ngFor="let Status of Statuses" value="{{Status.id}}" >{{Status.name}}</option>                                            
                                                         </select>
                                                     </div>
                                                 </div>                                  
                                             </form>                           
                                         </div> 
-                                        <button type="submit" value="Modifier" (click)="updateCandidature(t.id,t)"><span style="color:aliceblue;">Modifier</span></button>                                                  
+                                        <div style="background-color: white; height: 30px; font-size: 14px;">
+                                            <button class="bg-dark btpop" type="submit" value="Modifier" (click)="updateCandidature(t.id,t)"><span class="spanpop">Modifier</span></button>                      
+                                        </div>
                                     </div>
                                 </div>
                             </div>

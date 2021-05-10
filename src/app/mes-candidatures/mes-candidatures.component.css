@@ -209,3 +209,9 @@ li span {
   font-size: 12px;
   padding: 0 10px;
 }
+
+
+.btv {
+  border: none;
+  background-color: #E6E5EA;
+}

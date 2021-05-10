@@ -1,4 +1,5 @@
-<app-navbar-candidate></app-navbar-candidate>
+<app-navbar-candidate *ngIf="test == true"></app-navbar-candidate>
+<app-navbar *ngIf="test == false"></app-navbar>
 <div class="container" style="background-color: #E6E5EA; margin-top: 120px; width: 850px;" >
     <div class="main-body">
       <div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 250px; margin-left: 20px; margin-top: 20px; text-align: center;">Pas d'offres</div>
@@ -27,9 +28,9 @@
             <div class="col-md-6">Entrer lettre de motivation: </div>
           <app-upload-coverletter class="col-md-6" (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
           </div>
-          <button type="submit" (click)=addOffre(offre)
+          <button *ngIf="test == false" type="submit" [routerLink]="['/login']" class="btn btn-primary">Postuler</button>
+           <button *ngIf="test == true" type="submit" (click)=addOffre(offre)
            class="btn btn-primary">Postuler</button>
-          
         </div>
         <div class=" card-footer text-muted">
           <div class="row">

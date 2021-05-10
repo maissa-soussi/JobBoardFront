@@ -14,35 +14,30 @@ export class CandidatureSpontanneeComponent implements OnInit {
   public candidate:any={}
   public testcandidat: boolean =false
   public id:any={}
+  public test : boolean = false
   constructor(private router : Router,public http: HttpClient,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
+    
+    let id = localStorage.getItem("id")
 
-    this.http.get<any>("https://localhost:44338/GetCandidate/"+this.id)
-      .subscribe(
-        (result) => { this.candidate = result
-          this.testcandidat=true },
-        (error) => { console.log(error) }
-      )
-      if (this.testcandidat)
-      {
-    let role = localStorage.getItem("role")
-    if (role =="admin")
-    this.router.navigateByUrl('/');
-    this.id = localStorage.getItem("id")
-    this.http.get<any>("https://localhost:44338/GetCandidate/"+this.id)
+    this.http.get<any>("https://localhost:44338/Getcandidate/"+id)
     .subscribe(
-      (result) => { this.candidate = result
-      console.log(this.candidate) },
-      (error) => { console.log(error) }
+      (result) => { this.candidate=result;
+        this.test = result.id == 0;
+      },
+      (error) => { console.log(error); }
     )
+
+    /*if (this.test == false)
+    this.router.navigateByUrl('/profile'); */
+    
   }
-  else 
-  this.router.navigateByUrl('/profile');
-}
+
   public uploadCvFinished = (event:any) => {
     this.response2 = event;
   }
+  
   addCandidature(){
     this.mycandidature.candidateId=this.candidate.id;
     this.mycandidature.statusId=1;

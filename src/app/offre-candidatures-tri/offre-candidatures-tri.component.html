@@ -1,1 +1,83 @@
-<p>offre-candidatures-tri works!</p>
+<div>
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="relative md:ml-64 bg-blueGray-100">
+        <app-admin-navbar></app-admin-navbar>
+        <app-admin-header></app-admin-header>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+            <div class="flex flex-wrap cm">
+                <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">                                                 
+               <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+                  <div class="rounded-t mb-0 px-4 py-3 border-0">
+                 <div class="flex flex-wrap items-center">
+                <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                 <h3 class="font-semibold text-base text-blueGray-700">Liste des candidatures Triées</h3>
+                </div>
+                </div>
+            </div>
+            <div class="block w-full overflow-x-auto">
+                <!-- Projects table -->
+                <table class="items-center w-full bg-transparent border-collapse">
+                <thead>
+                    <tr>
+                    <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Nom du candidat
+                    </th>
+                    <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Email
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Date de postulation
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Date entretien d'embauche
+            </th>
+            <th
+                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Etat
+            </th>
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            --
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+                                                        
+                <tr *ngFor="let joboffercandidature of JobOfferCandidatures; let i=index">
+                <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                    {{joboffercandidature.candidate.user.firstName}} {{joboffercandidature.candidate.user.lastName}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{joboffercandidature.candidate.user.email}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{joboffercandidature.candidatureDate}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{joboffercandidature.jobInterviewDate}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {{joboffercandidature.status.name}}
+                </td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <span> 
+                        <a><button><i class="fas fa-trash-alt" style="color: red;" (click)="onDelete(joboffercandidature.candidatureId)"></i></button></a></span>           
+                    </td>
+                </tr>           
+                </tbody>
+                </table>
+            </div>
+            </div>         
+                    </div>
+                </div>
+            </div>
+
+            <app-footer-admin></app-footer-admin>
+        </div>
+    </div>
+</div>

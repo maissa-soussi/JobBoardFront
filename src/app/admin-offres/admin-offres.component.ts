@@ -128,10 +128,12 @@ export class AdminOffresComponent implements OnInit {
         }
       );
     }
+
     test(objet:any)
     {
  this.t=objet;
     }
+    
     passe(id:any)
     {
       this.idOffre=id;

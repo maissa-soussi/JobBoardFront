@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OffreCandidaturesComponent implements OnInit {
   t:any={};
   id:any;
+  idOffre:any={};
   Statuses:any[];
   candidatures: any=[];
   JobOfferCandidatures: any=[];
@@ -54,5 +55,11 @@ export class OffreCandidaturesComponent implements OnInit {
       window.location.reload()
       }
     }
+    passe(id:any)
+    {
+      this.idOffre=id;
+      //console.log(this.idOffre);
+    }
+
     
 }

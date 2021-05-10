@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UpdateCandidateService } from './update-candidate.service';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-update-candidate',
   templateUrl: './update-candidate.component.html',
-  styleUrls: ['../profile/profile.component.css']
+  styleUrls: ['../profile/profile.component.css'],
+  providers: [DatePipe]
 })
 export class UpdateCandidateComponent implements OnInit {
   public Languages: any[] = []
@@ -35,7 +37,7 @@ export class UpdateCandidateComponent implements OnInit {
   public expForm: FormGroup
   public educationForm: FormGroup
   public langueForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private myservice: UpdateCandidateService, public http: HttpClient, private router : Router) { 
+  constructor(private formBuilder: FormBuilder, private myservice: UpdateCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe) { 
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.infoForm = new FormGroup({
       birthdayDate: new FormControl("",[
@@ -235,6 +237,8 @@ export class UpdateCandidateComponent implements OnInit {
     this.candidateExperience.candidateId=this.candidateExperience.candidateId-0;
     this.candidateExperience.experienceId=this.candidateExperience.experienceId-0;
     this.candidateExperience.domainId=this.candidateExperience.domainId-0;
+    this.candidateExperience.startDate = this.datePipe.transform(this.candidateExperience.startDate, 'yyyy-MM-dd');
+    this.candidateExperience.endDate = this.datePipe.transform(this.candidateExperience.endDate, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidateExperience(this.candidateExperience).subscribe(
       (data)=>{
         alert("ajout succées");
@@ -254,6 +258,7 @@ export class UpdateCandidateComponent implements OnInit {
     this.candidateDiploma.candidateId=this.candidateDiploma.candidateId-0;
     this.candidateDiploma.domainId=this.candidateDiploma.domainId-0;
     this.candidateDiploma.educationLevelId=this.candidateDiploma.educationLevelId-0;
+    this.candidateDiploma.date = this.datePipe.transform(this.candidateDiploma.date, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidateDiploma(this.candidateDiploma).subscribe(
       (data)=>{
         alert("ajout succées");

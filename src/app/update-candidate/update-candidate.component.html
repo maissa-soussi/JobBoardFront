@@ -380,6 +380,7 @@
                                                   </tr>
                                                   <tr>
                                                     <td> Niveau d'expérience : {{ex.experience.name}}</td>
+                                                    <td> Profession : {{ex.profession}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Date de début : {{ex.startDate}}</td>
@@ -514,6 +515,9 @@
                                                     <i class="fas fa-trash" style="color: rgb(207, 207, 207);" (click)="diplomeDelete(dip.id)"></i></button></a>
                                             </td>
                                        
+                                        </tr>
+                                        <tr>
+                                            <td> Diplome : {{dip.diploma}} </td>
                                         </tr>
                                         <tr>
                                             <td> Domaine : {{dip.domain.name}} </td>

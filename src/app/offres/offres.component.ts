@@ -53,7 +53,7 @@ export class OffresComponent implements OnInit {
     //à corriger
     this.mycandidature.coverLetterPath=this.response.dbPath;
     var date = new Date();
-    this.mycandidature.candidatureDate= this.datePipe.transform(date,"dd-MM-yyyy");
+    this.mycandidature.candidatureDate= this.datePipe.transform(date,"yyyy-MM-dd");
     console.log(this.mycandidature);
     this.http.post<any>("https://localhost:44338/Candidatures",this.mycandidature)
     .subscribe(

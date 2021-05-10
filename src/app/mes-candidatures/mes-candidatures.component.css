@@ -183,30 +183,10 @@ li span {
     }
   }
   
-  input{
-  outline: none;
-  margin: 0;
-  border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  width: 100%;
-  font-size: 12px;
-  font-family: inherit;
-}
-
-
-.input-group {
-  position: relative;
-  margin: 0;
-}
-
-.input--style-6,
 .form-control {
   background: transparent;
-  line-height: 25px;
-  border: 1px solid;
-  font-size: 12px;
+  border: none;
+  font-size: 15px;
   padding: 0 10px;
 }
 

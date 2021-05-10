@@ -148,3 +148,16 @@
     height: 40px;
     font-size: 14px;
   }
+
+  .vueoffre{
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .vueoffre .form-row{
+    height: 40px;
+  }
+
+  .t {
+    font-weight: bold;
+  }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-mes-candidatures',
   templateUrl: './mes-candidatures.component.html',
-  styleUrls: ['./mes-candidatures.component.css']
+  styleUrls: ['./mes-candidatures.component.css',]
 })
 export class MesCandidaturesComponent implements OnInit {
   public mesCandidatures: any[] = []

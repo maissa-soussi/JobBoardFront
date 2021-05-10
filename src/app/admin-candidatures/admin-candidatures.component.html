@@ -88,7 +88,7 @@
                             <h2 class="title">offre d'Emploi: {{t.jobOffer.reference}}</h2>
                         </div>
                         <div class="card-body">
-                            <form class="fadmin">                               
+                            <!--<form class="fadmin">                               
                                 <div class="form-row">
                                     <div class="name">Titre</div>
                                     <div class="value">
@@ -155,7 +155,86 @@
                                         <input type="date" class="form-control" name="expirationDate" [(ngModel)]="t.jobOffer.expirationDate" disabled>
                                     </div>
                                 </div>                                    
-                            </form>                           
+                            </form>   -->
+                            
+                            
+
+                            <form class="vueoffre">                               
+                                <div class="form-row">
+                                   <div class="col-md-3 t"> Titre</div>
+                                   <div class="col-md-6"> 
+                                       {{t.jobOffer.name}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Domaine</div>
+                                    <div class="col-md-3">
+                                      {{t.jobOffer.domain.name}} 
+                                    </div>
+                                
+                                    <div class="col-md-3 t">Expérience</div>
+                                    <div class="col-md-3">
+                                  {{t.jobOffer.experience.name}} 
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Diplome</div>
+                                    <div class="col-md-6">
+                                        {{t.jobOffer.diploma.name}} 
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Pays</div>
+                                    <div class="col-md-3">
+                                        {{t.jobOffer.country.name}} 
+                                    </div>
+                                
+                                    <div class="col-md-4 t">Type de Contrat</div>
+                                    <div class="col-md-2">
+                                       {{t.jobOffer.contratType.name}} 
+                                    </div>
+                                </div>  
+                                <hr>                             
+                                
+                                <div class="row" style="width: 350px;">
+                                    <div class="col-md-4 t">Description</div>
+                                    <div class="col-md-8">
+                                        <textarea name="description" [(ngModel)]="t.jobOffer.description" cols="32" rows="6" disabled style="border: none; background-color: white;"></textarea>                                       
+                                                                      
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-4 t">Salaire minimum</div>
+                                    <div class="col-md-2">
+                                        {{t.jobOffer.minSalary}}
+                                    </div>
+                                
+                                    <div class="col-md-4 t">Salaire maximum</div>
+                                    <div class="col-md-2">
+                                        {{t.jobOffer.maxSalary}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6 t">Date de publication</div>
+                                    <div class="col-md-6">
+                                       {{t.jobOffer.publicationDate}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6 t">Date d'expiration</div>
+                                    <div class="col-md-6">
+                                       {{t.jobOffer.expirationDate}}
+                                    </div>
+                                </div>                                    
+                            </form>    
+                              
+                                         
                         </div>                        
                     </div>
                 </div>

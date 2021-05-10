@@ -1,5 +1,5 @@
 <app-navbar-candidate></app-navbar-candidate>
-<div class="container" style="background-color: #E6E5EA; margin-top: 220px;" >
+<div class="container" style="background-color: #E6E5EA; margin-top: 200px;" >
     <div class="main-body">
        
         <table class="table items-center" style="width: 900px; margin-left: 130px; margin-right: 150px;">
@@ -32,7 +32,7 @@
                 <td>{{candidature.candidatureDate}}</td>
                 <td>{{candidature.status.name}}</td>
                 <td >{{candidature.jobInterviewDate}}</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--</td>
+                <td></td>
               </tr>
 
              
@@ -52,10 +52,10 @@
                 <div class="wrapper wrapper--w900">
                     <div class="card card-6">
                         <div class="card-heading">
-                            <h2 class="title" style="color: aliceblue;">offre d'Emploi: {{t.reference}}</h2>
+                            <h2 class="title" style="color: aliceblue; text-align: center; font-size: 26px;">{{t.name}}</h2>
                         </div>
                         <div class="card-body">
-                            <form class="fadmin">                               
+                           <!-- <form class="fadmin">                               
                                 <div class="form-row">
                                     <div class="name">Titre</div>
                                     <div class="value">
@@ -132,7 +132,75 @@
                                         <input type="text" class="form-control" name="expirationDate" [(ngModel)]="t.expirationDate" disabled>
                                     </div>
                                 </div>                                    
-                            </form>                           
+                            </form>       -->         
+                            
+                            <form class="vueoffre">                               
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Domaine</div>
+                                    <div class="col-md-3">
+                                      {{t.domain.name}} 
+                                    </div>
+                                
+                                    <div class="col-md-3 t">Expérience</div>
+                                    <div class="col-md-3">
+                                  {{t.experience.name}} 
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Diplome</div>
+                                    <div class="col-md-6">
+                                        {{t.diploma.name}} 
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-3 t">Pays</div>
+                                    <div class="col-md-3">
+                                        {{t.country.name}} 
+                                    </div>
+                                
+                                    <div class="col-md-4 t">Type de Contrat</div>
+                                    <div class="col-md-2">
+                                       {{t.contratType.name}} 
+                                    </div>
+                                </div>  
+                                <hr>                             
+                                
+                                <div class="row" style="width: 350px;">
+                                    <div class="col-md-4 t">Description</div>
+                                    <div class="col-md-8">
+                                        <textarea name="description" [(ngModel)]="t.description" cols="36" rows="5" disabled style="border: none; background-color: white;"></textarea>                                       
+                                                                      
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-4 t">Salaire minimum</div>
+                                    <div class="col-md-2">
+                                        {{t.minSalary}}
+                                    </div>
+                                
+                                    <div class="col-md-4 t">Salaire maximum</div>
+                                    <div class="col-md-2">
+                                        {{t.maxSalary}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6 t">Date de publication</div>
+                                    <div class="col-md-6">
+                                       {{t.publicationDate}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6 t">Date d'expiration</div>
+                                    <div class="col-md-6">
+                                       {{t.expirationDate}}
+                                    </div>
+                                </div>                                    
+                            </form>    
                         </div>                        
                     </div>
                 </div>

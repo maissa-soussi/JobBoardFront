@@ -11,10 +11,24 @@ export class NavbarCandidateComponent implements OnInit {
   public nom = localStorage.getItem("nom");
   public prenom = localStorage.getItem("prenom");
   public candidate:any={}
-  public testc: boolean =false
+  public testrole: boolean
   constructor(private router : Router, public http: HttpClient) { }
 
   ngOnInit(): void {
+    if (localStorage.length!=0)
+    {
+      
+      let id=localStorage.getItem("id")
+    this.http.get<any>("https://localhost:44338/GetCandidate/"+id)
+      .subscribe(
+        (result) => { this.candidate = result
+           },
+        (error) => { console.log(error) }
+      )
+          if (localStorage.getItem("role")=="candidat")
+          this.testrole=true
+
+}
   }
 
   logout()

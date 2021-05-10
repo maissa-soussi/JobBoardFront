@@ -9,13 +9,16 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li *ngIf="testrole == true" class="nav-item">
                     <a class="nav-link js-scroll-trigger" routerLink="/profile">{{prenom}} {{nom}}</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="testrole == false" class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/dashboard">{{prenom}} {{nom}}</a>
+                </li>
+                <li *ngIf="testrole == true" class="nav-item">
                     <a class="nav-link js-scroll-trigger" routerLink="/mescandidatures">Mes candidatures</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="testrole == true" class="nav-item">
                     <a class="nav-link js-scroll-trigger" routerLink="/candidature-spontannee">Candidature spontannée </a>
                 </li>
                 <li class="nav-item">

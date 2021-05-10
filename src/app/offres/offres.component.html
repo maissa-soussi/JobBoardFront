@@ -29,7 +29,7 @@
           <app-upload-coverletter class="col-md-6" (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
           </div>
           <button *ngIf="test == false" type="submit" [routerLink]="['/login']" class="btn btn-primary">Postuler</button>
-           <button *ngIf="test == true" type="submit" (click)=addOffre(offre)
+           <button *ngIf="test == true && testrole==true" type="submit" (click)=addOffre(offre)
            class="btn btn-primary">Postuler</button>
         </div>
         <div class=" card-footer text-muted">

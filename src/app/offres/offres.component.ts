@@ -15,6 +15,7 @@ export class OffresComponent implements OnInit {
   public mycandidature:any={}
   public candidate:any={}
   public test: boolean
+  public testrole: boolean
   public testcandidat: boolean =false
   public id:any={}
   public response: {dbPath: ''};
@@ -37,6 +38,9 @@ export class OffresComponent implements OnInit {
           this.testcandidat=true },
         (error) => { console.log(error) }
       )
+          if (localStorage.getItem("role")=="candidat")
+          this.testrole=true
+
 }
   else 
   { 

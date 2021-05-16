@@ -75,7 +75,8 @@ import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-ca
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    jqxCalendarModule
+    jqxCalendarModule,
+    DataTablesModule
   ],
   providers: [AdminOffresComponent,DatePipe],
   bootstrap: [AppComponent]

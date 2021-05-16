@@ -35,6 +35,7 @@ import { UploadPictureComponent } from './upload-picture/upload-picture.componen
 import { UploadCvComponent } from './upload-cv/upload-cv.component';
 import { UploadCoverletterComponent } from './upload-coverletter/upload-coverletter.component';
 import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-candidatures-tri.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-ca
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    jqxCalendarModule
+    jqxCalendarModule,
+    DataTablesModule
   ],
   providers: [AdminOffresComponent,DatePipe],
   bootstrap: [AppComponent]

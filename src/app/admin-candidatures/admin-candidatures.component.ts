@@ -16,6 +16,12 @@ export class AdminCandidaturesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.t.jobOffer={};
+    this.t.jobOffer.domain={}
+    this.t.jobOffer.experience={}
+    this.t.jobOffer.diploma={}
+    this.t.jobOffer.country={}
+    this.t.jobOffer.contratType={}
     let role = localStorage.getItem("role")
     if (role =="candidat")
     this.router.navigateByUrl('/'); 

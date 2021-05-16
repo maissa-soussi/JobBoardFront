@@ -22,7 +22,7 @@
     "angular-datatables": "^11.2.0",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
-    "jquery": "^3.4.1",
+    "jquery": "^3.6.0",
     "jqwidgets-ng": "^12.0.4",
     "jqwidgets-scripts": "^12.0.4",
     "leaflet": "^1.7.1",

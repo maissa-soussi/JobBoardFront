@@ -4,44 +4,56 @@
     <div class="main-body">
       <div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 250px; margin-left: 20px; margin-top: 20px; text-align: center;">Pas d'offres</div>
         <div *ngIf="offres.length > 0">
-      <div *ngFor="let offre of offres" class="card text-center" style="margin-bottom: 20px;">
-        <div class="card-header" style="color: rgb(14, 14, 109); font-weight: bold;">
-          {{offre.name}}
-        </div>
-        <div class="card-body">
-         <!-- <h5 class="card-title">Special title treatment</h5>-->
-          <p class="card-text">{{offre.description}}</p>
-          <div class="row">
-            <div class="col-md-4">Domaine : {{offre.domain.name}}</div>
-            <div class="col-md-4">Expérience : {{offre.experience.name}}</div>
-            <div class="col-md-4">Diplome : {{offre.diploma.name}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">Type du contrat : {{offre.contratType.name}}</div>
-            <div class="col-md-4">Min Salaire : {{offre.minSalary}} dt</div>
-            <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
-          </div>
-          
-          <br/>
-          
-          <div *ngIf="test == true" class="row" >
-            <div class="col-md-6">Entrer lettre de motivation: </div>
-          <app-upload-coverletter class="col-md-6" (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
-          </div>
-          <button *ngIf="test == false || testcandidat == false" type="submit" [routerLink]="['/login']" class="btn btn-primary">Postuler</button>
-           <button *ngIf="test == true && testrole==true && testcandidat == true" type="submit" (click)=addOffre(offre)
-           class="btn btn-primary">Postuler</button>
-        </div>
-        <div class=" card-footer text-muted">
-          <div class="row">
-          <div class="col-md-4">
-            <i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>{{offre.country.name}}
-          </div>
-          <div class="col-md-4">Date de Publication : {{offre.publicationDate}} </div>
-          <div class="col-md-4">Date d'expiration : {{offre.expirationDate}} </div>
-        </div>
-        </div>
-      </div>
+          <table datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let offre of offres">
+                <td>    <div  class="card text-center" style="margin-bottom: 20px;">
+                  <div class="card-header" style="color: rgb(14, 14, 109); font-weight: bold;">
+                    {{offre.name}}
+                  </div>
+                  <div class="card-body">
+                   <!-- <h5 class="card-title">Special title treatment</h5>-->
+                    <p class="card-text">{{offre.description}}</p>
+                    <div class="row">
+                      <div class="col-md-4">Domaine : {{offre.domain.name}}</div>
+                      <div class="col-md-4">Expérience : {{offre.experience.name}}</div>
+                      <div class="col-md-4">Diplome : {{offre.diploma.name}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Type du contrat : {{offre.contratType.name}}</div>
+                      <div class="col-md-4">Min Salaire : {{offre.minSalary}} dt</div>
+                      <div class="col-md-4">Max Salaire : {{offre.maxSalary}} dt</div>
+                    </div>
+                    
+                    <br/>
+                    
+                    <div *ngIf="test == true" class="row" >
+                      <div class="col-md-6">Entrer lettre de motivation: </div>
+                    <app-upload-coverletter class="col-md-6" (onUploadFinished)="uploadCoverLettreFinished($event)"></app-upload-coverletter>
+                    </div>
+                    <button *ngIf="test == false || testcandidat == false" type="submit" [routerLink]="['/login']" class="btn btn-primary">Postuler</button>
+                     <button *ngIf="test == true && testrole==true && testcandidat == true" type="submit" (click)=addOffre(offre)
+                     class="btn btn-primary">Postuler</button>
+                  </div>
+                  <div class=" card-footer text-muted">
+                    <div class="row">
+                    <div class="col-md-4">
+                      <i class="fas fa-map-marked-alt" style="color: rgb(12, 129, 202);"> </i>{{offre.country.name}}
+                    </div>
+                    <div class="col-md-4">Date de Publication : {{offre.publicationDate}} </div>
+                    <div class="col-md-4">Date d'expiration : {{offre.expirationDate}} </div>
+                  </div>
+                  </div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+  
     </div>
         
         

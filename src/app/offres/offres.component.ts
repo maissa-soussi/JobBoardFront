@@ -19,9 +19,16 @@ export class OffresComponent implements OnInit {
   public testcandidat: boolean =false
   public id:any={}
   public response: {dbPath: ''};
+  dtOptions: DataTables.Settings = {};
+
   constructor(public http: HttpClient,private datePipe: DatePipe,private router : Router) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
     //get offres
     this.http.get<any>("https://localhost:44338/JobOffers")
       .subscribe(

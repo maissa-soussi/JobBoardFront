@@ -17,6 +17,7 @@ export class AdminOffresComponent implements OnInit {
   myoffre:any={};
   myoffre1:any={};
   myid:any;
+
  
   t:any={};
   public Countries: any[] = []
@@ -63,7 +64,8 @@ export class AdminOffresComponent implements OnInit {
         (result) => { this.Contrats = result },
         (error) => { console.log(error) }
       )
-  }}
+  }
+}
   getalloffres()
   {
     this.myservice.getoffres().subscribe(

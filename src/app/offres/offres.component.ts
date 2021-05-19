@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {DatePipe} from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -21,7 +22,7 @@ export class OffresComponent implements OnInit {
   public response: {dbPath: ''};
   dtOptions: DataTables.Settings = {};
 
-  constructor(public http: HttpClient,private datePipe: DatePipe,private router : Router) { }
+  constructor(public http: HttpClient,private datePipe: DatePipe,private router : Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -70,11 +71,11 @@ export class OffresComponent implements OnInit {
     this.http.post<any>("https://localhost:44338/Candidatures",this.mycandidature)
     .subscribe(
       (result) => {
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return result;
       },
       (error) => { console.log(error) 
-        alert("Erreur");
+        this.toastr.error("Erreur");
       }
     )
   

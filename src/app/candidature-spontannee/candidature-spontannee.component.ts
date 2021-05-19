@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-candidature-spontannee',
@@ -13,7 +14,7 @@ export class CandidatureSpontanneeComponent implements OnInit {
   public mycandidature:any={}
   public candidate:any={}
   public testcandidat: boolean =false
-  constructor(private router : Router,public http: HttpClient,private datePipe: DatePipe) { }
+  constructor(private router : Router,public http: HttpClient,private datePipe: DatePipe, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     
@@ -41,11 +42,11 @@ export class CandidatureSpontanneeComponent implements OnInit {
     this.http.post<any>("https://localhost:44338/CandidatureSponts",this.mycandidature)
     .subscribe(
       (result) => {
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return result;
       },
       (error) => { console.log(error) 
-        alert("Erreur");
+        this.toastr.error("Erreur");
       }
     )
   }

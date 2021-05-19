@@ -3,6 +3,8 @@ import { AdminOffresService } from './admin-offres.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 
 @Component({
   selector: 'app-admin-offres',
@@ -11,12 +13,13 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class AdminOffresComponent implements OnInit {
-  //@Input()  idOffre:any=1;
+  public ajoutOfferForm: FormGroup
   idOffre:any;
   offres: any=[];
   myoffre:any={};
   myoffre1:any={};
   myid:any;
+  jobOfferCandidatures:any[];
 
  
   t:any={};
@@ -25,7 +28,55 @@ export class AdminOffresComponent implements OnInit {
   public Experiences: any[] = []
   public Contrats: any[] = []
   public Diplomes: any[] = []
-  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router, private datePipe: DatePipe) { }
+  public addForm: FormGroup
+  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router, private datePipe: DatePipe, private toastr: ToastrService) { 
+    this.addForm = new FormGroup({
+      reference: new FormControl("",[
+        Validators.required
+      ]),
+      name: new FormControl("",[
+        Validators.required
+      ]),
+      domainId: new FormControl("",[
+        Validators.required
+      ]),
+      experienceId: new FormControl("",[
+        Validators.required
+      ]),
+      diplomaId: new FormControl("",[
+        Validators.required
+      ]),
+      countryId: new FormControl("",[
+        Validators.required
+      ]),
+      contratTypeId: new FormControl("",[
+        Validators.required
+      ]),
+      minSalary: new FormControl("",[
+        Validators.required
+      ]),
+      maxSalary: new FormControl("",[
+        Validators.required
+      ]),
+      description: new FormControl("",[
+        Validators.required
+      ]),
+      expirationDate: new FormControl("",[
+        Validators.required
+      ]),
+    })
+  }
+  get reference() {return this.addForm.get('reference')}
+  get name() {return this.addForm.get('name')}
+  get domainId() {return this.addForm.get('domainId')}
+  get experienceId() {return this.addForm.get('experienceId')}
+  get diplomaId() {return this.addForm.get('diplomaId')}
+  get countryId() {return this.addForm.get('countryId')}
+  get contratTypeId() {return this.addForm.get('contratTypeId')}
+  get minSalary() {return this.addForm.get('minSalary')}
+  get maxSalary() {return this.addForm.get('maxSalary')}
+  get description() {return this.addForm.get('description')}
+  get expirationDate() {return this.addForm.get('expirationDate')}
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
@@ -83,10 +134,22 @@ export class AdminOffresComponent implements OnInit {
     offreDelete(id:number){
       if (confirm('Are you sure to delete this joboffer?'))
       {
-      this.myservice.deleteOffre(id)
-      .subscribe(
-        err =>{console.log(err)}
-      );
+        this.http.get<any>("https://localhost:44338/joboffercandidatures/"+id)
+        .subscribe(
+          (result) => { this.jobOfferCandidatures = result
+            console.log(this.jobOfferCandidatures)
+            this.jobOfferCandidatures.forEach(element => {
+              this.myservice.deleteCandidature(element.candidatureId)
+              .subscribe(
+                result =>{this.myservice.deleteOffre(id)
+                  .subscribe(
+                    err =>{console.log(err)}
+                  );},
+                err =>{console.log(err)}
+              );          
+            }); },
+          (error) => { console.log(error) }
+        )
       window.location.reload()
       }
     }
@@ -100,13 +163,12 @@ export class AdminOffresComponent implements OnInit {
       this.myoffre.expirationDate = this.datePipe.transform(this.myoffre.expirationDate, 'yyyy-MM-dd');
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(
         (data)=>{
-          alert("ajout succées");
           window.location.reload();
+          this.toastr.success("offre ajouté avec succes");
           return data;
         },
         (err)=>{
-          alert("erreur");
-          console.log(err);
+          this.toastr.error("reference existe déja!");
         }
       );
       console.log(reponse);
@@ -122,12 +184,12 @@ export class AdminOffresComponent implements OnInit {
       offre.expirationDate = this.datePipe.transform(offre.expirationDate, 'yyyy-MM-dd');
       this.myservice.updateOffre(id,offre).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );

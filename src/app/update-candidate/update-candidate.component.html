@@ -459,7 +459,11 @@
                 </div>
                 <div class="col-sm-3 text-secondary">
                     <div class="col-auto">
-                        <input type="text" class="form-control" name="diploma" formControlName="diploma" [(ngModel)]="candidateDiploma.diploma">
+                        <div class="col-auto">
+                            <select class="form-select" name="diplomaId" formControlName="diplomaId" [(ngModel)]="candidateDiploma.diplomaId">
+                                <option *ngFor="let Diploma of Diplomas" value="{{Diploma.id}}">{{Diploma.name}}</option>                          
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -517,7 +521,7 @@
                                        
                                         </tr>
                                         <tr>
-                                            <td> Diplome : {{dip.diploma}} </td>
+                                            <td> Diplome : {{dip.diploma.name}} </td>
                                         </tr>
                                         <tr>
                                             <td> Domaine : {{dip.domain.name}} </td>

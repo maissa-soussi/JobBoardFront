@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AddCandidateService } from './add-candidate.service';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-candidate',
@@ -22,7 +23,7 @@ export class AddCandidateComponent implements OnInit {
   public response1: {dbPath: ''};
   public response2: {dbPath: ''};
   public addForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe) {
+  constructor(private formBuilder: FormBuilder, private myservice: AddCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe, private toastr: ToastrService) {
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.addForm = new FormGroup({
       birthdayDate: new FormControl("",[
@@ -120,12 +121,12 @@ export class AddCandidateComponent implements OnInit {
     this.candidate.birthdayDate = this.datePipe.transform(this.candidate.birthdayDate, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidate(this.candidate).subscribe(
       (data)=>{
-        alert("ajout succées");
+        this.toastr.success("ajout succées");
         window.location.reload();
         return data;
       },
       (err)=>{
-        alert("erreur");
+        this.toastr.error("erreur");
         window.location.reload();
         console.log(err);
       }

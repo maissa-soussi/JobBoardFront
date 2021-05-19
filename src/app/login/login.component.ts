@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup
   public erreur:String=""
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) { 
     let loginFormControls = {
       email: new FormControl("",[
         Validators.required,
@@ -58,9 +59,9 @@ export class LoginComponent implements OnInit {
        else 
        this.router.navigateByUrl('/dashboard'); 
       },
-      (err) => { console.log(err) 
-        this.erreur=err.error.message
-        window.location.reload();
+      (err) => { 
+        this.toastr.error("email et mot de passe invalide");
+        //window.location.reload();
       }
     )
   }

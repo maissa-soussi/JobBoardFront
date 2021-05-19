@@ -36,6 +36,8 @@ import { UploadCvComponent } from './upload-cv/upload-cv.component';
 import { UploadCoverletterComponent } from './upload-coverletter/upload-coverletter.component';
 import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-candidatures-tri.component';
 import { DataTablesModule } from 'angular-datatables';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { DataTablesModule } from 'angular-datatables';
     FormsModule,
     ReactiveFormsModule,
     jqxCalendarModule,
-    DataTablesModule
+    DataTablesModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [AdminOffresComponent,DatePipe],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminCandidaturesSpontaneesService } from './admin-candidatures-spontanees.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-candidatures-spontanees',
@@ -12,7 +13,7 @@ export class AdminCandidaturesSpontaneesComponent implements OnInit {
   CandidaturesSpontanees: any=[];
   t:any={};
   public Statuses: any[] = []
-  constructor(private myservice: AdminCandidaturesSpontaneesService, public http: HttpClient, private router : Router) { }
+  constructor(private myservice: AdminCandidaturesSpontaneesService, public http: HttpClient, private router : Router, private toastr: ToastrService) { }
 
 
   ngOnInit(): void {
@@ -58,12 +59,12 @@ export class AdminCandidaturesSpontaneesComponent implements OnInit {
         console.log(CandidatureSpontanee);
       this.myservice.updateCandidatureSpontanee(id,CandidatureSpontanee).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );

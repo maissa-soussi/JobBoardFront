@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParametreService } from './parametre.service';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-parametre',
@@ -35,7 +36,7 @@ export class ParametreComponent implements OnInit {
   public nvetat: any = {}
   t:any={};
 
-  constructor(private myservice: ParametreService, public http: HttpClient, private router : Router) { }
+  constructor(private myservice: ParametreService, public http: HttpClient, private router : Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
@@ -233,11 +234,11 @@ export class ParametreComponent implements OnInit {
   addLanguage(){
     this.http.post("https://localhost:44338/Languages",this.nvlanguage).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Langue existe deja");
+        this.toastr.error("Langue existe deja");
         console.log(err);
       }
     );
@@ -248,11 +249,11 @@ export class ParametreComponent implements OnInit {
   addLanguageLevel(){
     this.http.post("https://localhost:44338/LanguageLevels",this.nvlanguagelevel).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Niveau existe deja");
+        this.toastr.error("Niveau existe deja");
         console.log(err);
       }
     );
@@ -263,11 +264,11 @@ export class ParametreComponent implements OnInit {
   addDiplome(){
     this.http.post("https://localhost:44338/Diplomas",this.nvdiplome).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Niveau existe deja");
+        this.toastr.error("Niveau existe deja");
         console.log(err);
       }
     );
@@ -278,11 +279,11 @@ export class ParametreComponent implements OnInit {
   addDrivingLicence(){
     this.http.post("https://localhost:44338/DrivingLicences",this.nvdrivinglicence).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Type de permis existe deja");
+        this.toastr.error("Type de permis existe deja");
         console.log(err);
       }
     );
@@ -295,11 +296,11 @@ export class ParametreComponent implements OnInit {
   addDomaine(){
     this.http.post("https://localhost:44338/Domains",this.nvdomaine).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Domaine existe deja");
+        this.toastr.error("Domaine existe deja");
         console.log(err);
       }
     );
@@ -310,11 +311,11 @@ export class ParametreComponent implements OnInit {
   addEducationLevel(){
     this.http.post("https://localhost:44338/EducationLevels",this.nvstudieslevel).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Niveau existe deja");
+        this.toastr.error("Niveau existe deja");
         console.log(err);
       }
     );
@@ -325,11 +326,11 @@ export class ParametreComponent implements OnInit {
   addCountry(){
     this.http.post("https://localhost:44338/Countries",this.nvcountry).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Pays existe deja");
+        this.toastr.error("Pays existe deja");
         console.log(err);
       }
     );
@@ -340,11 +341,11 @@ export class ParametreComponent implements OnInit {
   addExperience(){
     this.http.post("https://localhost:44338/Experiences",this.nvexperience).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Experience existe deja");
+        this.toastr.error("Experience existe deja");
         console.log(err);
       }
     );
@@ -355,11 +356,11 @@ export class ParametreComponent implements OnInit {
   addContrat(){
     this.http.post("https://localhost:44338/ContratTypes",this.nvcontrat).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Type de contrat existe deja");
+        this.toastr.error("Type de contrat existe deja");
         console.log(err);
       }
     );
@@ -370,11 +371,11 @@ export class ParametreComponent implements OnInit {
   addSalaire(){
     this.http.post("https://localhost:44338/SalaryWishes",this.nvsalaire).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Salaire existe deja");
+        this.toastr.error("Salaire existe deja");
         console.log(err);
       }
     );
@@ -385,11 +386,11 @@ export class ParametreComponent implements OnInit {
   addEtat(){
     this.http.post("https://localhost:44338/Status",this.nvetat).subscribe(
       (data)=>{
-        alert("Ajouté avec succès");
+        this.toastr.success("Ajouté avec succès");
         return data;
       },
       (err)=>{
-        alert("Etat existe deja");
+        this.toastr.error("Etat existe deja");
         console.log(err);
       }
     );
@@ -401,12 +402,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateLanguage(id,Language).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -416,12 +417,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateLanguageLevel(id,LanguageLevel).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -431,12 +432,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateDiplome(id,Diplome).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -446,12 +447,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateDrivingLicence(id,DrivingLicence).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -461,12 +462,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateCountry(id,Country).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -476,12 +477,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateDomain(id,Domain).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -491,12 +492,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateEducationLevel(id,EducationLevel).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -506,12 +507,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateExperience(id,Experience).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -521,12 +522,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateContratType(id,ContratType).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -536,12 +537,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateSalaryWish(id,SalaryWish).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );
@@ -551,12 +552,12 @@ export class ParametreComponent implements OnInit {
     {
       this.myservice.updateEtat(id,Etat).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );

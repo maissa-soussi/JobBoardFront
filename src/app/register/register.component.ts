@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   myuser:any={};
   public erreur:String=""
   public registerForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) {
     let registerFormControls = {
       firstname: new FormControl("", [
         Validators.required,
@@ -54,8 +55,8 @@ export class RegisterComponent implements OnInit {
        console.log(result)
        this.router.navigateByUrl('/login');
       },
-      (error) => { console.log(error) 
-        this.erreur="Compte existe deja!"
+      (error) => { 
+        this.toastr.error("Compte existe deja!");
       }
     )
   }

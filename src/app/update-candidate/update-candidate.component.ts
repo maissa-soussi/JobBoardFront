@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { UpdateCandidateService } from './update-candidate.service';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-update-candidate',
   templateUrl: './update-candidate.component.html',
@@ -37,7 +38,7 @@ export class UpdateCandidateComponent implements OnInit {
   public expForm: FormGroup
   public educationForm: FormGroup
   public langueForm: FormGroup
-  constructor(private formBuilder: FormBuilder, private myservice: UpdateCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe) { 
+  constructor(private formBuilder: FormBuilder, private myservice: UpdateCandidateService, public http: HttpClient, private router : Router, private datePipe: DatePipe, private toastr: ToastrService) { 
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.infoForm = new FormGroup({
       birthdayDate: new FormControl("",[
@@ -115,7 +116,7 @@ export class UpdateCandidateComponent implements OnInit {
       educationLevelId: new FormControl("",[
         Validators.required
       ]),
-      diploma: new FormControl("",[
+      diplomaId: new FormControl("",[
         Validators.required
       ]),
       domainId: new FormControl("",[
@@ -189,6 +190,12 @@ export class UpdateCandidateComponent implements OnInit {
         (result) => { this.Domaines = result },
         (error) => { console.log(error) }
       )
+      //get Diplomas
+      this.http.get<any>("https://localhost:44338/Diplomas")
+      .subscribe(
+        (result) => { this.Diplomas = result },
+        (error) => { console.log(error) }
+      )
       //get StudiesLevels
       this.http.get<any>("https://localhost:44338/EducationLevels")
       .subscribe(
@@ -220,12 +227,12 @@ export class UpdateCandidateComponent implements OnInit {
     this.candidateLanguage.languageLevelId=this.candidateLanguage.languageLevelId-0;
     var reponse=this.myservice.addCandidateLanguage(this.candidateLanguage).subscribe(
       (data)=>{
-        alert("ajout succées");
+        this.toastr.success("ajout succées");
         window.location.reload();
         return data;
       },
       (err)=>{
-        alert("erreur");
+        this.toastr.error("erreur");
         window.location.reload();
         console.log(err);
       }
@@ -241,12 +248,12 @@ export class UpdateCandidateComponent implements OnInit {
     this.candidateExperience.endDate = this.datePipe.transform(this.candidateExperience.endDate, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidateExperience(this.candidateExperience).subscribe(
       (data)=>{
-        alert("ajout succées");
+        this.toastr.success("ajout succées");
         window.location.reload();
         return data;
       },
       (err)=>{
-        alert("erreur");
+        this.toastr.error("erreur");
         window.location.reload();
         console.log(err);
       }
@@ -256,17 +263,18 @@ export class UpdateCandidateComponent implements OnInit {
 
   addCandidateDiploma(){   
     this.candidateDiploma.candidateId=this.candidateDiploma.candidateId-0;
+    this.candidateDiploma.diplomaId=this.candidateDiploma.diplomaId-0;
     this.candidateDiploma.domainId=this.candidateDiploma.domainId-0;
     this.candidateDiploma.educationLevelId=this.candidateDiploma.educationLevelId-0;
     this.candidateDiploma.date = this.datePipe.transform(this.candidateDiploma.date, 'yyyy-MM-dd');
     var reponse=this.myservice.addCandidateDiploma(this.candidateDiploma).subscribe(
       (data)=>{
-        alert("ajout succées");
+        this.toastr.success("ajout succées");
         window.location.reload();
         return data;
       },
       (err)=>{
-        alert("erreur");
+        this.toastr.error("erreur");
         window.location.reload();
         console.log(err);
       }
@@ -339,12 +347,12 @@ export class UpdateCandidateComponent implements OnInit {
       }     
       this.myservice.updatecandidate(id,candidate).subscribe(
         (data)=>{
-          alert("modification avec succes");
+          this.toastr.success("modification avec succes");
           window.location.reload();
           return data;
         },
         (err)=>{
-          alert("erreur");
+          this.toastr.error("erreur");
           console.log(err);
         }
       );

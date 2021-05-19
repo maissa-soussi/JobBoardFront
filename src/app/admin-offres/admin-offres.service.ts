@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AdminOffresService {
   offres:any=[];
   url="https://localhost:44338/JobOffers";
+  url1="https://localhost:44338/Candidatures";
   constructor(private http:HttpClient) { }
   getoffres(){
     this.offres=this.http.get(this.url);
@@ -14,6 +15,9 @@ export class AdminOffresService {
       }
       deleteOffre(id:number){
         return this.http.delete(`${this.url}/${id}`);
+      }
+      deleteCandidature(id:number){
+        return this.http.delete(`${this.url1}/${id}`);
       }
       addOffre(offre:any){
         console.log(offre);

@@ -302,121 +302,87 @@
                             <h4 class="title">Ajouter offre d'Emploi</h4>
                         </div>
                         <div class="card-body">
-                            <form [formGroup]="addForm" (ngSubmit)="addOffre()" class="fadmin">
+                            <form method="POST" class="fadmin">
                                 <div class="form-row">
                                     <div class="name">Reference</div>
                                     <div class="value">
-                                        <input class="form-control" type="text" formControlName="reference" name="reference" [(ngModel)]="myoffre.reference">
-                                        <div *ngIf="reference?.touched && reference?.invalid" class="text-danger">
-                                            <small *ngIf="reference?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <input class="input--style-6" type="text" name="reference" [(ngModel)]="myoffre.reference">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Titre</div>
                                     <div class="value">
-                                        <input class="form-control" type="text" formControlName="name" name="name" [(ngModel)]="myoffre.name">
-                                        <div *ngIf="name?.touched && name?.invalid" class="text-danger">
-                                            <small *ngIf="name?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <input class="input--style-6" type="text" name="name" [(ngModel)]="myoffre.name">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Domaine</div>
                                     <div class="value">
-                                        <select class="form-control" name="domainId" formControlName="domainId" [(ngModel)]="myoffre.domainId">
+                                        <select class="form-control" name="domainId" [(ngModel)]="myoffre.domainId">
                                             <option *ngFor="let Domaine of Domaines" value="{{Domaine.id}}" >{{Domaine.name}}</option>                                            
                                         </select>
-                                        <div *ngIf="domainId?.touched && domainId?.invalid" class="text-danger">
-                                            <small *ngIf="domainId?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Expérience</div>
                                     <div class="value">
-                                        <select class="form-control" name="experienceId" formControlName="experienceId" [(ngModel)]="myoffre.experienceId">
+                                        <select class="form-control" name="experienceId" [(ngModel)]="myoffre.experienceId">
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
-                                        <div *ngIf="experienceId?.touched && experienceId?.invalid" class="text-danger">
-                                            <small *ngIf="experienceId?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Diplome</div>
                                     <div class="value">
-                                        <select class="form-control" name="diplomaId" formControlName="diplomaId" [(ngModel)]="myoffre.diplomaId">
+                                        <select class="form-control" name="diplomaId" [(ngModel)]="myoffre.diplomaId">
                                             <option *ngFor="let Diplome of Diplomes" value="{{Diplome.id}}">{{Diplome.name}}</option>                                            
                                         </select>
-                                        <div *ngIf="diplomaId?.touched && diplomaId?.invalid" class="text-danger">
-                                            <small *ngIf="diplomaId?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Pays</div>
                                     <div class="value">
-                                        <select class="form-control" name="countryId" formControlName="countryId"  [(ngModel)]="myoffre.countryId">
+                                        <select class="form-control" name="countryId"  [(ngModel)]="myoffre.countryId">
                                             <option *ngFor="let Countrie of Countries" value="{{Countrie.id}}">{{Countrie.name}}</option>                                            
                                         </select>
-                                        <div *ngIf="countryId?.touched && countryId?.invalid" class="text-danger">
-                                            <small *ngIf="countryId?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
                                     </div>
                                 </div>                                                              
                                 <div class="form-row">
                                     <div class="name">Type de Contrat</div>
                                     <div class="value">
-                                        <select class="form-control" name="contratTypeId" formControlName="contratTypeId" [(ngModel)]="myoffre.contratTypeId">
+                                        <select class="form-control" name="contratId" [(ngModel)]="myoffre.contratTypeId">
                                             <option *ngFor="let Contrat of Contrats" value="{{Contrat.id}}">{{Contrat.name}}</option>                                            
                                         </select>
-                                        <div *ngIf="contratTypeId?.touched && contratTypeId?.invalid" class="text-danger">
-                                            <small *ngIf="contratTypeId?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
                                     </div>
                                 </div>                               
                                 <div class="form-row">
                                     <div class="name">Salaire minimum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="number" name="minSalary" formControlName="minSalary" step="50"  [(ngModel)]="myoffre.minSalary">
-                                        <div *ngIf="minSalary?.touched && minSalary?.invalid" class="text-danger">
-                                            <small *ngIf="minSalary?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <input class="input--style-6" type="number" name="minSalary" step="50"  [(ngModel)]="myoffre.minSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Salaire maximum</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="number" name="maxSalary" formControlName="maxSalary" step="50" [(ngModel)]="myoffre.maxSalary">
-                                        <div *ngIf="maxSalary?.touched && maxSalary?.invalid" class="text-danger">
-                                            <small *ngIf="maxSalary?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <input class="input--style-6" type="number" name="maxSalary" step="50" [(ngModel)]="myoffre.maxSalary">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Description</div>
                                     <div class="value">
-                                        <textarea name="description" formControlName="description" [(ngModel)]="myoffre.description" cols="26" rows="4"></textarea>
-                                        <div *ngIf="description?.touched && description?.invalid" class="text-danger">
-                                            <small *ngIf="description?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <textarea name="description"[(ngModel)]="myoffre.description" cols="26" rows="4"></textarea>
                                     </div>
                                 </div>                               
                                 <div class="form-row">
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
-                                        <input type="date" class="form-control" formControlName="expirationDate" name="expirationDate" [(ngModel)]="myoffre.expirationDate" >
-                                        <div *ngIf="expirationDate?.touched && expirationDate?.invalid" class="text-danger">
-                                            <small *ngIf="expirationDate?.errors?.required">Champ obligatoire <br></small>
-                                        </div>
+                                        <input type="date" class="form-control" name="expirationDate" [(ngModel)]="myoffre.expirationDate" >
                                     </div>
                                 </div>
                             </form>
                         </div>   
                         <div style="background-color: white; height: 30px;">
-                            <button class="bg-dark btpop" type="submit">
-                            <span class="spanpop">Ajouter</span></button>                      
+                            <button class="bg-dark btpop" type="submit" (click)="addOffre()"><span class="spanpop">Ajouter</span></button>                      
                         </div>
                         </div>
                 </div>

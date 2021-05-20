@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
+
 
 @Component({
   selector: 'app-admin-offres',
@@ -13,7 +13,6 @@ import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms"
   providers: [DatePipe]
 })
 export class AdminOffresComponent implements OnInit {
-  public ajoutOfferForm: FormGroup
   idOffre:any;
   offres: any=[];
   myoffre:any={};
@@ -28,55 +27,9 @@ export class AdminOffresComponent implements OnInit {
   public Experiences: any[] = []
   public Contrats: any[] = []
   public Diplomes: any[] = []
-  public addForm: FormGroup
-  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router, private datePipe: DatePipe, private toastr: ToastrService) { 
-    this.addForm = new FormGroup({
-      reference: new FormControl("",[
-        Validators.required
-      ]),
-      name: new FormControl("",[
-        Validators.required
-      ]),
-      domainId: new FormControl("",[
-        Validators.required
-      ]),
-      experienceId: new FormControl("",[
-        Validators.required
-      ]),
-      diplomaId: new FormControl("",[
-        Validators.required
-      ]),
-      countryId: new FormControl("",[
-        Validators.required
-      ]),
-      contratTypeId: new FormControl("",[
-        Validators.required
-      ]),
-      minSalary: new FormControl("",[
-        Validators.required
-      ]),
-      maxSalary: new FormControl("",[
-        Validators.required
-      ]),
-      description: new FormControl("",[
-        Validators.required
-      ]),
-      expirationDate: new FormControl("",[
-        Validators.required
-      ]),
-    })
-  }
-  get reference() {return this.addForm.get('reference')}
-  get name() {return this.addForm.get('name')}
-  get domainId() {return this.addForm.get('domainId')}
-  get experienceId() {return this.addForm.get('experienceId')}
-  get diplomaId() {return this.addForm.get('diplomaId')}
-  get countryId() {return this.addForm.get('countryId')}
-  get contratTypeId() {return this.addForm.get('contratTypeId')}
-  get minSalary() {return this.addForm.get('minSalary')}
-  get maxSalary() {return this.addForm.get('maxSalary')}
-  get description() {return this.addForm.get('description')}
-  get expirationDate() {return this.addForm.get('expirationDate')}
+
+  constructor(private myservice: AdminOffresService, public http: HttpClient, private router : Router, private datePipe: DatePipe, private toastr: ToastrService) {} 
+    
 
   ngOnInit(): void {
     let role = localStorage.getItem("role")
@@ -134,22 +87,10 @@ export class AdminOffresComponent implements OnInit {
     offreDelete(id:number){
       if (confirm('Are you sure to delete this joboffer?'))
       {
-        this.http.get<any>("https://localhost:44338/joboffercandidatures/"+id)
-        .subscribe(
-          (result) => { this.jobOfferCandidatures = result
-            console.log(this.jobOfferCandidatures)
-            this.jobOfferCandidatures.forEach(element => {
-              this.myservice.deleteCandidature(element.candidatureId)
-              .subscribe(
-                result =>{this.myservice.deleteOffre(id)
+        this.myservice.deleteOffre(id)
                   .subscribe(
                     err =>{console.log(err)}
-                  );},
-                err =>{console.log(err)}
-              );          
-            }); },
-          (error) => { console.log(error) }
-        )
+                  );
       window.location.reload()
       }
     }

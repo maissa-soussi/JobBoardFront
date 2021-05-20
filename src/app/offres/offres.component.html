@@ -1,13 +1,13 @@
 <app-navbar-candidate *ngIf="test == true"></app-navbar-candidate>
 <app-navbar *ngIf="test == false"></app-navbar>
-<div class="container" style="background-color: #E6E5EA; margin-top: 120px; width: 850px;" >
+<div class="container" style="background-color: white; margin-top: 120px; width: 850px;" >
     <div class="main-body">
       <div  *ngIf="offres.length == 0" class="alert alert-warning" style="width: 250px; margin-left: 20px; margin-top: 20px; text-align: center;">Pas d'offres</div>
         <div *ngIf="offres.length > 0">
-          <table datatable [dtOptions]="dtOptions" class="row-border hover">
+          <table datatable [dtOptions]="dtOptions" class="row-border hover" style="background-color: white;">
             <thead>
               <tr>
-                <th>ID</th>
+                <th style="border-bottom: solid 1px gray;">ID</th>
               </tr>
             </thead>
             <tbody>

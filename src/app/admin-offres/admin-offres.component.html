@@ -306,7 +306,7 @@
                                 <div class="form-row">
                                     <div class="name">Reference</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" formControlName="reference" name="reference" [(ngModel)]="myoffre.reference">
+                                        <input class="form-control" type="text" formControlName="reference" name="reference" [(ngModel)]="myoffre.reference">
                                         <div *ngIf="reference?.touched && reference?.invalid" class="text-danger">
                                             <small *ngIf="reference?.errors?.required">Champ obligatoire <br></small>
                                         </div>
@@ -315,7 +315,7 @@
                                 <div class="form-row">
                                     <div class="name">Titre</div>
                                     <div class="value">
-                                        <input class="input--style-6" type="text" formControlName="name" name="name" [(ngModel)]="myoffre.name">
+                                        <input class="form-control" type="text" formControlName="name" name="name" [(ngModel)]="myoffre.name">
                                         <div *ngIf="name?.touched && name?.invalid" class="text-danger">
                                             <small *ngIf="name?.errors?.required">Champ obligatoire <br></small>
                                         </div>
@@ -415,7 +415,7 @@
                             </form>
                         </div>   
                         <div style="background-color: white; height: 30px;">
-                            <button class="bg-dark btpop" type="submit" [disabled]="addForm.invalid">
+                            <button class="bg-dark btpop" type="submit">
                             <span class="spanpop">Ajouter</span></button>                      
                         </div>
                         </div>

@@ -65,11 +65,17 @@
                                     </div>
                                     </div>
                                     <div class="form-row">
-                                    <div class="col-md-3 t">Expérience</div>
+                                    <div class="col-md-7 t">Niveau d'expérience</div>
                                     <div class="col-md-3">
                                         <select class="form-control" name="experienceId" [(ngModel)]="t.experienceId" disabled>
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-7 t">Nombre d'année d'expérience</div>
+                                    <div class="col-md-3">
+                                        {{t.experienceDuration}}
                                     </div>
                                 </div>
                                 <hr>
@@ -130,6 +136,13 @@
                                     <div class="col-md-6 t">Date d'expiration</div>
                                     <div class="col-md-6">
                                        {{t.expirationDate}}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-7 t">Nombre de postes</div>
+                                    <div class="col-md-3">
+                                        {{t.nbPositions}}
                                     </div>
                                 </div>                                    
                             </form>    

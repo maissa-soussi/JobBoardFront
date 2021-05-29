@@ -107,11 +107,17 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
-                                                            <div class="name">Expérience</div>
+                                                            <div class="name">Niveau d'expérience</div>
                                                             <div class="value">
                                                                 <select class="form-control" name="experienceId" [(ngModel)]="t.experienceId">
                                                                     <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="name">Nombre d'années d'expérience</div>
+                                                            <div class="value">
+                                                                <input class="form-control" type="number" name="experienceDuration" step="1"  [(ngModel)]="t.experienceDuration">
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
@@ -161,6 +167,12 @@
                                                             <div class="value">
                                                                 <input type="date" class="form-control" name="expirationDate" [(ngModel)]="t.expirationDate" >
                                                             </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="name">Nombre de postes</div>
+                                                            <div class="value">
+                                                                <input class="form-control" type="number" name="nbPositions" step="1"  [(ngModel)]="t.nbPositions">
+                                                            </div>
                                                         </div>                                    
                                                     </form>                           
                                                 </div> 
@@ -206,11 +218,17 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="name">Expérience</div>
+                                    <div class="name">Niveau d'expérience</div>
                                     <div class="value">
                                         <select class="form-control" name="experienceId" [(ngModel)]="t.experienceId" disabled>
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Nombre d'années d'expérience</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="number" name="experienceDuration" step="1"  [(ngModel)]="t.experienceDuration" disabled>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -265,6 +283,12 @@
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
                                         <input type="date" class="form-control" name="expirationDate" [(ngModel)]="t.expirationDate" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Nombre de postes</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="number" name="nbPositions" step="1"  [(ngModel)]="t.nbPositions" disabled>
                                     </div>
                                 </div>                                    
                             </form>                           
@@ -324,11 +348,17 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="name">Expérience</div>
+                                    <div class="name">Niveau d'expérience</div>
                                     <div class="value">
                                         <select class="form-control" name="experienceId" [(ngModel)]="myoffre.experienceId">
                                             <option *ngFor="let Experience of Experiences" value="{{Experience.id}}" >{{Experience.name}}</option>                                            
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Nombre d'années d'expérience</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="number" name="experienceDuration" step="1"  [(ngModel)]="myoffre.experienceDuration">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -377,6 +407,12 @@
                                     <div class="name">Date d'expiration</div>
                                     <div class="value">
                                         <input type="date" class="form-control" name="expirationDate" [(ngModel)]="myoffre.expirationDate" >
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="name">Nombre de postes</div>
+                                    <div class="value">
+                                        <input class="input--style-6" type="number" name="nbPositions" step="1"  [(ngModel)]="myoffre.nbPositions">
                                     </div>
                                 </div>
                             </form>

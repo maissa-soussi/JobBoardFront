@@ -100,6 +100,8 @@ export class AdminOffresComponent implements OnInit {
       this.myoffre.domainId=this.myoffre.domainId-0;
       this.myoffre.experienceId=this.myoffre.experienceId-0;
       this.myoffre.contratTypeId=this.myoffre.contratTypeId-0;
+      this.myoffre.experienceDuration=this.myoffre.experienceDuration-0;
+      this.myoffre.nbPositions=this.myoffre.nbPositions-0;
       this.myoffre.publicationDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       this.myoffre.expirationDate = this.datePipe.transform(this.myoffre.expirationDate, 'yyyy-MM-dd');
       var reponse=this.myservice.addOffre(this.myoffre).subscribe(

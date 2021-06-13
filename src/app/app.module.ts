@@ -38,6 +38,7 @@ import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-ca
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { OffreCandidaturesTridiplomeComponent } from './offre-candidatures-tridiplome/offre-candidatures-tridiplome.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ToastrModule } from 'ngx-toastr';
     UploadPictureComponent,
     UploadCvComponent,
     UploadCoverletterComponent,
-    OffreCandidaturesTriComponent
+    OffreCandidaturesTriComponent,
+    OffreCandidaturesTridiplomeComponent
   ],
   imports: [
     BrowserModule,

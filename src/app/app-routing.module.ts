@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { AdminCandidatProfileComponent } from './admin-candidat-profile/admin-candidat-profile.component';
 import { AddCandidateComponent } from './add-candidate/add-candidate.component';
 import { OffreCandidaturesTriComponent } from './offre-candidatures-tri/offre-candidatures-tri.component';
+import { OffreCandidaturesTridiplomeComponent } from './offre-candidatures-tridiplome/offre-candidatures-tridiplome.component';
 
 const routes: Routes = [
   {
@@ -91,6 +92,11 @@ const routes: Routes = [
   {
     path: "offre-candidatures-tri/:id",
     component: OffreCandidaturesTriComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: "offre-candidatures-tridiplome/:id",
+    component: OffreCandidaturesTridiplomeComponent,
     canActivate:[AuthGuard]
   },
   {
